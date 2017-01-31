@@ -1,0 +1,647 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="X3DGeometryNode" Collapsed="true">
+    <Position X="57" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DGeometryNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DNode" Collapsed="true">
+    <Position X="34.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAggAAAGAABAIAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Box" Collapsed="true">
+    <Position X="54.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAEAAAAIAAIAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\Box.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cone" Collapsed="true">
+    <Position X="57" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAgAAAAAAQAAAEAAAAIAAICAAQAAQEAAA=</HashCode>
+      <FileName>Schema\Cone.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DComposedGeometryNode" Collapsed="true">
+    <Position X="59.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQAEABAAABAAIAAAAAAAAoAAAhAAACAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DComposedGeometryNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DGeometricPropertyNode" Collapsed="true">
+    <Position X="48" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAggAAAAAAAAAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DGeometricPropertyNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DColorNode" Collapsed="true">
+    <Position X="44.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DColorNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DChildNode" Collapsed="true">
+    <Position X="26.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DChildNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DInfoNode" Collapsed="true">
+    <Position X="32.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DInfoNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DPrototypeInstance" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DPrototypeInstance.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DBindableNode" Collapsed="true">
+    <Position X="27.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIgBAAAAAAAAAAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DBindableNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DSensorNode" Collapsed="true">
+    <Position X="34.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAABAEAAAAIAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DSensorNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DMetadataObject" Collapsed="true">
+    <Position X="6.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAQEAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Schema\X3DMetadataObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetadataDouble" Collapsed="true">
+    <Position X="3" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAEAAAAIAAAAAAwAAQAAAA=</HashCode>
+      <FileName>Schema\MetadataDouble.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WorldInfo" Collapsed="true">
+    <Position X="32.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAEAAAAAAAAAEAAAAIAAAAAAwAEQAAAA=</HashCode>
+      <FileName>Schema\WorldInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetadataFloat" Collapsed="true">
+    <Position X="5.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAEAAAAIAAAAAAwAAQAAAA=</HashCode>
+      <FileName>Schema\MetadataFloat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetadataInteger" Collapsed="true">
+    <Position X="7.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAEAAAAIAAAAAAwAAQAAAA=</HashCode>
+      <FileName>Schema\MetadataInteger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetadataString" Collapsed="true">
+    <Position X="9.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAEAAAAIAAAAAAwAAQAAAA=</HashCode>
+      <FileName>Schema\MetadataString.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DBoundedObject" Collapsed="true">
+    <Position X="17.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAEAAAAIAAAAAAYAAQAAAA=</HashCode>
+      <FileName>Schema\X3DBoundedObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DGroupingNode" Collapsed="true">
+    <Position X="17.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAgkAAAAAAAAAAAAAABQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DGroupingNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Group" Collapsed="true">
+    <Position X="18.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\Group.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Switch" Collapsed="true">
+    <Position X="16.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAIAAIAAAQCAQAAAA=</HashCode>
+      <FileName>Schema\Switch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Transform" Collapsed="true">
+    <Position X="14.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAIAAAAAAACAAAAGAAAAIAAAAAAQAASAAAA=</HashCode>
+      <FileName>Schema\Transform.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StaticGroup" Collapsed="true">
+    <Position X="12" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgkAAAAAAAAAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\StaticGroup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LOD" Collapsed="true">
+    <Position X="21" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAIAAAAAAAAAAAAAAAUACAAIAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\LOD.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NavigationInfo" Collapsed="true">
+    <Position X="27.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAACAIhBAAAAEAAABIQAAAAAQQAYAAAA=</HashCode>
+      <FileName>Schema\NavigationInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DViewpointNode" Collapsed="true">
+    <Position X="25.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAAAAEAAAIAAAAAAEAAAAIAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DViewpointNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Color" Collapsed="true">
+    <Position X="43.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAIACAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\Color.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ColorRGBA" Collapsed="true">
+    <Position X="45.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAIACAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\ColorRGBA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DCoordinateNode" Collapsed="true">
+    <Position X="49.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DCoordinateNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Coordinate" Collapsed="true">
+    <Position X="48" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAEAAAAIAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\Coordinate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3D" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="70.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3D.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DAppearanceChildNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="63.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DAppearanceChildNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DAppearanceNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="68.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DAppearanceNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DBackgroundNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAoAAAAAAAAAAAAASAAQAAAA=</HashCode>
+      <FileName>Schema\X3DBackgroundNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DChaserNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="36.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DChaserNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DComposableVolumeRenderStyleNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="72.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DComposableVolumeRenderStyleNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DDamperNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="39" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACIBAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DDamperNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DDragSensorNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="74.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DDragSensorNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DEnvironmentalSensorNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="76" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DEnvironmentalSensorNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DEnvironmentTextureNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="77.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DEnvironmentTextureNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DField" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="79.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DField.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DFollowerNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="38" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DFollowerNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DFontStyleNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="81.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DFontStyleNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DInterpolatorNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="70.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DInterpolatorNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DKeyDeviceSensorNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="72.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DKeyDeviceSensorNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DLayerNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="74.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DLayerNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DLayoutNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="76" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DLayoutNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DLightNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="77.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DLightNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DMaterialNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="61.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DMaterialNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DNBodyCollidableNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="79.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DNBodyCollidableNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DNBodyCollisionSpaceNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="81.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DNBodyCollisionSpaceNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DNetworkSensorNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="70.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DNetworkSensorNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DNodeMixedContent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="72.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DNodeMixedContent.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DNormalNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="52.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DNormalNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DNurbsControlCurveNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="74.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DNurbsControlCurveNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DNurbsSurfaceGeometryNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="76" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DNurbsSurfaceGeometryNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DParametricGeometryNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="77.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DParametricGeometryNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DParticleEmitterNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="79.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DParticleEmitterNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DParticlePhysicsModelNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="81.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DParticlePhysicsModelNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DPickableObject" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="70.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DPickableObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DPickSensorNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="72.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DPickSensorNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DPointingDeviceSensorNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="74.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DPointingDeviceSensorNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DProductStructureChildNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="41.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DProductStructureChildNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DProgrammableShaderObject" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="76" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DProgrammableShaderObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DPrototype" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="77.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DPrototype.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DRigidJointNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="79.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DRigidJointNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DScriptNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="81.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DScriptNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DSequencerNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="70.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DSequencerNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DShaderNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="72.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DShaderNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DShapeNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DShapeNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DSoundNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="74.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DSoundNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DSoundSourceNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="76" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DSoundSourceNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DTexture2DNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="66" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAIAQAAAAAAAAAAAAAAAAAAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DTexture2DNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DTexture3DNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="77.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DTexture3DNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DTextureCoordinateNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="50.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DTextureCoordinateNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DTextureNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="66" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DTextureNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DTextureTransformNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="63.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAQAAAA=</HashCode>
+      <FileName>Schema\X3DTextureTransformNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="X3DTimeDependentNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="79.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DTimeDependentNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DTouchSensorNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="81.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DTouchSensorNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DTriggerNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="70.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DTriggerNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DVolumeRenderStyleNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="77.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DVolumeRenderStyleNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DVertexAttributeNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="72.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DVertexAttributeNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DViewportNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="74.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DViewportNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="X3DVolumeDataNode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="76" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAACAABAAAAAAAAQgAQAAAA=</HashCode>
+      <FileName>Schema\X3DVolumeDataNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Appearance" Collapsed="true">
+    <Position X="68.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAgAAABgQAAAAQAARAAAA=</HashCode>
+      <FileName>Schema\Appearance.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

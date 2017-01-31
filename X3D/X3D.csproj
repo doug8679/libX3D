@@ -1,0 +1,406 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{17A32D48-BC4C-4FE0-91B0-376B132C2BA2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>X3D</RootNamespace>
+    <AssemblyName>X3D</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Schema\accessTypeNames.cs" />
+    <Compile Include="Schema\Anchor.cs" />
+    <Compile Include="Schema\Appearance.cs" />
+    <Compile Include="Schema\appliedParameterValues.cs" />
+    <Compile Include="Schema\Arc2D.cs" />
+    <Compile Include="Schema\ArcClose2D.cs" />
+    <Compile Include="Schema\AudioClip.cs" />
+    <Compile Include="Schema\Background.cs" />
+    <Compile Include="Schema\BallJoint.cs" />
+    <Compile Include="Schema\Billboard.cs" />
+    <Compile Include="Schema\BlendedVolumeStyle.cs" />
+    <Compile Include="Schema\BooleanFilter.cs" />
+    <Compile Include="Schema\BooleanSequencer.cs" />
+    <Compile Include="Schema\BooleanToggle.cs" />
+    <Compile Include="Schema\BooleanTrigger.cs" />
+    <Compile Include="Schema\BoundaryEnhancementVolumeStyle.cs" />
+    <Compile Include="Schema\BoundedPhysicsModel.cs" />
+    <Compile Include="Schema\Box.cs" />
+    <Compile Include="Schema\CADAssembly.cs" />
+    <Compile Include="Schema\CADFace.cs" />
+    <Compile Include="Schema\CADLayer.cs" />
+    <Compile Include="Schema\CADPart.cs" />
+    <Compile Include="Schema\CartoonVolumeStyle.cs" />
+    <Compile Include="Schema\Circle2D.cs" />
+    <Compile Include="Schema\ClipPlane.cs" />
+    <Compile Include="Schema\CollidableOffset.cs" />
+    <Compile Include="Schema\CollidableShape.cs" />
+    <Compile Include="Schema\Collision.cs" />
+    <Compile Include="Schema\CollisionCollection.cs" />
+    <Compile Include="Schema\CollisionSensor.cs" />
+    <Compile Include="Schema\CollisionSpace.cs" />
+    <Compile Include="Schema\Color.cs" />
+    <Compile Include="Schema\ColorChaser.cs" />
+    <Compile Include="Schema\ColorDamper.cs" />
+    <Compile Include="Schema\ColorInterpolator.cs" />
+    <Compile Include="Schema\ColorRGBA.cs" />
+    <Compile Include="Schema\component.cs" />
+    <Compile Include="Schema\componentNames.cs" />
+    <Compile Include="Schema\ComposedCubeMapTexture.cs" />
+    <Compile Include="Schema\ComposedShader.cs" />
+    <Compile Include="Schema\ComposedTexture3D.cs" />
+    <Compile Include="Schema\ComposedVolumeStyle.cs" />
+    <Compile Include="Schema\Cone.cs" />
+    <Compile Include="Schema\ConeEmitter.cs" />
+    <Compile Include="Schema\connect.cs" />
+    <Compile Include="Schema\Contact.cs" />
+    <Compile Include="Schema\Contour2D.cs" />
+    <Compile Include="Schema\ContourPolyline2D.cs" />
+    <Compile Include="Schema\Coordinate.cs" />
+    <Compile Include="Schema\CoordinateChaser.cs" />
+    <Compile Include="Schema\CoordinateDamper.cs" />
+    <Compile Include="Schema\CoordinateDouble.cs" />
+    <Compile Include="Schema\CoordinateInterpolator.cs" />
+    <Compile Include="Schema\CoordinateInterpolator2D.cs" />
+    <Compile Include="Schema\Cylinder.cs" />
+    <Compile Include="Schema\CylinderSensor.cs" />
+    <Compile Include="Schema\DirectionalLight.cs" />
+    <Compile Include="Schema\DISEntityManager.cs" />
+    <Compile Include="Schema\DISEntityTypeMapping.cs" />
+    <Compile Include="Schema\Disk2D.cs" />
+    <Compile Include="Schema\DoubleAxisHingeJoint.cs" />
+    <Compile Include="Schema\EaseInEaseOut.cs" />
+    <Compile Include="Schema\EdgeEnhancementVolumeStyle.cs" />
+    <Compile Include="Schema\ElevationGrid.cs" />
+    <Compile Include="Schema\EspduTransform.cs" />
+    <Compile Include="Schema\ExplosionEmitter.cs" />
+    <Compile Include="Schema\EXPORT.cs" />
+    <Compile Include="Schema\ExternProtoDeclare.cs" />
+    <Compile Include="Schema\Extrusion.cs" />
+    <Compile Include="Schema\featurePointNames.cs" />
+    <Compile Include="Schema\field.cs" />
+    <Compile Include="Schema\fieldTypeName.cs" />
+    <Compile Include="Schema\fieldValue.cs" />
+    <Compile Include="Schema\FillProperties.cs" />
+    <Compile Include="Schema\FloatVertexAttribute.cs" />
+    <Compile Include="Schema\Fog.cs" />
+    <Compile Include="Schema\FogCoordinate.cs" />
+    <Compile Include="Schema\FontStyle.cs" />
+    <Compile Include="Schema\ForcePhysicsModel.cs" />
+    <Compile Include="Schema\GeneratedCubeMapTexture.cs" />
+    <Compile Include="Schema\GeoCoordinate.cs" />
+    <Compile Include="Schema\GeoElevationGrid.cs" />
+    <Compile Include="Schema\GeoLocation.cs" />
+    <Compile Include="Schema\GeoLOD.cs" />
+    <Compile Include="Schema\GeoMetadata.cs" />
+    <Compile Include="Schema\GeoOrigin.cs" />
+    <Compile Include="Schema\GeoPositionInterpolator.cs" />
+    <Compile Include="Schema\GeoProximitySensor.cs" />
+    <Compile Include="Schema\GeoTouchSensor.cs" />
+    <Compile Include="Schema\GeoTransform.cs" />
+    <Compile Include="Schema\GeoViewpoint.cs" />
+    <Compile Include="Schema\Group.cs" />
+    <Compile Include="Schema\HAnimDisplacer.cs" />
+    <Compile Include="Schema\HAnimHumanoid.cs" />
+    <Compile Include="Schema\HAnimJoint.cs" />
+    <Compile Include="Schema\HAnimSegment.cs" />
+    <Compile Include="Schema\HAnimSite.cs" />
+    <Compile Include="Schema\hanimVersionValues.cs" />
+    <Compile Include="Schema\head.cs" />
+    <Compile Include="Schema\ImageCubeMapTexture.cs" />
+    <Compile Include="Schema\ImageTexture.cs" />
+    <Compile Include="Schema\ImageTexture3D.cs" />
+    <Compile Include="Schema\IMPORT.cs" />
+    <Compile Include="Schema\IndexedFaceSet.cs" />
+    <Compile Include="Schema\IndexedLineSet.cs" />
+    <Compile Include="Schema\IndexedQuadSet.cs" />
+    <Compile Include="Schema\IndexedTriangleFanSet.cs" />
+    <Compile Include="Schema\IndexedTriangleSet.cs" />
+    <Compile Include="Schema\IndexedTriangleStripSet.cs" />
+    <Compile Include="Schema\initializeOnlyAccessTypes.cs" />
+    <Compile Include="Schema\Inline.cs" />
+    <Compile Include="Schema\inputOnlyAccessTypes.cs" />
+    <Compile Include="Schema\inputOutputAccessTypes.cs" />
+    <Compile Include="Schema\IntegerSequencer.cs" />
+    <Compile Include="Schema\IntegerTrigger.cs" />
+    <Compile Include="Schema\IS.cs" />
+    <Compile Include="Schema\IsoSurfaceVolumeData.cs" />
+    <Compile Include="Schema\jointNames.cs" />
+    <Compile Include="Schema\KeySensor.cs" />
+    <Compile Include="Schema\Layer.cs" />
+    <Compile Include="Schema\LayerSet.cs" />
+    <Compile Include="Schema\Layout.cs" />
+    <Compile Include="Schema\LayoutGroup.cs" />
+    <Compile Include="Schema\LayoutLayer.cs" />
+    <Compile Include="Schema\LinePickSensor.cs" />
+    <Compile Include="Schema\LineProperties.cs" />
+    <Compile Include="Schema\LineSet.cs" />
+    <Compile Include="Schema\LoadSensor.cs" />
+    <Compile Include="Schema\LocalFog.cs" />
+    <Compile Include="Schema\LOD.cs" />
+    <Compile Include="Schema\Material.cs" />
+    <Compile Include="Schema\Matrix3VertexAttribute.cs" />
+    <Compile Include="Schema\Matrix4VertexAttribute.cs" />
+    <Compile Include="Schema\meta.cs" />
+    <Compile Include="Schema\MetadataBoolean.cs" />
+    <Compile Include="Schema\metadataContainerFieldValues.cs" />
+    <Compile Include="Schema\MetadataDouble.cs" />
+    <Compile Include="Schema\MetadataFloat.cs" />
+    <Compile Include="Schema\MetadataInteger.cs" />
+    <Compile Include="Schema\MetadataSet.cs" />
+    <Compile Include="Schema\MetadataString.cs" />
+    <Compile Include="Schema\metaDirectionValues.cs" />
+    <Compile Include="Schema\MFString.cs" />
+    <Compile Include="Schema\MFTime.cs" />
+    <Compile Include="Schema\MotorJoint.cs" />
+    <Compile Include="Schema\MovieTexture.cs" />
+    <Compile Include="Schema\MultiTexture.cs" />
+    <Compile Include="Schema\MultiTextureCoordinate.cs" />
+    <Compile Include="Schema\MultiTextureTransform.cs" />
+    <Compile Include="Schema\NavigationInfo.cs" />
+    <Compile Include="Schema\Normal.cs" />
+    <Compile Include="Schema\NormalInterpolator.cs" />
+    <Compile Include="Schema\NurbsCurve.cs" />
+    <Compile Include="Schema\NurbsCurve2D.cs" />
+    <Compile Include="Schema\NurbsOrientationInterpolator.cs" />
+    <Compile Include="Schema\NurbsPatchSurface.cs" />
+    <Compile Include="Schema\NurbsPositionInterpolator.cs" />
+    <Compile Include="Schema\NurbsSet.cs" />
+    <Compile Include="Schema\NurbsSurfaceInterpolator.cs" />
+    <Compile Include="Schema\NurbsSweptSurface.cs" />
+    <Compile Include="Schema\NurbsSwungSurface.cs" />
+    <Compile Include="Schema\NurbsTextureCoordinate.cs" />
+    <Compile Include="Schema\NurbsTrimmedSurface.cs" />
+    <Compile Include="Schema\OpacityMapVolumeStyle.cs" />
+    <Compile Include="Schema\OrientationChaser.cs" />
+    <Compile Include="Schema\OrientationDamper.cs" />
+    <Compile Include="Schema\OrientationInterpolator.cs" />
+    <Compile Include="Schema\OrthoViewpoint.cs" />
+    <Compile Include="Schema\outputOnlyAccessTypes.cs" />
+    <Compile Include="Schema\PackagedShader.cs" />
+    <Compile Include="Schema\ParticleSystem.cs" />
+    <Compile Include="Schema\PickableGroup.cs" />
+    <Compile Include="Schema\PixelTexture.cs" />
+    <Compile Include="Schema\PixelTexture3D.cs" />
+    <Compile Include="Schema\PlaneSensor.cs" />
+    <Compile Include="Schema\PointEmitter.cs" />
+    <Compile Include="Schema\PointLight.cs" />
+    <Compile Include="Schema\PointPickSensor.cs" />
+    <Compile Include="Schema\PointSet.cs" />
+    <Compile Include="Schema\Polyline2D.cs" />
+    <Compile Include="Schema\PolylineEmitter.cs" />
+    <Compile Include="Schema\Polypoint2D.cs" />
+    <Compile Include="Schema\PositionChaser.cs" />
+    <Compile Include="Schema\PositionChaser2D.cs" />
+    <Compile Include="Schema\PositionDamper.cs" />
+    <Compile Include="Schema\PositionDamper2D.cs" />
+    <Compile Include="Schema\PositionInterpolator.cs" />
+    <Compile Include="Schema\PositionInterpolator2D.cs" />
+    <Compile Include="Schema\PrimitivePickSensor.cs" />
+    <Compile Include="Schema\profileNames.cs" />
+    <Compile Include="Schema\ProgramShader.cs" />
+    <Compile Include="Schema\ProjectionVolumeStyle.cs" />
+    <Compile Include="Schema\ProtoBody.cs" />
+    <Compile Include="Schema\ProtoDeclare.cs" />
+    <Compile Include="Schema\ProtoInstance.cs" />
+    <Compile Include="Schema\ProtoInterface.cs" />
+    <Compile Include="Schema\ProximitySensor.cs" />
+    <Compile Include="Schema\QuadSet.cs" />
+    <Compile Include="Schema\ReceiverPdu.cs" />
+    <Compile Include="Schema\Rectangle2D.cs" />
+    <Compile Include="Schema\RigidBody.cs" />
+    <Compile Include="Schema\RigidBodyCollection.cs" />
+    <Compile Include="Schema\ROUTE.cs" />
+    <Compile Include="Schema\ScalarChaser.cs" />
+    <Compile Include="Schema\ScalarDamper.cs" />
+    <Compile Include="Schema\ScalarInterpolator.cs" />
+    <Compile Include="Schema\Scene.cs" />
+    <Compile Include="Schema\SceneGraphStructureNodeType.cs" />
+    <Compile Include="Schema\MFBool.cs" />
+    <Compile Include="Schema\ScreenFontStyle.cs" />
+    <Compile Include="Schema\ScreenGroup.cs" />
+    <Compile Include="Schema\Script.cs" />
+    <Compile Include="Schema\SegmentedVolumeData.cs" />
+    <Compile Include="Schema\segmentNames.cs" />
+    <Compile Include="Schema\ShadedVolumeStyle.cs" />
+    <Compile Include="Schema\ShaderPart.cs" />
+    <Compile Include="Schema\ShaderProgram.cs" />
+    <Compile Include="Schema\Shape.cs" />
+    <Compile Include="Schema\SignalPdu.cs" />
+    <Compile Include="Schema\SilhouetteEnhancementVolumeStyle.cs" />
+    <Compile Include="Schema\SingleAxisHingeJoint.cs" />
+    <Compile Include="Schema\siteNames.cs" />
+    <Compile Include="Schema\SliderJoint.cs" />
+    <Compile Include="Schema\Sound.cs" />
+    <Compile Include="Schema\Sphere.cs" />
+    <Compile Include="Schema\SphereSensor.cs" />
+    <Compile Include="Schema\SplinePositionInterpolator.cs" />
+    <Compile Include="Schema\SplinePositionInterpolator2D.cs" />
+    <Compile Include="Schema\SplineScalarInterpolator.cs" />
+    <Compile Include="Schema\SpotLight.cs" />
+    <Compile Include="Schema\SquadOrientationInterpolator.cs" />
+    <Compile Include="Schema\StaticGroup.cs" />
+    <Compile Include="Schema\StringSensor.cs" />
+    <Compile Include="Schema\SurfaceEmitter.cs" />
+    <Compile Include="Schema\Switch.cs" />
+    <Compile Include="Schema\TexCoordChaser2D.cs" />
+    <Compile Include="Schema\TexCoordDamper2D.cs" />
+    <Compile Include="Schema\Text.cs" />
+    <Compile Include="Schema\TextureBackground.cs" />
+    <Compile Include="Schema\TextureCoordinate.cs" />
+    <Compile Include="Schema\TextureCoordinate3D.cs" />
+    <Compile Include="Schema\TextureCoordinate4D.cs" />
+    <Compile Include="Schema\TextureCoordinateGenerator.cs" />
+    <Compile Include="Schema\TextureProperties.cs" />
+    <Compile Include="Schema\TextureTransform.cs" />
+    <Compile Include="Schema\TextureTransform3D.cs" />
+    <Compile Include="Schema\TextureTransformMatrix3D.cs" />
+    <Compile Include="Schema\TimeSensor.cs" />
+    <Compile Include="Schema\TimeTrigger.cs" />
+    <Compile Include="Schema\ToneMappedVolumeStyle.cs" />
+    <Compile Include="Schema\TouchSensor.cs" />
+    <Compile Include="Schema\Transform.cs" />
+    <Compile Include="Schema\TransformSensor.cs" />
+    <Compile Include="Schema\TransmitterPdu.cs" />
+    <Compile Include="Schema\TriangleFanSet.cs" />
+    <Compile Include="Schema\TriangleSet.cs" />
+    <Compile Include="Schema\TriangleSet2D.cs" />
+    <Compile Include="Schema\TriangleStripSet.cs" />
+    <Compile Include="Schema\TwoSidedMaterial.cs" />
+    <Compile Include="Schema\unit.cs" />
+    <Compile Include="Schema\UniversalJoint.cs" />
+    <Compile Include="Schema\Viewpoint.cs" />
+    <Compile Include="Schema\ViewpointGroup.cs" />
+    <Compile Include="Schema\Viewport.cs" />
+    <Compile Include="Schema\VisibilitySensor.cs" />
+    <Compile Include="Schema\VolumeData.cs" />
+    <Compile Include="Schema\VolumeEmitter.cs" />
+    <Compile Include="Schema\VolumePickSensor.cs" />
+    <Compile Include="Schema\WildcardNodeType.cs" />
+    <Compile Include="Schema\WindPhysicsModel.cs" />
+    <Compile Include="Schema\WorldInfo.cs" />
+    <Compile Include="Schema\X3D.cs" />
+    <Compile Include="Schema\X3DAppearanceChildNode.cs" />
+    <Compile Include="Schema\X3DAppearanceNode.cs" />
+    <Compile Include="Schema\X3DBackgroundNode.cs" />
+    <Compile Include="Schema\X3DBindableNode.cs" />
+    <Compile Include="Schema\X3DBoundedObject.cs" />
+    <Compile Include="Schema\X3DChaserNode.cs" />
+    <Compile Include="Schema\X3DChildNode.cs" />
+    <Compile Include="Schema\X3DColorNode.cs" />
+    <Compile Include="Schema\X3DComposableVolumeRenderStyleNode.cs" />
+    <Compile Include="Schema\X3DComposedGeometryNode.cs" />
+    <Compile Include="Schema\X3DCoordinateNode.cs" />
+    <Compile Include="Schema\X3DDamperNode.cs" />
+    <Compile Include="Schema\X3DDragSensorNode.cs" />
+    <Compile Include="Schema\X3DEnvironmentalSensorNode.cs" />
+    <Compile Include="Schema\X3DEnvironmentTextureNode.cs" />
+    <Compile Include="Schema\X3DField.cs" />
+    <Compile Include="Schema\X3DFogObject.cs" />
+    <Compile Include="Schema\X3DFollowerNode.cs" />
+    <Compile Include="Schema\X3DFontStyleNode.cs" />
+    <Compile Include="Schema\X3DGeometricPropertyNode.cs" />
+    <Compile Include="Schema\X3DGeometryNode.cs" />
+    <Compile Include="Schema\X3DGroupingNode.cs" />
+    <Compile Include="Schema\X3DInfoNode.cs" />
+    <Compile Include="Schema\X3DInterpolatorNode.cs" />
+    <Compile Include="Schema\X3DKeyDeviceSensorNode.cs" />
+    <Compile Include="Schema\X3DLayerNode.cs" />
+    <Compile Include="Schema\X3DLayoutNode.cs" />
+    <Compile Include="Schema\X3DLightNode.cs" />
+    <Compile Include="Schema\X3DMaterialNode.cs" />
+    <Compile Include="Schema\X3DMetadataObject.cs" />
+    <Compile Include="Schema\X3DNBodyCollidableNode.cs" />
+    <Compile Include="Schema\X3DNBodyCollisionSpaceNode.cs" />
+    <Compile Include="Schema\X3DNetworkSensorNode.cs" />
+    <Compile Include="Schema\X3DNode.cs" />
+    <Compile Include="Schema\X3DNodeMixedContent.cs" />
+    <Compile Include="Schema\X3DNormalNode.cs" />
+    <Compile Include="Schema\X3DNurbsControlCurveNode.cs" />
+    <Compile Include="Schema\X3DNurbsSurfaceGeometryNode.cs" />
+    <Compile Include="Schema\X3DParametricGeometryNode.cs" />
+    <Compile Include="Schema\X3DParticleEmitterNode.cs" />
+    <Compile Include="Schema\X3DParticlePhysicsModelNode.cs" />
+    <Compile Include="Schema\X3DPickableObject.cs" />
+    <Compile Include="Schema\X3DPickSensorNode.cs" />
+    <Compile Include="Schema\X3DPointingDeviceSensorNode.cs" />
+    <Compile Include="Schema\X3DProductStructureChildNode.cs" />
+    <Compile Include="Schema\X3DProgrammableShaderObject.cs" />
+    <Compile Include="Schema\X3DPrototype.cs" />
+    <Compile Include="Schema\X3DPrototypeInstance.cs" />
+    <Compile Include="Schema\X3DRigidJointNode.cs" />
+    <Compile Include="Schema\X3DScriptNode.cs" />
+    <Compile Include="Schema\X3DSensorNode.cs" />
+    <Compile Include="Schema\X3DSequencerNode.cs" />
+    <Compile Include="Schema\X3DShaderNode.cs" />
+    <Compile Include="Schema\X3DShapeNode.cs" />
+    <Compile Include="Schema\X3DSoundNode.cs" />
+    <Compile Include="Schema\X3DSoundSourceNode.cs" />
+    <Compile Include="Schema\X3DTexture2DNode.cs" />
+    <Compile Include="Schema\X3DTexture3DNode.cs" />
+    <Compile Include="Schema\X3DTextureCoordinateNode.cs" />
+    <Compile Include="Schema\X3DTextureNode.cs" />
+    <Compile Include="Schema\X3DTextureTransformNode.cs" />
+    <Compile Include="Schema\X3DTimeDependentNode.cs" />
+    <Compile Include="Schema\X3DTouchSensorNode.cs" />
+    <Compile Include="Schema\X3DTriggerNode.cs" />
+    <Compile Include="Schema\X3DUrlObject.cs" />
+    <Compile Include="Schema\x3dVersion.cs" />
+    <Compile Include="Schema\X3DVertexAttributeNode.cs" />
+    <Compile Include="Schema\X3DViewpointNode.cs" />
+    <Compile Include="Schema\X3DViewportNode.cs" />
+    <Compile Include="Schema\X3DVolumeDataNode.cs" />
+    <Compile Include="Schema\X3DVolumeRenderStyleNode.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\X3D\ISO-IEC-19776-1-IS-V3.3\Part01\x3d-3.3.xsd">
+      <Link>x3d-3.3.xsd</Link>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
