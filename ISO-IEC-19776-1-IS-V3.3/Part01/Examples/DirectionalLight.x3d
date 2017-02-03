@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+<X3D version='3.0' profile='Immersive'>
+  <head>
+    <meta name='filename' content='DirectionalLight.x3d'/>
+  </head>
+  <Scene>
+    <Group>
+      <Transform DEF='UnlitShapeOne' translation='-3.0 0.0 0.0'>
+        <Shape>
+          <Box/>
+          <Appearance DEF='App'>
+            <Material diffuseColor='0.8 0.4 0.2'/>
+          </Appearance>
+        </Shape>
+      </Transform>
+      <Group DEF='LitParent'>
+        <Transform DEF='LitShapeOne' translation='0.0 2.0 0.0'>
+          <Shape>
+            <Sphere/>
+            <Appearance USE='App'/>
+          </Shape>
+        </Transform>
+        <DirectionalLight/>
+        <Transform DEF='LitShapeTwo' translation='0.0 -2.0 0.0'>
+          <Shape>
+            <Cylinder/>
+            <Appearance USE='App'/>
+          </Shape>
+        </Transform>
+      </Group>
+      <Transform DEF='UnlitShapeTwo' translation='3.0 0.0 0.0'>
+        <Shape>
+          <Cone/>
+          <Appearance USE='App'/>
+        </Shape>
+      </Transform>
+    </Group>
+  </Scene>
+</X3D>

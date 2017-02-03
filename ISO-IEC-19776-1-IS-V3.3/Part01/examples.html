@@ -1,0 +1,1510 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<TITLE>ISO/IEC 19776-1:2015 &mdash; X3D XML encoding &mdash; Annex C Examples</TITLE>
+<link REL="stylesheet" HREF="X3DEncodings.css" TYPE="text/css">
+
+</head>
+<body>
+
+<div class="CenterDiv">
+<img class="x3dlogo" SRC="../Images/x3d.png" ALT="X3D logo" width="176" height="88" > 
+</div>
+
+<div class="CenterDiv">
+<p class="HeadingPart">
+    Extensible 3D (X3D) encodings<br>
+    Part 1: Extensible Markup Language (XML) encoding</p>
+
+<p class="HeadingClause">Annex C</p>
+
+<p class="AnnexType">(informative)</p>
+
+<p class="HeadingClause">Examples</p>
+
+</div>
+
+<img class="x3dbar" SRC="../Images/x3dbar.png" ALT="--- X3D separator bar ---" width="430" height="23" >
+
+<h1><img class="cube" src="../Images/cube.gif" alt="cube" >
+<a name="TableOfContents"></a>C.1 Table of contents</H1>
+
+<P>This annex provides a variety of X3D examples using the XML  encoding. 
+<a href="#t-Topics">Table C.1</a> contains a table of 
+contents that lists the topics in this clause:</P>
+
+<div class="CenterDiv">
+<p class="TableCaption">
+<a name="t-Topics"></a>Table C.1 &mdash; Topics in this annex</P>
+
+  <table class="topics">
+  <TBODY>
+  <TR>
+    <TD>
+
+<P>
+<a href="#TableOfContents">C.1 Table of contents</a><BR>
+<a href="#SimpleExample">C.2 Simple example</a><BR>
+<A href="#Instancing">C.3 Instancing (sharing)</A><BR>
+<A href="#PrototypeExample">C.4 Prototype example</A><BR>
+<A href="#ScriptingExample">C.5 Scripting example</A><BR>
+<A href="#GeometricProperties">C.6 Geometric properties</A><BR>
+<A href="#PrototyesAndAlternateReps">C.7 Prototypes and alternate representations</A><BR>
+<A href="#Anchor">C.8 Anchor</A><BR>
+<A href="#DirectionalLight">C.9 Directional light</A><BR>
+<A href="#PointSet">C.10 PointSet</A><br>
+<A href="#LevelOfDetail">C.11 Level of detail</A></P>
+
+    </TD>
+    <TD>
+<A href="#ColourInterpolator">C.12 Color interpolator</A><BR>
+<A href="#TimeSensor">C.13 TimeSensor</A><BR> 
+<A href="#TimeSensorIntroduction">C.13.1 Introduction</A><BR>
+<A href="#TimeSensorClickToAnimate">C.13.2 Click to animate</A><BR>
+<A href="#AlarmClock">C.13.3 Alarm clock</A><BR>
+<A href="#ShuttlesAndPendulums">C.14 Shuttles and pendulums</A><BR>
+<A href="#Robot">C.15 Robot</A><BR>
+<A href="#Chopper">C.16 Chopper</A><BR>
+<A href="#GuidedTour">C.17 Guided tour</A><BR>
+<A href="#Elevator">C.18 Elevator<BR></A>
+<A href="#ExecutionModel">C.19 Execution model</A></TD>
+</TR>
+</TBODY>
+</TABLE>
+</DIV>
+
+<img class="x3dbar" SRC="../Images/x3dbar.png" ALT="--- X3D separator bar ---" width="430" height="23" >
+<h1><img class="cube" src="../Images/cube.gif" alt="cube" >
+<a name="SimpleExample"></a>C.2 Simple example</H1>
+
+<P>This example contains a simple scene defining a view of a red sphere and a 
+blue box, lit by a directional light as shown in <a href="#f-SimpleExample">
+Figure C.1</a>:</P>
+
+<div class="CenterDiv">
+
+<img src="../Images/rsmbb.jpg"
+alt="Red sphere meets blue box" width="353" height="203"> 
+
+<p class="FigureCaption">
+<a name="f-SimpleExample"></a>Figure C.1 &mdash; Red sphere and blue box</p> 
+</div>
+
+
+<pre Class="listing">&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+&lt;X3D version='3.0' profile='Interchange'>
+  &lt;head>
+    &lt;meta name='filename' content='RedSphereBlueBox.x3d'/>
+  &lt;/head>
+  &lt;Scene>
+    &lt;Transform>
+      &lt;NavigationInfo headlight='false' 
+        avatarSize='0.25 1.6 0.75' type='"EXAMINE"'/>
+      &lt;DirectionalLight/>
+      &lt;Transform translation='3.0 0.0 1.0'>
+        &lt;Shape>
+          &lt;Sphere radius='2.3'/>
+          &lt;Appearance>
+            &lt;Material diffuseColor='1.0 0.0 0.0'/>
+          &lt;/Appearance>
+        &lt;/Shape>
+      &lt;/Transform>
+      &lt;Transform translation='-2.4 0.2 1.0' rotation='0.0 0.707 0.707 0.9'>
+        &lt;Shape>
+          &lt;Box/>
+          &lt;Appearance>
+            &lt;Material diffuseColor='0.0 0.0 1.0'/>
+          &lt;/Appearance>
+        &lt;/Shape>
+      &lt;/Transform>
+    &lt;/Transform>
+  &lt;/Scene>
+&lt;/X3D>
+</PRE>
+
+<p><a target="3D_Scenexml" href="Examples/RedSphereBlueBox.x3d">Click here</a> to 
+view this example in a 3D scene window.</P>
+
+<img class="x3dbar" SRC="../Images/x3dbar.png" ALT="--- X3D separator bar ---" width="430" height="23" >
+<h1><img class="cube" src="../Images/cube.gif" alt="cube" >
+<a name="Instancing"></a>C.3 Instancing (sharing)</H1>
+
+<P>Reading the following file results in three spheres being drawn. The first 
+sphere defines a unit sphere at the origin. The second sphere, named "Joe", 
+defines a smaller sphere translated along the +x axis, the third sphere is a 
+reference to the second sphere and is translated along the -x axis. If any 
+changes occur to the second sphere (e.g. radius changes),  the third sphere 
+will change to the picture shown in <a href="#f-Instancing">Figure C.2</a>:</P>
+
+<div class="CenterDiv">
+
+<img src="../Images/instancing.jpg" height="203" width="353"
+alt="Instancing"> 
+
+<p class="FigureCaption">
+<a name="f-Instancing"></a>Figure C.2 &mdash; Instancing</p> 
+</div>
+
+<pre Class="listing">&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+&lt;X3D version='3.0' profile='Interchange'>
+  &lt;head>
+    &lt;meta name='filename' content='Instancing.x3d'/>
+  &lt;/head>
+  &lt;Scene>
+    &lt;Transform>
+      &lt;Shape>
+        &lt;Sphere/>
+      &lt;/Shape>
+      &lt;Transform translation='2.0 0.0 0.0'>
+        &lt;Shape DEF='Joe'>
+          &lt;Sphere radius='0.2'/>
+        &lt;/Shape>
+      &lt;/Transform>
+      &lt;Transform translation='-2.0 0.0 0.0'>
+        &lt;Shape USE='Joe'/>
+      &lt;/Transform>
+    &lt;/Transform>
+  &lt;/Scene>
+&lt;/X3D>
+</PRE>
+
+<p><a target="3D_Scenexml" href="Examples/Instancing.x3d">Click here</a> to 
+view this example in a 3D scene window.</P>
+
+<P>(Note that the spheres are unlit because no appearance was specified.)</P>
+
+<img class="x3dbar" SRC="../Images/x3dbar.png" ALT="--- X3D separator bar ---" width="430" height="23" >
+<h1><img class="cube" src="../Images/cube.gif" alt="cube" >
+<a name="PrototypeExample"></a>C.4 Prototype example</H1>
+
+<P>A simple table with variable colours for the legs and top might be prototyped 
+as shown in <a href="#f-PrototypeExample">Figure C.3</a>:</P>
+
+<div class="CenterDiv">
+
+<img src="../Images/proto.jpg" 
+alt="Prototype example" width="289" height="252"> 
+
+<p class="FigureCaption">
+<a name="f-PrototypeExample"></a>Figure C.3 &mdash; Prototype</p> 
+</div>
+
+<pre Class="listing">&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+&lt;X3D version='3.0' profile='Immersive'>
+  &lt;head>
+    &lt;meta name='filename' content='Prototype.x3d'/>
+  &lt;/head>
+  &lt;Scene>
+    &lt;ProtoDeclare name='TwoColorTable'>
+      &lt;ProtoInterface>
+        &lt;field name='legColor' type='SFColor' value='.8 .4 .7' 
+               accessType='initializeOnly'/>
+        &lt;field name='topColor' type='SFColor' value='.6 .6 .1' 
+               accessType='initializeOnly'/>
+      &lt;/ProtoInterface>
+      &lt;ProtoBody>
+        &lt;Transform>
+          &lt;Transform translation='0.0 0.6 0.0'> &lt;!-- table top -->
+            &lt;Shape>
+              &lt;Appearance>
+                &lt;Material DEF='TableTopMaterial'>
+                  &lt;IS>
+                    &lt;connect nodeField='diffuseColor' protoField='topColor'/>
+                  &lt;/IS>
+                &lt;/Material>
+              &lt;/Appearance>
+              &lt;Box size='1.2 0.2 1.2'/>
+            &lt;/Shape>
+          &lt;/Transform>
+          &lt;Transform translation='-0.5 0.0 -0.5'> &lt;!-- first table leg -->
+             &lt;Shape DEF='Leg'>
+               &lt;Appearance>
+                 &lt;Material DEF='LegMaterial' diffuseColor='1.0 0.0 0.0'>
+                   &lt;IS>
+                     &lt;connect nodeField='diffuseColor' protoField='legColor'/>
+                   &lt;/IS>
+                 &lt;/Material>
+              &lt;/Appearance>
+              &lt;Cylinder height='1.0' radius='0.1'/>
+            &lt;/Shape>
+          &lt;/Transform>
+          &lt;Transform translation='0.5 0.0 -0.5'> &lt;!-- another table leg -->
+            &lt;Shape USE='Leg'/>
+          &lt;/Transform>
+          &lt;Transform translation='-0.5 0.0 0.5'>
+            &lt;Shape USE='Leg'/>   &lt;!-- another table leg -->
+          &lt;/Transform>
+          &lt;Transform translation='0.5 0.0 0.5'>
+            &lt;Shape USE='Leg'/>    &lt;!--another table leg -->
+          &lt;/Transform>  &lt;!-- End of root Transform's children -->
+        &lt;/Transform>    &lt;!-- End of root Transform -->
+      &lt;/ProtoBody>
+    &lt;/ProtoDeclare> &lt;!-- End of prototype -->
+          &lt;!-- The prototype is now defined. Although it contains a 
+          number of nodes, only the legColor and topColor fields
+          are public.
+          Instead of using the default legColor and topColor, this
+          instance of the table has red legs and a green top: -->
+    &lt;ProtoInstance name='TwoColorTable'>
+      &lt;fieldValue name='legColor' value='1 0 0'/>
+      &lt;fieldValue name='topColor' value='0 1 0'/>
+    &lt;/ProtoInstance>
+    &lt;NavigationInfo type='"EXAMINE"'/>  &lt;!--Use the Examine viewer-->
+  &lt;/Scene>
+&lt;/X3D>
+
+
+</PRE>
+
+<p><a target="3D_Scenexml" href="Examples/Prototype.x3d">Click here</a> to 
+view this example in a 3D scene window.</P>
+
+<img class="x3dbar" SRC="../Images/x3dbar.png" ALT="--- X3D separator bar ---" width="430" height="23" >
+
+<h1><img class="cube" src="../Images/cube.gif" alt="cube" >
+<a name="ScriptingExample"></a>C.5 Scripting example</H1>
+
+<P>This Script node decides whether or not to open a bank vault given openVault 
+and combinationEntered messages. To do this, it remembers whether or not the 
+correct combination has been entered. The Script node combined with a Sphere, a 
+TouchSensor and a Sound node to show how is works. When the pointing device is 
+over the sphere, the <I>combinationEntered</I> inputOnly field of the Script is sent. 
+Then, when the Sphere is touched (typically when the mouse button is pressed) 
+the Script is sent the <I>openVault</I> inputOnly field. This generates the 
+<I>vaultUnlocked</I> outputOnly field which starts a &lsquo;click&rsquo; sound. Here is the 
+example:</P>
+
+<pre Class="listing">&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+&lt;X3D version='3.0' profile='Immersive'>
+  &lt;head>
+    &lt;meta name='filename' content='Scripting.x3d'/>
+  &lt;/head>
+  &lt;Scene>
+    &lt;Script DEF='OpenVault'>
+      &lt;field name='openVault' type='SFTime' 
+             accessType='inputOnly'/>
+      &lt;field name='combinationEntered' type='SFBool' 
+             accessType='inputOnly'/>
+      &lt;field name='vaultUnlocked' type='SFTime' 
+             accessType='outputOnly'/>
+      &lt;field name='unlocked' type='SFBool' value='false' 
+             accessType='initializeOnly' />
+      &lt;![CDATA[
+      ecmascript:
+      function combinationEntered (value) {
+        unlocked = value;
+      }
+      function openVault(value) {
+      if (unlocked) vaultUnlocked = value;
+      }
+      ]]&gt;
+    &lt;/Script>
+    &lt;Shape>
+      &lt;Appearance>
+        &lt;Material diffuseColor='1 0 0'/>
+      &lt;/Appearance>
+      &lt;Sphere/>
+    &lt;/Shape>
+    &lt;Sound maxBack='1000' maxFront='1000' minBack='1000' minFront='1000'>
+      &lt;AudioClip DEF='Click' stopTime='1' 
+        description='clicking sound' url='"click.wav"'/>
+    &lt;/Sound>
+    &lt;TouchSensor DEF='TS'/>
+    &lt;ROUTE fromNode='TS' fromField='isOver' 
+           toNode='OpenVault' toField='combinationEntered'/>
+    &lt;ROUTE fromNode='TS' fromField='touchTime' 
+           toNode='OpenVault' toField='openVault'/>
+    &lt;ROUTE fromNode='OpenVault' fromField='vaultUnlocked' 
+           toNode='Click' toField='startTime'/>
+  &lt;/Scene>
+&lt;/X3D>
+</PRE>
+
+<P>Note that the <I>openVault</I> inputOnly field and the <I>vaultUnlocked</I> 
+outputOnly field 
+are of type SFTime, which allows them to be wired directly to a TouchSensor or 
+TimeSensor.</P>
+
+<p><a target="3D_Scenexml" href="Examples/Scripting.x3d">Click here</a> to 
+view this example in a 3D scene window.</P>
+
+<img class="x3dbar" SRC="../Images/x3dbar.png" ALT="--- X3D separator bar ---" width="430" height="23" >
+<h1><img class="cube" src="../Images/cube.gif" alt="cube" >
+<a name="GeometricProperties"></a>C.6 Geometric properties</H1>
+
+<P>The following IndexedFaceSet (contained in a Shape node) uses all four of the 
+geometric property nodes to specify vertex coordinates, colours per vertex, 
+normals per vertex, and texture coordinates per vertex (note that the material 
+sets the overall transparency):</P>
+
+<pre Class="listing">&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+&lt;X3D version='3.0' profile='Interchange'>
+  &lt;head>
+    &lt;meta name='filename' content='GeometricProperties.x3d'/>
+  &lt;/head>
+  &lt;Scene>
+    &lt;Shape>
+      &lt;IndexedFaceSet coordIndex='0, 1, 3, -1, 0, 2, 3, -1'>
+        &lt;Coordinate point='0 0 0, 1 0 0, 1 0 -1, 0.5 1 0'/>
+        &lt;Color color='0.2 0.7 0.8, 0.5 0 0, 0.1 0.8 0.1, 0 0 0.7'/>
+        &lt;Normal vector='0 0 1, 0 0 1, 0 0 1, 0 0 1'/>
+        &lt;TextureCoordinate point='0 0, 1 0, 1 0.4, 1 1'/>
+      &lt;/IndexedFaceSet>
+      &lt;Appearance>
+        &lt;Material transparency='0.5'/>
+          &lt;PixelTexture image='2 2 1 0xFF 0x80 0x80 0xFF'/>
+       &lt;/Appearance>
+    &lt;/Shape>
+  &lt;/Scene>
+&lt;/X3D>
+</PRE>
+
+<p><a target="3D_Scenexml" href="Examples/GeometricProperties.x3d">Click here</a> to 
+view this example in a 3D scene window.</P>
+
+<img class="x3dbar" SRC="../Images/x3dbar.png" ALT="--- X3D separator bar ---" width="430" height="23" >
+<h1><img class="cube" src="../Images/cube.gif" alt="cube" >
+<a name="PrototyesAndAlternateReps"></a>C.7 Prototypes and alternate representations</H1>
+
+<P>X3D has the capability to define new nodes. The following is an 
+example of a new node RefractiveMaterial. This node behaves as a Material node 
+with an added field, <I>indexOfRefraction</I>. The list of URLs for the 
+EXTERNPROTO are searched in order. If the browser recognizes the URN, 
+<CODE>urn:inet:foo.com:types:RefractiveMaterial</CODE>, it may treat it 
+as a native type (or load the implementation). Otherwise, the URL, 
+<CODE>http://www.myCompany.com/vrmlNodes/RefractiveMaterial.x3d</CODE>, 
+is used as a backup to ensure that the node is supported on any browsers. See 
+below for the PROTO implementation that treats RefractiveMaterial as a Material 
+(and ignores the <I>refractiveIndex</I> field).</P>
+
+<pre Class="listing">&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+&lt;X3D version='3.0' profile='Immersive'>
+  &lt;head>
+    &lt;meta name='filename' content='PrototypesPlus.x3d'/>
+  &lt;/head>
+  &lt;Scene>           &lt;!--external protype definition -->
+    &lt;ExternProtoDeclare name='RefractiveMaterial' 
+      url='"urn:inet:foo.com:types:RefractiveMaterial" 
+           "http://www.myCompany.com/vrmlNodes/RefractiveMaterial.x3d" 
+           "RefractiveMaterial.x3d"'>
+      &lt;field name='ambientIntensity' type='SFFloat' accessType='inputOutput'/>
+      &lt;field name='diffuseColor' type='SFColor' accessType='inputOutput'/>
+      &lt;field name='specularColor' type='SFColor' accessType='inputOutput'/>
+      &lt;field name='emissiveColor' type='SFColor' accessType='inputOutput'/>
+      &lt;field name='shininess' type='SFFloat' accessType='inputOutput'/>
+      &lt;field name='transparency' type='SFFloat' accessType='inputOutput'/>
+      &lt;field name='indexOfRefraction' type='SFFloat' accessType='inputOutput'/>
+    &lt;/ExternProtoDeclare>
+    &lt;Shape>
+      &lt;Sphere/>
+      &lt;Appearance>
+        &lt;ProtoInstance name='RefractiveMaterial' containerField='material'>
+          &lt;fieldValue name='ambientIntensity' value='0.2'/>
+          &lt;fieldValue name='diffuseColor' value='1 0 0'/>
+          &lt;fieldValue name='indexOfRefraction' value='0.3'/>
+         &lt;/ProtoInstance>
+       &lt;/Appearance>
+    &lt;/Shape>
+  &lt;/Scene>
+&lt;/X3D>
+</PRE>
+
+<P>The URL 
+<CODE>http://www.myCompany.com/vrmlNodes/RefractiveMaterial.x3d</CODE> 
+contains the following:</P>
+
+<PRE class="listing">&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+&lt;X3D version='3.0' profile='Immersive'>
+  &lt;head>
+    &lt;meta name='filename' content='RefractiveMaterial.x3d'/>
+  &lt;/head>
+  &lt;Scene>&lt;!--external protype definition-->
+    &lt;ProtoDeclare name='RefractiveMaterial'>
+      &lt;field name='ambientIntensity' type='SFFloat' value='0' 
+             accessType='inputOutput'/>
+      &lt;field name='diffuseColor' type='SFColor' value='0.5 0.5 0.5' 
+             accessType='inputOutput'/>
+      &lt;field name='specularColor' type='SFColor' value='0 0 0' 
+             accessType='inputOutput'/>
+      &lt;field name='emissiveColor' type='SFColor' value='0 0 0' 
+             accessType='inputOutput'/>
+      &lt;field name='shininess' type='SFFloat' value='0' 
+             accessType='inputOutput'/>
+      &lt;field name='transparency' type='SFFloat' value='0' 
+             accessType='inputOutput'/>
+      &lt;field name='indexOfRefraction' type='SFFloat' value='0.1' 
+             accessType='inputOutput'/>
+      &lt;/ProtoInterface>
+      &lt;ProtoBody> 
+        &lt;Material>
+          &lt;IS> 
+            &lt;connect nodeField='ambientIntensity' protoField='ambientIntensity'/>
+            &lt;connect nodeField='diffuseColor' protoField='diffuseColor'/>
+            &lt;connect nodeField='specularColor' protoField='specularColor'/> 
+            &lt;connect nodeField='emissiveColor' protoField='emissiveColor'/> 
+            &lt;connect nodeField='transparency' protoField='transparency'/>
+          &lt;/IS>
+        &lt;/Material>
+      &lt;/ProtoBody> 
+    &lt;/ProtoDeclare>
+  &lt;/Scene>
+&lt;/X3D>
+</PRE>
+
+<P>Note that the name of the new node type, RefractiveMaterial, is not 
+used by the browser to decide if the node is native or not; the URL/URN names 
+determine the node's implementation.</P>
+
+<p><a target="3D_Scenexml" href="Examples/PrototypesPlus.x3d">Click here</a> to 
+view this example in a 3D scene window.</P>
+
+<img class="x3dbar" SRC="../Images/x3dbar.png" ALT="--- X3D separator bar ---" width="430" height="23" >
+<h1><img class="cube" src="../Images/cube.gif" alt="cube" >
+<a name="Anchor"></a>C.8 Anchor</H1>
+
+<P>The <I>target</I> parameter can be used by the anchor node to send a request 
+to load a URL into another frame:</P>
+
+<pre Class="listing">&lt;Anchor url='"http://somehost/somefile.html"'
+        parameter='[ 'target=name_of_frame' ]'>
+   &lt;Shape> 
+     &lt;Cylinder />
+   &lt;/Shape>
+&lt;/Anchor>
+</PRE>
+
+<P>An Anchor may be used to bind the viewer to a particular <I>viewpoint</I> in 
+a virtual world by specifying a URL ending with <I>#viewpointName</I>, where 
+<I>viewpointName</I> is the DEF name of a viewpoint defined in the world. For 
+example:</P>
+
+<pre Class="listing">&lt;Anchor url='"http://www.school.edu/vrml/someScene.x3d#OverView"'>
+   &lt;Shape> 
+     &lt;Box />
+   &lt;/Shape>
+&lt;/Anchor>
+</PRE>
+
+<P>specifies an anchor that puts the viewer in the <I>someScene</I> world bound 
+to the viewpoint named <I>OverView</I> when the box is chosen (note that 
+<I>OverView</I> is the DEF name of the viewpoint, not the value of the 
+viewpoint's description field).</P>
+
+<P>If no world is specified, the current scene is implied. 
+For example:</P>
+
+<pre Class="listing">&lt;Anchor url='"#Doorway"'>
+   &lt;Shape> 
+     &lt;Sphere />
+   &lt;/Shape>
+&lt;/Anchor>
+</PRE>
+
+<P>binds the user's view to the viewpoint with the DEF name <I>Doorway</I> in 
+the current scene.</P>
+
+<img class="x3dbar" SRC="../Images/x3dbar.png" ALT="--- X3D separator bar ---" width="430" height="23" >
+<h1><img class="cube" src="../Images/cube.gif" alt="cube" >
+<a name="DirectionalLight"></a>C.9 Directional light</H1>
+
+<P>A directional light source illuminates only the objects in its enclosing 
+grouping node. The light illuminates everything within this coordinate system 
+including the objects that precede it in the scene graph as shown 
+below:</P>
+
+<pre Class="listing">&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+&lt;X3D version='3.0' profile='Interactive'>
+  &lt;head>
+    &lt;meta name='filename' content='DirectionalLight.x3d'/>
+  &lt;/head>
+  &lt;Scene>
+    &lt;Group>
+      &lt;Transform DEF='UnlitShapeOne' translation='-3.0 0.0 0.0'>
+        &lt;Shape>
+          &lt;Box/>
+          &lt;Appearance DEF='App'>
+            &lt;Material diffuseColor='0.8 0.4 0.2'/>
+          &lt;/Appearance>
+        &lt;/Shape>
+      &lt;/Transform>
+      &lt;Group DEF='LitParent'>
+        &lt;Transform DEF='LitShapeOne' translation='0.0 2.0 0.0'>
+          &lt;Shape>
+            &lt;Sphere/>
+            &lt;Appearance USE='App'/>
+          &lt;/Shape>
+        &lt;/Transform>
+        &lt;DirectionalLight/>
+        &lt;Transform DEF='LitShapeTwo' translation='0.0 -2.0 0.0'>
+          &lt;Shape>
+            &lt;Cylinder/>
+            &lt;Appearance USE='App'/>
+          &lt;/Shape>
+        &lt;/Transform>
+      &lt;/Group>
+      &lt;Transform DEF='UnlitShapeTwo' translation='3.0 0.0 0.0'>
+        &lt;Shape>
+          &lt;Cone/>
+          &lt;Appearance USE='App'/>
+        &lt;/Shape>
+      &lt;/Transform>
+    &lt;/Group>
+  &lt;/Scene>
+&lt;/X3D>
+</PRE>
+
+<p><a target="3D_Scenexml" href="Examples/DirectionalLight.x3d">Click here</a> to 
+view this example in a 3D scene window.</P>
+
+<img class="x3dbar" SRC="../Images/x3dbar.png" ALT="--- X3D separator bar ---" width="430" height="23" >
+<h1><img class="cube" src="../Images/cube.gif" alt="cube" >
+<a name="PointSet"></a>C.10 PointSet</H1>
+
+<P>This simple example defines a PointSet composed of 3 points. The first point 
+is red (1 0 0), the second point is green (0 1 0), and the third point is blue 
+(0 0 1). The second PointSet instances the Coordinate node defined in the first 
+PointSet, but defines different colours:</P>
+
+<pre Class="listing">&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+&lt;X3D version='3.0' profile='Interactive'>
+  &lt;head>
+    &lt;meta name='filename'content='PointSet.x3d'/>
+  &lt;/head>
+  &lt;Scene>
+    &lt;Shape>
+      &lt;PointSet>
+        &lt;Color color=' 1.0 0.0 0.0'/>
+        &lt;Coordinate DEF='mypts' 
+          point='0.0 0.0 0.0, 2.0 2.0 2.0, 3.0 3.0 3.0'/>
+      &lt;/PointSet>
+    &lt;/Shape>
+    &lt;Transform translation='2.0 0.0 0.0'>
+      &lt;Shape>
+        &lt;PointSet>
+          &lt;Color color=' 0.5 0.5 0.0'/>
+          &lt;Coordinate USE='mypts'/>
+        &lt;/PointSet>
+      &lt;/Shape>
+    &lt;/Transform>
+  &lt;/Scene>
+&lt;/X3D>
+</PRE>
+
+<p><a target="3D_Scenexml" href="Examples/PointSet.x3d">Click here</a> to 
+view this example in a 3D scene window.</P>
+
+<img class="x3dbar" SRC="../Images/x3dbar.png" ALT="--- X3D separator bar ---" width="430" height="23" >
+<h1><img class="cube" src="../Images/cube.gif" alt="cube" >
+<a name="LevelOfDetail"></a>C.11 Level of detail</H1>
+
+<P>The LOD node is typically used for switching between different versions of 
+geometry at specified distances from the viewer. However, if the range field is 
+left at its default value, the browser selects the most appropriate child from 
+the list given. It can make this selection based on performance or perceived 
+importance of the object. Children should be listed with most detailed version 
+first just as for the normal case. This "performance LOD" feature can be 
+combined with the normal LOD function to give the browser a selection of 
+children from which to choose at each distance.</P>
+
+<P>In this example, the scene consists of a small reference sphere 
+and an LOD node which has two ranges and three children. 
+The browser is free to choose 
+from three Shape choices 
+representing either a detailed or a less-detailed version of the object 
+when the viewer is closer than 10 metres 
+(as measured in the coordinate space of the LOD). 
+The browser should display the 
+less detailed version of the object (box) if the viewer is between 10 and 50 metres, 
+the sphere when closer than 10 metres 
+and should display nothing, the empty Shape last child, 
+if the viewer is farther than 50 metres. 
+Browsers should try to honor the hints given by authors, and authors should try 
+to give browsers as much freedom as they can to choose levels of detail based on 
+performance.</P>
+
+<pre Class="listing">&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+&lt;X3D version='3.0' profile='Interactive'>
+  &lt;head>
+    &lt;meta name='filename' content='LevelOfDetail.x3d'/>
+  &lt;/head>
+  &lt;Scene>
+     &lt;Viewpoint position='0 0 25' 
+       description='Start' centerOfRotation='0 0 0'/>
+     &lt;LOD range='10.0, 50.0'>
+       &lt;Shape>
+         &lt;Sphere/>
+       &lt;/Shape>
+       &lt;Shape>
+         &lt;Box/>
+       &lt;/Shape>
+       &lt;Shape/> 
+     &lt;/LOD>
+   &lt;/Scene>
+&lt;/X3D>
+</PRE>
+
+<P>For best results, ranges should be specified only where necessary and LOD 
+nodes should be nested with and without ranges.</P>
+
+<p><a target="3D_Scenexml" href="Examples/LevelOfDetail.x3d">Click here</a> to 
+view this example in a 3D scene window.</P>
+
+<img class="x3dbar" SRC="../Images/x3dbar.png" ALT="--- X3D separator bar ---" width="430" height="23" >
+<h1><img class="cube" src="../Images/cube.gif" alt="cube" >
+<a name="ColourInterpolator"></a>C.12 Colour interpolator</H1>
+
+<P>This example interpolates from red to green to blue in a 
+10 second cycle:</P>
+
+<pre Class="listing">&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+&lt;X3D version='3.0' profile='Interactive'>
+  &lt;head>
+    &lt;meta name='filename' content='ColorInterpolator.x3d'/>
+  &lt;/head>
+  &lt;Scene>
+    &lt;ColorInterpolator DEF='myColor' 
+      keyValue='1 0 0, 0 1 0, 0 0 1, 1 0 0' 
+      key='0.0 0.333 0.666 1.0'/>
+    &lt;TimeSensor DEF='myClock' cycleInterval='10.0' loop='true'/>
+    &lt;Shape>
+      &lt;Sphere/>
+      &lt;Appearance>
+        &lt;Material DEF='myMaterial'/>
+      &lt;/Appearance>
+    &lt;/Shape>
+    &lt;ROUTE fromNode='myClock' fromField='fraction_changed' 
+           toNode='myColor' toField='set_fraction'/>
+    &lt;ROUTE fromNode='myColor' fromField='value_changed' 
+           toNode='myMaterial' toField='diffuseColor'/>
+  &lt;/Scene>
+&lt;/X3D>
+</PRE>
+
+<p><a target="3D_Scenexml" href="Examples/ColorInterpolator.x3d">Click here</a> to 
+view this example in a 3D scene window.</P>
+
+<img class="x3dbar" SRC="../Images/x3dbar.png" ALT="--- X3D separator bar ---" width="430" height="23" >
+<h1><img class="cube" src="../Images/cube.gif" alt="cube" >
+<a name="TimeSensor"></a>C.13 TimeSensor</H1>
+
+<H2><a name="TimeSensorIntroduction"></a>C.13.1 Introduction</H2>
+
+<P>The TimeSensor is very flexible. The following are some of the many ways in 
+which it can be used:</P>
+
+<P><!--NOEDIT-->
+<OL type=a>
+  <LI>a TimeSensor can be triggered to run continuously by setting 
+  <I>cycleInterval</I> &gt; 0, and <I>loop</I> = true, and then routing a time 
+  output from another node that triggers the loop (<I>e.g.,</I> the 
+  <I>touchTime</I> outputOnly field of a TouchSensor can be routed to the TimeSensor's 
+  <I>startTime</I> to start the TimeSensor running).</LI> 
+  <LI>a TimeSensor can be made to run continuously upon reading by setting 
+  <I>cycleInterval</I> &gt; 0, <I>startTime</I> &gt; 0, <I>stopTime</I> = 0, and 
+  <I>loop</I> = <span class="code">TRUE</span>. </LI>
+</OL><!--/NOEDIT-->
+
+<H2><a name="TimeSensorClickToAnimate"></a>C.13.2 Click to animate</H2>
+
+<P>The first example animates a box when the user clicks on it:</P>
+
+<pre Class="listing">&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+&lt;X3D version='3.0' profile='Interactive'>
+  &lt;head>
+    &lt;meta name='filename' content='ClickToAnimate.x3d'/>
+  &lt;/head>
+  &lt;Scene>
+    &lt;Transform DEF='XForm'>
+      &lt;Shape>
+        &lt;Box/>
+        &lt;Appearance>
+          &lt;Material diffuseColor='1.0 0.0 0.0'/>
+        &lt;/Appearance>
+      &lt;/Shape>
+      &lt;TouchSensor DEF='Clicker' description='click to animate'/>
+      &lt;TimeSensor DEF='TimeSource' cycleInterval='2.0'/>
+      &lt;OrientationInterpolator DEF='Animation' 
+        keyValue='0.0 1.0 0.0 0.0, 0.0 1.0 0.0 2.1, 
+                  0.0 1.0 0.0 4.2, 0.0 1.0 0.0 0.0' 
+        key='0.0 0.33 0.66 1.0'/>
+    &lt;/Transform>
+    &lt;ROUTE fromNode='Clicker' fromField='touchTime' 
+           toNode='TimeSource' toField='startTime'/>
+    &lt;ROUTE fromNode='TimeSource' fromField='fraction_changed' 
+           toNode='Animation' toField='set_fraction'/>
+    &lt;ROUTE fromNode='Animation' fromField='value_changed' 
+           toNode='XForm' toField='rotation'/>
+  &lt;/Scene>
+&lt;/X3D>
+</PRE>
+
+<p><a target="3D_Scenexml" href="Examples/ClickToAnimate.x3d">Click here</a> to 
+view this example in a 3D scene window.</P>
+
+<H2><a name="AlarmClock"></a>C.13.3 Alarm clock</H2>
+
+<P>The second example plays chimes once an hour:</P>
+
+<pre Class="listing">&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+&lt;X3D version='3.0' profile='Immersive'>
+  &lt;head>
+    &lt;meta name='filename' content='AlarmClock.x3d'/>
+  &lt;/head>
+   &lt;Scene>
+     &lt;Group>
+       &lt;TimeSensor DEF='Hour' cycleInterval='5.0' loop='true'/>
+       &lt;Sound>
+         &lt;AudioClip DEF='Sounder' stopTime='0.0'  
+           description='chime' url='"click.wav"'/>
+       &lt;/Sound>
+     &lt;/Group>
+     &lt;ROUTE fromNode='Hour' fromField='cycleTime' 
+            toNode='Sounder' toField='startTime'/>
+   &lt;/Scene>
+&lt;/X3D>
+</PRE>
+
+<p><a target="3D_Scenexml" href="Examples/AlarmClock.x3d">Click here</a> to 
+view this example in a 3D scene window.</P>
+
+<img class="x3dbar" SRC="../Images/x3dbar.png" ALT="--- X3D separator bar ---" width="430" height="23" >
+<h1><img class="cube" src="../Images/cube.gif" alt="cube" >
+<a name="ShuttlesAndPendulums"></a>C.14 Shuttles and pendulums</H1>
+
+<P>Shuttles and pendulums are great building blocks for composing interesting 
+animations. This shuttle translates its children back and forth along the X 
+axis, from -1 to 1 (by default). The <I>distance</I> field can be used to change 
+this default. The pendulum rotates its children about the Z axis, from 0 to 
+<font face="Times New Roman">&pi;</font> radians and back again (by default). The <I>maxAngle</I> field can be 
+used to change this default.</P>
+
+<pre Class="listing">&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+&lt;X3D version='3.0' profile='Immersive'>
+  &lt;head>
+    &lt;meta name='filename' content='ShuttlesAndPendulums.x3d'/>
+  &lt;/head>
+  &lt;Scene>
+    &lt;ProtoDeclare name='Shuttle'>
+      &lt;ProtoInterface>
+        &lt;field name='rate' type='SFTime' value='1' accessType='initializeOnly'/>
+        &lt;field name='distance' type='SFFloat' value='1' accessType='initializeOnly'/>
+        &lt;field name='children' type='MFNode' accessType='initializeOnly'/>
+        &lt;field name='startTime' type='SFTime' value='0' accessType='inputOutput'/>
+        &lt;field name='stopTime' type='SFTime' value='0' accessType='inputOutput'/>
+        &lt;field name='loop' type='SFBool' value='true' accessType='initializeOnly'/>
+      &lt;/ProtoInterface>
+      &lt;ProtoBody>
+        &lt;Transform DEF='F'>
+          &lt;IS>
+            &lt;connect nodeField='children' protoField='children'/>
+          &lt;/IS>
+        &lt;/Transform>
+        &lt;TimeSensor DEF='T'>
+          &lt;IS>
+            &lt;connect nodeField='cycleInterval' protoField='rate'/>
+            &lt;connect nodeField='startTime' protoField='startTime'/>
+            &lt;connect nodeField='stopTime' protoField='stopTime'/>
+            &lt;connect nodeField='loop' protoField='loop'/>
+          &lt;/IS>
+        &lt;/TimeSensor>
+        &lt;Script DEF='S'>
+          &lt;field name='distance' type='SFFloat' accessType='initializeOnly'/>
+          &lt;field name='position' type='MFVec3f' accessType='outputOnly'/>
+          &lt;IS>
+            &lt;connect nodeField='distance' protoField='distance'/>
+          &lt;/IS>
+          &lt;![CDATA[
+            ecmascript:
+            function initialize () {     // constructor:setup interpolator
+              pos1 = new SFVec3f(-distance, 0, 0);
+              pos2 = new SFVec3f(distance, 0, 0);
+              position = new MFVec3f(pos1, pos2, pos1);
+            }
+          ]]&gt;
+        &lt;/Script>
+        &lt;PositionInterpolator DEF='I' 
+          key='0, 0.5, 1' 
+          keyValue='-1 0 0, 1 0 0, -1 0 0'/>
+        &lt;ROUTE fromNode='T' fromField='fraction_changed'
+                toNode='I' toField='set_fraction'/>
+        &lt;ROUTE fromNode='I' fromField='value_changed'
+                toNode='F' toField='translation'/>
+        &lt;ROUTE fromNode='S' fromField='position'  
+                toNode='I' toField='keyValue' />
+      &lt;/ProtoBody> 
+    &lt;/ProtoDeclare>
+    &lt;ProtoDeclare name='Pendulum'>
+      &lt;ProtoInterface> 
+        &lt;field name='rate' type='SFTime' value='1' accessType='initializeOnly'/>
+        &lt;field name='maxAngle' type='SFFloat' value='3.14159' accessType='initializeOnly'/>
+        &lt;field name='children' type='MFNode' accessType='initializeOnly'/>
+        &lt;field name='startTime' type='SFTime' value='0' accessType='inputOutput' />
+        &lt;field name='stopTime' type='SFTime' value='0' accessType='inputOutput' />
+        &lt;field name='loop' type='SFBool' value='true' accessType='initializeOnly'/>
+      &lt;/ProtoInterface>
+      &lt;ProtoBody>
+        &lt;Transform DEF='FF'>
+          &lt;IS>
+            &lt;connect nodeField='children' protoField='children'/>
+          &lt;/IS>
+        &lt;/Transform>
+        &lt;TimeSensor DEF='TT'>
+          &lt;IS>
+            &lt;connect nodeField='cycleInterval' protoField='rate'/>
+            &lt;connect nodeField='startTime' protoField='startTime'/>
+            &lt;connect nodeField='stopTime' protoField='stopTime'/>
+            &lt;connect nodeField='loop' protoField='loop'/>
+          &lt;/IS>
+        &lt;/TimeSensor>
+        &lt;Script DEF='SS'>
+          &lt;field name='maxAngle' type='SFFloat' accessType='initializeOnly'/>
+          &lt;field name='rotation' type='MFRotation' accessType='outputOnly'/>
+          &lt;IS>
+            &lt;connect nodeField='maxAngle' protoField='maxAngle'/>
+          &lt;/IS>
+          &lt;![CDATA[
+            ecmascript:
+            function initialize() {     // constructor: setup interpolator 
+              rot1 = new SFRotation(0, 0, 1, 0);
+              rot2 = new SFRotation(0, 0, 1, maxAngle/2);
+              rot3 = new SFRotation(0, 0, 1, maxAngle);
+              rotation = new MFRotation(rot1, rot2, rot3, rot2, rot1);
+            }  
+          ]]&gt;
+        &lt;/Script>
+        &lt;OrientationInterpolator DEF='II'
+          key='0, 0.25, 0.5, 0.75, 1' 
+          keyValue='0 0 1 0, 0 0 1 1.57, 0 0 1 3.14, 0 0 1 1.57, 0 0 1 0'/>
+        &lt;ROUTE fromNode='TT' fromField='fraction_changed' 
+               toNode='II' toField='set_fraction' />
+        &lt;ROUTE fromNode='II' fromField='value_changed' 
+               toNode='FF' toField='set_rotation' />
+        &lt;ROUTE fromNode='SS' fromField='rotation'  
+               toNode='II' toField='set_keyValue' />
+      &lt;/ProtoBody>
+    &lt;/ProtoDeclare>
+    &lt;Transform translation='-3 0 0'>
+      &lt;ProtoInstance name='Pendulum'>
+        &lt;fieldValue name='rate' value='3'/>
+         &lt;fieldValue name='maxAngle' value='6.28'/>
+         &lt;fieldValue name='children'>
+           &lt;Shape>
+             &lt;Cylinder height='5'/>
+             &lt;Appearance>
+               &lt;Material diffuseColor='0.8 0.1 0'/>
+              &lt;/Appearance>
+            &lt;/Shape>
+          &lt;/fieldValue>
+      &lt;/ProtoInstance>
+    &lt;/Transform>
+    &lt;Transform>
+      &lt;ProtoInstance name='Shuttle'>
+        &lt;fieldValue name='rate' value='2'/>
+        &lt;fieldValue name='children'>
+          &lt;Shape>
+            &lt;Sphere/>
+            &lt;Appearance>
+              &lt;Material diffuseColor='0.1 0.8 0'/>
+            &lt;/Appearance>
+          &lt;/Shape>
+        &lt;/fieldValue>
+      &lt;/ProtoInstance>
+    &lt;/Transform>
+  &lt;/Scene>
+&lt;/X3D>
+
+</PRE>
+
+<p><a target="3D_Scenexml" href="Examples/ShuttlesAndPendulums.x3d">Click here</a> to 
+view this example in a 3D scene window.</P>
+
+<P>These nodes can be used to do a continuous animation when <I>loop</I> is 
+true. When <I>loop</I> is false they can perform a single cycle under control of 
+the <I>startTime</I> and <I>stopTime</I> fields. The <I>rate</I> field controls 
+the speed of the animation. The <I>children</I> field holds the children to be 
+animated.</P>
+
+<img class="x3dbar" SRC="../Images/x3dbar.png" ALT="--- X3D separator bar ---" width="430" height="23" >
+<h1><img class="cube" src="../Images/cube.gif" alt="cube" >
+<a name="Robot"></a>C.15 Robot</H1>
+
+<P>This example is a simple implementation of a robot. This robot has very 
+simple body parts: a cube for his head, a sphere for his body and cylinders for 
+arms (he hovers so he has no feet!). He is something of a sentry--he walks 
+forward and walks back across a path. He does this whenever the viewer is near. 
+This makes use of <a href="#ShuttlesAndPendulums">C.1, Shuttles and pendulums</a>.</P>
+
+<pre Class="listing">&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+&lt;X3D version='3.0' profile='Immersive'>
+  &lt;head>
+    &lt;meta name='filename' content='Robot.x3d'/>
+  &lt;/head>
+  &lt;Scene>
+    &lt;ExternProtoDeclare name='Shuttle' 
+      url='"ShuttlesAndPendulums.x3d#Shuttle"'>
+      &lt;field name='rate' type='SFTime' accessType='initializeOnly'/>
+      &lt;field name='distance' type='SFFloat' accessType='initializeOnly'/>
+      &lt;field name='children' type='MFNode' accessType='initializeOnly'/>
+      &lt;field name='startTime' type='SFTime' accessType='inputOutput'/>
+      &lt;field name='stopTime' type='SFTime' accessType='inputOutput'/>
+      &lt;field name='loop' type='SFBool' accessType='initializeOnly'/>
+    &lt;/ExternProtoDeclare>
+    &lt;ExternProtoDeclare name='Pendulum' 
+      url='"ShuttlesAndPendulums.x3d#Pendulum"'>
+      &lt;field name='rate' type='SFTime' accessType='initializeOnly'/>
+      &lt;field name='maxAngle' type='SFFloat' accessType='initializeOnly'/>
+      &lt;field name='children' type='MFNode' accessType='initializeOnly'/>
+      &lt;field name='startTime' type='SFTime' accessType='inputOutput'/>
+      &lt;field name='stopTime' type='SFTime' accessType='inputOutput'/>
+      &lt;field name='loop' type='SFBool' accessType='initializeOnly'/>
+    &lt;/ExternProtoDeclare>
+    &lt;NavigationInfo speed='20' type='"WALK ANY"'/>
+    &lt;Viewpoint position='0 0 150' description='Watch Robot'/>
+    &lt;ProximitySensor DEF='Near' size='200 200 200'/>
+    &lt;ProtoInstance DEF='WALK' name='Shuttle'>
+      &lt;fieldValue name='stopTime' value='1'/>
+      &lt;fieldValue name='rate' value='10'/>
+      &lt;fieldValue name='distance' value='20'/>
+      &lt;fieldValue name='children'>
+        &lt;Transform rotation='0 1 0 1.57'>
+          &lt;Shape>
+            &lt;Appearance DEF='A'>
+              &lt;Material diffuseColor='0 0.5 0.7'/>
+            &lt;/Appearance> &lt;!--head--> 
+            &lt;Box/>
+          &lt;/Shape>
+          &lt;Transform scale='1 5 1' translation='0 -5 0'>
+            &lt;Shape>
+              &lt;Appearance USE='A'/> &lt;!-- body -->
+              &lt;Sphere/>
+            &lt;/Shape>
+          &lt;/Transform>
+          &lt;Transform rotation='0 1 0 1.57' translation='1.5 0 0'>
+            &lt;ProtoInstance DEF='Arm' name='Pendulum'>
+              &lt;fieldValue name='stopTime' value='1'/>
+              &lt;fieldValue name='rate' value='1'/>
+              &lt;fieldValue name='maxAngle' value='0.52'/>
+              &lt;fieldValue name='children'>
+                &lt;Transform translation='0 -3 0'>
+                  &lt;Shape>
+                    &lt;Appearance USE='A'/>
+                    &lt;Cylinder height='4' radius='0.5'/>
+                  &lt;/Shape>
+                &lt;/Transform>
+              &lt;/fieldValue>
+            &lt;/ProtoInstance>
+          &lt;/Transform>
+          &lt;Transform rotation='0 -1 0 1.57' translation='-1.5 0 0'>
+            &lt;ProtoInstance USE='Arm' name='Pendulum'/>
+          &lt;/Transform>
+        &lt;/Transform>
+      &lt;/fieldValue>
+    &lt;/ProtoInstance>
+    &lt;ROUTE fromField='enterTime' fromNode='Near' 
+           toNode='WALK' toField='startTime'/>
+    &lt;ROUTE fromField='enterTime' fromNode='Near' 
+           toNode='Arm' toField='startTime'/>
+    &lt;ROUTE fromField='exitTime' fromNode='Near' 
+           toNode='WALK' toField='stopTime'/>
+    &lt;ROUTE fromField='exitTime' fromNode='Near' 
+           toNode='Arm' toField='stopTime'/>
+  &lt;/Scene>
+&lt;/X3D>
+</PRE>
+
+<p><a target="3D_Scenexml" href="Examples/Robot.x3d">Click here</a> to 
+view this example in a 3D scene window.</P>
+
+<P>Move closer to the robot to start the animation.</P>
+
+<img class="x3dbar" SRC="../Images/x3dbar.png" ALT="--- X3D separator bar ---" width="430" height="23" >
+<h1><img class="cube" src="../Images/cube.gif" alt="cube" >
+<a name="Chopper"></a>C.16 Chopper</H1>
+
+<P>This example of a helicopter demonstrates how to do simple animation 
+triggered by a TouchSensor. It uses an EXTERNPROTO to include a Rotor node from 
+the Internet which does the actual animation.</P>
+
+<pre Class="listing">&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+&lt;X3D version='3.0' profile='Immersive'>
+  &lt;head>
+    &lt;meta name='filename' content='Chopper.x3d'/>
+  &lt;/head>
+  &lt;Scene>
+    &lt;ExternProtoDeclare name='Rotor' 
+       url='"Rotor.x3d#Rotor"'>
+      &lt;field name='rate' type='SFTime' accessType='initializeOnly'/>
+      &lt;field name='children' type='MFNode' accessType='initializeOnly'/>
+      &lt;field name='startTime' type='SFTime' accessType='inputOutput'/>
+      &lt;field name='stopTime' type='SFTime' accessType='inputOutput'/>
+    &lt;/ExternProtoDeclare>
+    &lt;ProtoDeclare name='Chopper'>
+      &lt;ProtoInterface>
+        &lt;field name='rotorSpeed' type='SFTime' value='1' 
+          accessType='initializeOnly'/>
+      &lt;/ProtoInterface>
+      &lt;ProtoBody>
+        &lt;Group>
+          &lt;TouchSensor DEF='Touch' description='touch to toggle rotor rotation'/>
+          &lt;Inline url='"ChopperBody.x3d"'/>
+          &lt;ProtoInstance DEF='Top' name='Rotor'>
+            &lt;fieldValue name='stopTime' value='1'/>
+            &lt;fieldValue name='children'>
+              &lt;Inline url='"ChopperRotor.x3d"' load='true'/>
+            &lt;/fieldValue>
+            &lt;IS>
+              &lt;connect nodeField='rate' protoField='rotorSpeed'/>
+            &lt;/IS>
+          &lt;/ProtoInstance>
+        &lt;/Group>
+        &lt;Script DEF='RotorScript'>
+          &lt;field name='startOrStopEngine' type='SFTime' accessType='inputOnly'/>
+          &lt;field name='startEngine' type='SFTime' accessType='outputOnly'/>
+          &lt;field name='stopEngine' type='SFTime' accessType='outputOnly'/>
+          &lt;field name='engineStarted' type='SFBool' value='false' 
+            accessType='initializeOnly'/>
+          &lt;![CDATA[
+            ecmascript:
+            function startOrStopEngine(value) {
+              // start or stop engine:
+              if (!engineStarted) {
+               startEngine = value;
+                engineStarted = true;
+              }
+              else
+              {
+                stopEngine = value;
+                engineStarted = false;
+              }
+            }
+          ]]&gt;
+        &lt;/Script>
+        &lt;ROUTE fromNode='Touch' fromField='touchTime' 
+               toNode='RotorScript' toField='startOrStopEngine' />
+        &lt;ROUTE fromNode='RotorScript' fromField='startEngine' 
+               toNode='Top' toField='startTime' />
+        &lt;ROUTE fromNode='RotorScript' fromField='stopEngine' 
+               toNode='Top' toField='stopTime'/>
+      &lt;/ProtoBody>
+    &lt;/ProtoDeclare>
+    &lt;Viewpoint description='Example16' position='0 0 5'/>
+    &lt;NavigationInfo type='"EXAMINE ANY"'/>
+    &lt;Group>
+      &lt;ProtoInstance DEF='MikesChopper' name='Chopper'/>
+    &lt;/Group>
+  &lt;/Scene>
+&lt;/X3D>
+</PRE>
+
+<p><a target="3D_Scenexml" href="Examples/Chopper.x3d">Click here</a> to 
+view this example in a 3D scene window.</P>
+
+<img class="x3dbar" SRC="../Images/x3dbar.png" ALT="--- X3D separator bar ---" width="430" height="23" >
+<h1><img class="cube" src="../Images/cube.gif" alt="cube" >
+<a name="GuidedTour"></a>C.17 Guided tour</H1>
+
+<P>X3D provides control of the viewer's camera through use of a script. This is 
+useful for things such as guided tours, merry-go-round rides, and transportation 
+devices such as buses and elevators. These next two examples show a couple of 
+ways to use this feature.</P>
+
+<P>This example is a simple guided tour through the world. Upon entry, a guide 
+orb hovers in front of the viewer. Click on this and a tour through the world 
+begins. The orb follows the user around on his tour. A ProximitySensor ensures 
+that the tour is started only if the user is close to the initial starting 
+point. Note that this is done without scripts thanks to the <I>touchTime</I> 
+output of the TouchSensor.</P>
+
+<pre Class="listing">&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+&lt;X3D version='3.0' profile='Interactive'>
+  &lt;head>
+    &lt;meta name='filename' content='GuidedTour.x3d'/>
+  &lt;/head>
+   &lt;Scene>
+     &lt;Group>
+       &lt;Transform translation='0.0 -1.0 0.0'>
+         &lt;Shape>
+           &lt;Box size='30.0 0.2 30.0'/>
+           &lt;Appearance>
+             &lt;Material/>
+           &lt;/Appearance>
+         &lt;/Shape>
+       &lt;/Transform>
+       &lt;Transform translation='-1.0 0.0 0.0'>
+         &lt;Shape>
+           &lt;Cone/>
+           &lt;Appearance>
+             &lt;Material diffuseColor='0.5 0.8 0.0'/>
+           &lt;/Appearance>
+         &lt;/Shape>
+       &lt;/Transform>
+       &lt;Transform translation='1.0 0.0 0.0'>
+         &lt;Shape>
+           &lt;Cylinder/>
+           &lt;Appearance>
+             &lt;Material diffuseColor='0.0 0.2 0.7'/>
+           &lt;/Appearance>
+         &lt;/Shape>
+       &lt;/Transform>
+       &lt;Transform DEF='GuideTransform'>
+         &lt;Viewpoint DEF='TourGuide' jump='false' 
+           description='Tour Guide'/>
+         &lt;ProximitySensor DEF='ProxSensor' 
+           size='50.0 50.0 50.0'/>
+         &lt;TouchSensor DEF='StartTour' 
+           description='Touch to start tour'/>
+         &lt;Transform translation='0.6 0.4 8.0'>
+           &lt;Shape>
+             &lt;Sphere radius='0.2'/>
+             &lt;Appearance>
+               &lt;Material diffuseColor='1.0 0.6 0.0'/>
+              &lt;/Appearance>
+           &lt;/Shape>
+         &lt;/Transform>
+       &lt;/Transform>
+     &lt;/Group>
+      &lt;PositionInterpolator DEF='GuidePI' 
+         keyValue='0.0 0.0 0.0, 0.0 0.0 -5.0, 2.0 0.0 -5.0, 
+                   2.0 6.0 -15.0, -4.0 6.0 -15.0, -4.0 0.0 -5.0, 
+                   0.0 0.0 -5.0,  0.0 0.0 0.0' 
+         key='0.0 0.2 0.3 0.5 0.6 0.8 0.9 1.0'/>
+      &lt;OrientationInterpolator DEF='GuideRI' 
+         keyValue='0.0 1.0 0.0 0.0, 0.0 1.0 0.0 0.0, 0.0 1.0 0.0 1.2, 
+                   0.0 1.0 0.0 3.0, 0.0 1.0 0.0 3.5, 0.0 1.0 0.0 5.0, 
+                   0.0 1.0 0.0 0.0, 0.0 1.0 0.0 0.0' 
+         key='0.0 0.2 0.3 0.5 0.6 0.8 0.9 1.0'/>
+      &lt;TimeSensor DEF='TS' cycleInterval='30.0'/>
+      &lt;ROUTE fromNode='ProxSensor' fromField='isActive' 
+             toNode='StartTour' toField='enabled'/>
+      &lt;ROUTE fromNode='StartTour' fromField='touchTime' 
+             toNode='TS' toField='startTime'/>
+      &lt;ROUTE fromNode='TS' fromField='isActive' 
+             toNode='TourGuide' toField='set_bind'/>
+      &lt;ROUTE fromNode='TS' fromField='fraction_changed' 
+             toNode='GuidePI' toField='set_fraction'/>
+      &lt;ROUTE fromNode='TS' fromField='fraction_changed' 
+             toNode='GuideRI' toField='set_fraction'/>
+      &lt;ROUTE fromNode='GuidePI' fromField='value_changed' 
+             toNode='GuideTransform' toField='translation'/>
+      &lt;ROUTE fromNode='GuideRI' fromField='value_changed' 
+             toNode='GuideTransform' toField='rotation'/>
+   &lt;/Scene>
+&lt;/X3D>
+</PRE>
+
+<p><a target="3D_Scenexml" href="Examples/GuidedTour.x3d">Click here</a> to 
+view this example in a 3D scene window.</P>
+
+<img class="x3dbar" SRC="../Images/x3dbar.png" ALT="--- X3D separator bar ---" width="430" height="23" >
+<h1><img class="cube" src="../Images/cube.gif" alt="cube" >
+<a name="Elevator"></a>C.18 Elevator</H1>
+
+<P>This is another example of animating the camera by depicting an elevator to 
+ease access to a multi-storey building. For this example, a 2 storey building is 
+shown and it is assumed that the elevator is already at the ground floor. To go 
+up, the user just steps onto the elevator platform. A ProximitySensor fires and 
+starts the elevator up automatically. Additional features such as call buttons 
+for outside the elevator, elevator doors, and floor selector buttons could be 
+added to make the elevator easier to use.</P>
+
+<pre Class="listing">&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+&lt;X3D version='3.0' profile='Interactive'>
+  &lt;head>
+    &lt;meta name='filename' content='Elevator.x3d'/>
+  &lt;/head>
+  &lt;Scene>
+    &lt;Transform translation='0.0 0.0 -3.5'>
+      &lt;Shape>
+        &lt;Cone/>
+        &lt;Appearance>
+          &lt;Material diffuseColor='0.0 1.0 0.0'/>
+        &lt;/Appearance>
+      &lt;/Shape>
+      &lt;/Transform>
+      &lt;Transform translation='0.0 4.0 -3.5'>
+        &lt;Shape>
+          &lt;Cone/>
+          &lt;Appearance>
+            &lt;Material diffuseColor='1.0 0.0 0.0'/>
+          &lt;/Appearance>
+        &lt;/Shape>
+      &lt;/Transform>
+      &lt;Transform translation='0.0 8.0 -3.5'>
+        &lt;Shape>
+          &lt;Cone/>
+          &lt;Appearance>
+            &lt;Material diffuseColor='0.0 0.0 1.0'/>
+          &lt;/Appearance>
+        &lt;/Shape>
+      &lt;/Transform>
+      &lt;Group>
+        &lt;Transform DEF='ETransform'>
+          &lt;Viewpoint DEF='EViewpoint' description='Elevator Viewpoint' 
+            centerOfRotation='0 0 0' 
+            jump='false'/>
+          &lt;ProximitySensor DEF='EProximity' size='2.0 5.0 5.0'/>
+          &lt;Transform translation='0.0 -1.0 0.0'>
+            &lt;Shape>
+              &lt;Box size='2.0 0.2 5.0'/>
+              &lt;Appearance>
+                &lt;Material/>
+               &lt;/Appearance>
+             &lt;/Shape>
+            &lt;/Transform>
+        &lt;/Transform>
+      &lt;/Group>
+      &lt;PositionInterpolator DEF='ElevatorPI' 
+        keyValue=' 0.0 0.0 0.0, 0.0 8.0 0.0' 
+        key=' 0.0 1.0'/>
+      &lt;TimeSensor DEF='TS' cycleInterval='10.0'/>
+      &lt;ROUTE fromNode='EProximity' fromField='enterTime' 
+             toNode='TS' toField='startTime'/>
+      &lt;ROUTE fromNode='TS' fromField='isActive' 
+             toNode='EViewpoint' toField='set_bind'/>
+      &lt;ROUTE fromNode='TS' fromField='fraction_changed' 
+             toNode='ElevatorPI' toField='set_fraction'/>
+      &lt;ROUTE fromNode='ElevatorPI' fromField='value_changed' 
+             toNode='ETransform' toField='translation'/>
+   &lt;/Scene>
+&lt;/X3D>
+</PRE>
+
+<p><a target="3D_Scenexml" href="Examples/Elevator.x3d">Click here</a> to 
+view this example in a 3D scene window.</P>
+
+<img class="x3dbar" SRC="../Images/x3dbar.png" ALT="--- X3D separator bar ---" width="430" height="23" >
+<h1><img class="cube" src="../Images/cube.gif" alt="cube" >
+<a name="ExecutionModel"></a>C.19 Execution model</H1>
+
+<P>This example illustrates the execution model example described in 4.10.3, 
+Execution model in Part 1 of <a href="references.html#[I19775]">ISO/IEC 19775</a>.</P>
+
+<pre Class="listing">&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+&lt;X3D version='3.0' profile='Immersive'>
+  &lt;head>
+    &lt;meta name='filename' content='ExecutionModel.x3d'/>
+  &lt;/head>
+  &lt;Scene>
+    &lt;TouchSensor DEF='TS'/>
+    &lt;Script DEF='Script1'>
+      &lt;field name='touchTime' type='SFTime' accessType='inputOnly'/>
+      &lt;field name='toScript2' type='SFBool' accessType='outputOnly'/>
+      &lt;field name='toScript3' type='SFBool' accessType='outputOnly'/>
+      &lt;field name='string' type='SFString' accessType='outputOnly'/>
+      &lt;![CDATA[
+      ecmascript:
+      function touchTime() {
+        toScript2 = true;
+      }
+      function eventsProcessed() {
+        string = 'Script1.eventsProcessed';
+        toScript3 = true;
+      }
+      ]]&gt;
+    &lt;/Script>
+    &lt;Script DEF='Script2'>
+      &lt;field name='fromScript1' type='SFBool' accessType='inputOnly'/>
+      &lt;field name='toScript4' type='SFBool' accessType='outputOnly'/>
+      &lt;field name='string' type='SFString' accessType='outputOnly'/>
+      &lt;![CDATA[
+      ecmascript:
+      function fromScript1() { 
+      }
+      function eventsProcessed() {
+        string = 'Script2.eventsProcessed';
+        toScript4 = true;
+      }
+      ]]&gt;
+    &lt;/Script>
+    &lt;Script DEF='Script3'>
+      &lt;field name='fromScript1' type='SFBool' accessType='inputOnly'/>
+      &lt;field name='toScript5' type='SFBool' accessType='outputOnly'/>
+      &lt;field name='toScript6' type='SFBool' accessType='outputOnly'/>
+      &lt;field name='string' type='SFString' accessType='outputOnly'/>
+      &lt;![CDATA[
+      ecmascript:
+      function fromScript1() {
+        toScript5 = true;
+      }
+      function eventsProcessed() {
+        string = 'Script3.eventsProcessed';
+        toScript6 = true;
+      }
+      ]]&gt;
+    &lt;/Script>
+    &lt;Script DEF='Script4'>
+      &lt;field name='fromScript2' type='SFBool' accessType='inputOnly'/>
+      &lt;![CDATA[
+      ecmascript:
+      function fromScript2() { 
+      }
+      ]]&gt;
+    &lt;/Script>
+    &lt;Script DEF='Script5'>
+      &lt;field name='fromScript3' type='SFBool' accessType='inputOnly'/>
+      &lt;![CDATA[
+      ecmascript:
+       function fromScript3() {
+      }
+      ]]&gt;
+    &lt;/Script>
+    &lt;Script DEF='Script6'>
+      &lt;field name='fromScript3' type='SFBool' accessType='inputOnly'/>
+      &lt;field name='toScript7' type='SFBool' accessType='outputOnly'/>
+      &lt;field name='string' type='SFString' accessType='outputOnly'/>
+      &lt;![CDATA[
+      ecmascript:
+      function fromScript3() {
+        toScript7 = true;
+      }
+      function eventsProcessed() {
+        string = 'Script6.eventsProcessed';
+      }
+      ]]&gt;
+    &lt;/Script>
+    &lt;Script DEF='Script7'>
+      &lt;field name='fromScript6' type='SFBool' accessType='inputOnly'/>
+      &lt;![CDATA[
+      ecmascript:
+      function fromScript6 () { 
+      }
+      ]]&gt;
+    &lt;/Script>&lt;!--Display the results-->
+    &lt;Script DEF='Collector'>
+      &lt;field name='string' type='MFString' accessType='outputOnly'/>
+      &lt;field name='fromString' type='SFString' accessType='inputOnly'/>
+      &lt;![CDATA[
+      ecmascript:
+      function initialize() {
+        string[0] = 'Event Sequence:';
+      }
+      function fromString(s) {
+        i = string.length;
+        string[i] = ''+i+') '+s+' occurred';
+      }
+      ]]&gt;
+    &lt;/Script>
+    &lt;Transform translation='0 2 0'>
+      &lt;Shape>
+        &lt;Appearance>
+          &lt;Material diffuseColor='0 0.6 0'/>
+        &lt;/Appearance>
+         &lt;Sphere/>
+      &lt;/Shape>
+    &lt;/Transform>
+      &lt;Shape>
+        &lt;Text DEF='Result'/>
+      &lt;/Shape>
+      &lt;Viewpoint position='7 -1 18'/>
+      &lt;ROUTE fromNode='TS' fromField='touchTime'  
+             toNode='Script1' toField='touchTime'/>
+      &lt;ROUTE fromNode='Script1' fromField='toScript2' 
+             toNode='Script2' toField='fromScript1'/>
+      &lt;ROUTE fromNode='Script1' fromField='toScript3' 
+             toNode='Script3' toField='fromScript1'/>
+      &lt;ROUTE fromNode='Script2' fromField='toScript4' 
+             toNode='Script4' toField='fromScript2'/>
+      &lt;ROUTE fromNode='Script3' fromField='toScript5' 
+              toNode='Script5' toField='fromScript3'/>
+      &lt;ROUTE fromNode='Script3' fromField='toScript6' 
+             toNode='Script6' toField='fromScript3'/>
+      &lt;ROUTE fromNode='Script6' fromField='toScript7' 
+             toNode='Script7' toField='fromScript6'/>
+      &lt;ROUTE fromNode='Script1' fromField='string' 
+             toNode='Collector' toField='fromString'/>
+      &lt;ROUTE fromNode='Script2' fromField='string' 
+             toNode='Collector' toField='fromString'/>
+      &lt;ROUTE fromNode='Script3' fromField='string' 
+             toNode='Collector' toField='fromString'/>
+      &lt;ROUTE fromField='string' fromNode='Script6' 
+             toNode='Collector' toField='fromString'/>
+      &lt;ROUTE fromNode='Collector' fromField='string' 
+             toNode='Result' toField='string'/>
+   &lt;/Scene>
+&lt;/X3D>
+</PRE>
+
+<p><a target="3D_Scenexml" href="Examples/ExecutionModel.x3d">Click here</a> to 
+view this example in a 3D scene window.</P>
+
+<P>Clicking on the green sphere should display a text string for each 
+eventsProcessed event. The two possible correct displays for this example 
+are:</P>
+
+<pre Class="listing">Event Sequence:
+  1) Script1.eventsProcessed occurred
+  2) Script2.eventsProcessed occurred
+  3) Script3.eventsProcessed occurred
+  4) Script6.eventsProcessed occurred
+</PRE>
+<P>or</P>
+<pre Class="listing">Event Sequence:
+  1) Script2.eventsProcessed occurred
+  2) Script1.eventsProcessed occurred
+  3) Script3.eventsProcessed occurred
+  4) Script6.eventsProcessed occurred
+</PRE>
+
+<img class="x3dbar" src="../Images/x3dbar.png" alt="--- X3D separator bar ---" width="430" height="23">
+
+</body>
+</html>

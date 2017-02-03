@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+<X3D version='3.0' profile='Immersive'>
+  <head>
+    <meta name='filename' content='ChopperRotor.x3d'/>
+  </head>
+  <Scene>
+     <Group>
+        <Transform rotation='0.25098816 -0.6844724 0.6844724 2.64978'>
+           <Shape>
+              <Extrusion 
+                scale='0.907089 0.2, 0.907088 0.6, 0.751411 0.6, 
+                       0.206542 0.4, 0.459517 0.8, 0.167623 0.4, 
+                       0.751412 0.6, 0.926548 0.6, 0.907089 0.2' 
+                solid='false' 
+                orientation='0.0 -1.0 0.0 0.349065, 0.0 -1.0 0.0 0.261799, 
+                             0.0 -1.0 0.0 0.174532, 0.0 0.0 1.0 0.0, 
+                             0.0 0.0 1.0 0.0, 0.0 0.0 1.0 0.0, 
+                             0.0 1.0 0.0 0.0872659, 0.0 1.0 0.0 0.174532, 
+                             0.0 1.0 0.0 0.261799' 
+                crossSection='0.4 0.0, 0.0026528 0.0979112, 
+                              -0.4 0.0, -0.0103739 -0.0801211, 0.4 0.0' 
+                spine='0.0 -1.6 0.0, 0.0 -1.44152 0.0, 0.0 -1.24754 0.0, 
+                       0.0 -0.229174 0.0, 0.0 -0.0109524 0.0, 0.0 0.183023 0.0, 
+                       0.0 1.17715 0.0, 0.0 1.37112 0.0, 0.0 1.6 0.0'/>
+              <Appearance>
+                <Material/>
+              </Appearance>
+           </Shape>
+        </Transform>
+     </Group>
+  </Scene>
+</X3D>

@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<TITLE>ISO/IEC 19776-1:2015 &mdash; X3D XML encoding &mdash; 7 Conformance</TITLE>
+<link REL="stylesheet" HREF="X3DEncodings.css" TYPE="text/css">
+
+</head>
+<body>
+
+<div class="CenterDiv">
+<img class="x3dlogo" SRC="../Images/x3d.png" ALT="X3D logo" width="176" height="88"> 
+</div>
+
+<div class="CenterDiv">
+<p class="HeadingPart">
+    Extensible 3D (X3D) encodings<br>
+Part 1: Extensible Markup Language (XML) encoding</p>
+
+<p class="HeadingClause">7 Conformance</p>
+</div>
+
+
+<img class="x3dbar" SRC="../Images/x3dbar.png" ALT="--- X3D separator bar ---" width="430" height="23">
+<h1><img class="cube" src="../Images/cube.gif" alt="cube" width="20" height="19">
+<a name="Introduction"></a>7.1 Introduction</H1>
+
+<H2><a name="Topics"></a>7.1.1 Topics</H2>
+
+<P><a href="#t-Topics">Table 7.1</a> lists the topics for this clause.</P>
+
+<div class="CenterDiv">
+<p class="TableCaption">
+<a name="t-Topics"></a>Table 7.1 &mdash; Topics in this clause</P>
+
+
+  <table class="topics">
+  <TBODY>
+  <TR>
+    <TD>7.1 <a href="#Introduction">Introduction</a> 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.1 <a href="#Topics">Topics</a> <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.2 
+	<a href="#Objectives">Objectives</a> 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.3 <a href="#Scope">Scope</a> 
+    </TD>
+    <TD vAlign=top>7.2 <a href="#Conformance">Conformance 
+      </a><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.1 
+	<a href="#ConformanceOfX3DUTF8EncodedFiles">Conformance 
+      of X3D&nbsp;UTF-8 encoded files</a> 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.2 
+	<a href="#ConformanceOfX3DUTF8EncodingGenerators">Conformance 
+      of X3D UTF-8 encoding generators</a> 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.3 
+	<a href="#ConformanceOfX3DUTF8EncodingBrowsers">Conformance 
+      of X3D UTF-8 encoding browsers</a> </TD>
+</TR>
+</TBODY>
+</TABLE>
+</DIV>
+
+<H2><a name="Objectives"></a>7.1.2 Objectives</H2>
+
+<P>This clause addresses conformance of X3D UTF-8 encoded files and conformance 
+of X3D generators and X3D browsers that support the X3D UTF-8 encoding.</P>
+<P>The primary objectives of the specifications in this clause 
+are:<!--NOEDIT--></P>
+
+<OL type=a>
+  <LI>to promote interoperability by eliminating arbitrary subsets of, or 
+  extensions to, ISO/IEC 19775; 
+  <LI>to promote uniformity in the development of conformance tests; 
+  <LI>to promote consistent results across X3D browsers; 
+  <LI>to facilitate automated test generation. </LI></OL><!--/NOEDIT-->
+
+<H2><a name="Scope"></a>7.1.3 Scope</H2>
+
+<P>Conformance is defined for X3D UTF-8 encoded files and for X3D browsers 
+which support UTF-8 encoded files. For X3D generators, conformance guidelines 
+are presented for enhancing the likelihood of successful interoperability.</P>
+<P>A concept of conformance to a X3D profile is introduced along with the rules 
+which apply to this encoding.</P>
+
+<P>This clause addresses the X3D data stream and implementation requirements. 
+Implementation requirements include the latitude allowed for X3D generators and 
+X3D&nbsp;browsers. This clause does not directly address the environmental, 
+performance, or resource requirements of the generator or browser.</P>
+<P>This clause does not define the application requirements or dictate 
+application functional content within a X3D file.</P>
+
+<P>The scope of this clause is limited to rules for the open interchange of X3D 
+content using the UTF-8 encoding.</P>
+
+<img class="x3dbar" SRC="../Images/x3dbar.png" ALT="--- X3D separator bar ---" width="430" height="23" >
+
+<h1><img class="cube" src="../Images/cube.gif" alt="cube" ><a name="Conformance"></a>7.2 Conformance</h1>
+
+<H2><A name=Conformance></A>
+<a name="ConformanceOfX3DUTF8EncodedFiles"></a>7.2.1 Conformance of X3D UTF-8 encoded files</H2>
+
+<P>A X3D&nbsp;file is <I>syntactically correct</I> according to ISO/IEC 19775 
+if the following conditions are met:</P>
+
+<OL type=a>
+  <LI>The X3D&nbsp;file contains as its first element a X3D header comment 
+  (see 
+<A href="concepts.html#4.2.2">4.2.2,&nbsp;Header</A>). 
+
+  <LI>All entities contained therein match the functional specification of the 
+  corresponding entities of ISO/IEC 19775. The X3D&nbsp;file shall obey the 
+  relationships defined in the formal grammar and all other syntactic 
+  requirements. </LI>
+  <LI>The sequence of entities in the X3D UTF-8 encoded file obeys the 
+  relationships specified in ISO/IEC 19775 producing the structure specified 
+  in ISO/IEC 19775. </LI>
+  <LI>All field values in the X3D&nbsp;UTF-8 encoded file obey the 
+  relationships specified in ISO/IEC 19775 producing the structure specified 
+  in ISO/IEC 19775.</LI> 
+  <LI>No nodes appear in the X3D&nbsp;file other than those allowed by ISO/IEC 
+  14772 unless required for the encoding technique or those defined by the 
+  PROTO&nbsp;or EXTERNPROTO&nbsp;entities.</LI> 
+  <LI>The X3D file is encoded according to the rules of ISO/IEC 19775. 
+  <LI>It does not contain behaviour described as undefined elsewhere in this 
+  specification. </LI>
+</OL>
+<!--/NOEDIT-->
+
+<P>A&nbsp;X3D&nbsp;UTF-8 encoded file conforms to the <I>Core profile</I> 
+if:</P>
+
+<OL type=a start=8>
+  <LI>It is syntactically correct.</LI> 
+  <LI>It meets the restrictions of the Core profile as specified in
+	<a href="references.html#[I19775_1]">ISO/IEC 19775-1</a>.</LI>
+</OL>
+
+<P>A&nbsp;X3D&nbsp;UTF-8 encoded file conforms to the <I>Interchange profile</I> 
+if:</P>
+
+<OL type=a start=10>
+  <LI>It is syntactically correct.</LI> 
+  <LI>It meets the restrictions of the Interchange profile as specified in
+	<a href="references.html#[I19775_1]">ISO/IEC 19775-1</a>.</LI>
+</OL>
+
+<P>A&nbsp;X3D&nbsp;UTF-8 encoded file conforms to the <I>Interactive profile</I> 
+if:</P>
+
+<OL type=a start=12>
+  <LI>It is syntactically correct.</LI> 
+  <LI>It meets the restrictions of the Interactive profile as specified in
+	<a href="references.html#[I19775_1]">ISO/IEC 19775-1</a>.</LI>
+</OL>
+
+
+<P>A&nbsp;X3D&nbsp;UTF-8 encoded file conforms to the <I>Immersive profile</I> 
+if:</P>
+
+<OL type=a start=14>
+  <LI>It is syntactically correct.</LI> 
+  <LI>It meets the restrictions of the Immersive profile as specified in
+	<a href="references.html#[I19775_1]">ISO/IEC 19775-1</a>.</LI>
+</OL>
+
+
+<P>A&nbsp;X3D&nbsp;UTF-8 encoded file conforms to the <I>Full profile</I> 
+if:</P>
+
+<OL type=a start=16>
+  <LI>It is syntactically correct.</LI> 
+  <LI>It meets the restrictions of the Full profile as specified in
+	<a href="references.html#[I19775_1]">ISO/IEC 19775-1</a>.</LI>
+</OL>
+
+<P>A X3D UTF-8 encoded file conforms to other profiles if:</P>
+
+<OL type=a start=18>
+  <LI>It is syntactically correct.</LI> 
+  <LI>It meets the restrictions of the profile as defined in the specification 
+  for that profile. </LI>
+</OL>
+
+<H2><a name="ConformanceOfX3DUTF8EncodingGenerators"></a>7.2.2 Conformance of X3D&nbsp;UTF-8 encoding 
+generators</H2>
+
+<P>A X3D UTF-8 encoding generator conforms to this part of ISO/IEC 19775 if all 
+X3D files that are generated are syntactically correct.</P>
+
+<P>A X3D UTF-8 encoding generator conforms to a particular profile if it can be 
+configured such that all X3D files generated conform to that particular 
+profile.</P>
+
+<H2><a name="ConformanceOfX3DUTF8EncodingBrowsers"></a>7.2.3 Conformance of X3D UTF-8 encoding browsers</H2>
+
+<P>A X3D&nbsp;browser that supports the UTF-8 encoding conforms to a particular 
+profile if:<!--NOEDIT--></P>
+
+<OL type=a>
+  <LI>It is able to read any X3D UTF-8 encoded file that conforms to that 
+  particular profile. </LI>
+  <LI>It presents the graphical and audio characteristics of the X3D nodes in 
+  any X3D UTF-8 encoded file that conforms to the that particular profile, 
+  within the latitude defined the specification for that particular profile. 
+  <LI>It correctly handles user interaction and generation of events as 
+  specified in ISO/IEC 19775-1, within the latitude defined in the specification 
+  for that particular profile. </LI>
+  <LI>It satisfies the requirements of that particular profile in regard to 
+  minimum support requirements as defined in the specification for that 
+  particular profile. </LI>
+  <LI>It satisfies the general conformance requirements for browsers as stated 
+  in 
+<A href="../part01/conformance.html"> ISO/IEC 19775-1--7. Conformance</A>. </LI>
+</OL>
+
+<p>
+<img class="x3dbar" src="../Images/x3dbar.png" alt="--- X3D separator bar ---" width="430" height="23"></p>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+<X3D version='3.0' profile='Interactive'>
+  <head>
+    <meta name='filename' content='ColorInterpolator.x3d'/>
+  </head>
+   <Scene>
+     <ColorInterpolator DEF='myColor' 
+       keyValue='1 0 0, 0 1 0, 0 0 1, 1 0 0' 
+       key='0.0 0.333 0.666 1.0'/>
+     <TimeSensor DEF='myClock' cycleInterval='10.0' loop='true'/>
+     <Shape>
+       <Sphere/>
+       <Appearance>
+         <Material DEF='myMaterial'/>
+       </Appearance>
+     </Shape>
+     <ROUTE fromNode='myClock' fromField='fraction_changed' 
+            toNode='myColor' toField='set_fraction'/>
+     <ROUTE fromNode='myColor' fromField='value_changed' 
+            toNode='myMaterial' toField='diffuseColor'/>
+   </Scene>
+</X3D>

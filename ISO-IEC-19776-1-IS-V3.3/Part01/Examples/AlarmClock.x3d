@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+<X3D version='3.0' profile='Immersive'>
+  <head>
+    <meta name='filename' content='AlarmClock.x3d'/>
+  </head>
+   <Scene>
+     <Group>
+       <TimeSensor DEF='Hour' cycleInterval='5.0' loop='true'/>
+       <Sound>
+         <AudioClip DEF='Sounder' stopTime='0.0' description='chime' 
+            url='"click.wav"'/>
+       </Sound>
+     </Group>
+     <ROUTE fromNode='Hour' fromField='cycleTime' 
+            toNode='Sounder' toField='startTime'/>
+   </Scene>
+</X3D>

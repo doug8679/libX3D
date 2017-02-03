@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+<X3D version='3.0' profile='Interactive'>
+  <head>
+    <meta name='filename' content='Elevator.x3d'/>
+  </head>
+  <Scene>
+    <Transform translation='0.0 0.0 -3.5'>
+      <Shape>
+        <Cone/>
+        <Appearance>
+          <Material diffuseColor='0.0 1.0 0.0'/>
+        </Appearance>
+      </Shape>
+      </Transform>
+      <Transform translation='0.0 4.0 -3.5'>
+        <Shape>
+          <Cone/>
+          <Appearance>
+            <Material diffuseColor='1.0 0.0 0.0'/>
+          </Appearance>
+        </Shape>
+      </Transform>
+      <Transform translation='0.0 8.0 -3.5'>
+        <Shape>
+          <Cone/>
+          <Appearance>
+            <Material diffuseColor='0.0 0.0 1.0'/>
+          </Appearance>
+        </Shape>
+      </Transform>
+      <Group>
+        <Transform DEF='ETransform'>
+          <Viewpoint DEF='EViewpoint' description='Elevator Viewpoint' 
+             centerOfRotation='0 0 0' 
+             jump='false'/>
+          <ProximitySensor DEF='EProximity' size='2.0 5.0 5.0'/>
+          <Transform translation='0.0 -1.0 0.0'>
+            <Shape>
+              <Box size='2.0 0.2 5.0'/>
+              <Appearance>
+                <Material/>
+               </Appearance>
+             </Shape>
+            </Transform>
+        </Transform>
+      </Group>
+      <PositionInterpolator DEF='ElevatorPI' 
+        keyValue='0.0 0.0 0.0, 0.0 8.0 0.0' 
+        key='0.0 1.0'/>
+      <TimeSensor DEF='TS' cycleInterval='10.0'/>
+      <ROUTE fromNode='EProximity' fromField='enterTime' 
+             toNode='TS' toField='startTime'/>
+      <ROUTE fromNode='TS' fromField='isActive' 
+             toNode='EViewpoint' toField='set_bind'/>
+      <ROUTE fromNode='TS' fromField='fraction_changed' 
+             toNode='ElevatorPI' toField='set_fraction'/>
+      <ROUTE fromNode='ElevatorPI' fromField='value_changed' 
+             toNode='ETransform' toField='translation'/>
+   </Scene>
+</X3D>

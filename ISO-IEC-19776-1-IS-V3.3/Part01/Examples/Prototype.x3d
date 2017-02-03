@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+<X3D version='3.0' profile='Immersive'>
+  <head>
+    <meta name='filename' content='Prototype.x3d'/>
+  </head>
+  <Scene>
+    <ProtoDeclare name='TwoColorTable'>
+      <ProtoInterface>
+        <field name='legColor' type='SFColor' value='.8 .4 .7' 
+               accessType='initializeOnly'/>
+        <field name='topColor' type='SFColor' value='.6 .6 .1' 
+               accessType='initializeOnly'/>
+      </ProtoInterface>
+      <ProtoBody>
+        <Transform>
+          <Transform translation='0.0 0.6 0.0'> <!-- table top -->
+            <Shape>
+              <Appearance>
+                <Material DEF='TableTopMaterial'>
+                  <IS>
+                    <connect nodeField='diffuseColor' protoField='topColor'/>
+                  </IS>
+                </Material>
+              </Appearance>
+              <Box size='1.2 0.2 1.2'/>
+            </Shape>
+          </Transform>
+          <Transform translation='-0.5 0.0 -0.5'> <!-- first table leg -->
+             <Shape DEF='Leg'>
+               <Appearance>
+                 <Material DEF='LegMaterial' diffuseColor='1.0 0.0 0.0'>
+                   <IS>
+                     <connect nodeField='diffuseColor' protoField='legColor'/>
+                   </IS>
+                 </Material>
+              </Appearance>
+              <Cylinder height='1.0' radius='0.1'/>
+            </Shape>
+          </Transform>
+          <Transform translation='0.5 0.0 -0.5'> <!-- another table leg -->
+            <Shape USE='Leg'/>
+          </Transform>
+          <Transform translation='-0.5 0.0 0.5'>
+            <Shape USE='Leg'/>   <!-- another table leg -->
+          </Transform>
+          <Transform translation='0.5 0.0 0.5'>
+            <Shape USE='Leg'/>    <!--another table leg -->
+          </Transform>  <!-- End of root Transform's children -->
+        </Transform>    <!-- End of root Transform -->
+      </ProtoBody>
+    </ProtoDeclare> <!-- End of prototype -->
+          <!-- The prototype is now defined. Although it contains a 
+          number of nodes, only the legColor and topColor fields
+          are public.
+          Instead of using the default legColor and topColor, this
+          instance of the table has red legs and a green top: -->
+    <ProtoInstance name='TwoColorTable'>
+      <fieldValue name='legColor' value='1 0 0'/>
+      <fieldValue name='topColor' value='0 1 0'/>
+    </ProtoInstance>
+    <NavigationInfo type='"EXAMINE"'/>  <!--Use the Examine viewer-->
+  </Scene>
+</X3D>

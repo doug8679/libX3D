@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+<X3D version='3.0' profile='Immersive'>
+  <head>
+    <meta name='filename' content='ExecutionModel.x3d'/>
+  </head>
+  <Scene>
+    <TouchSensor DEF='TS'/>
+    <Script DEF='Script1'>
+      <field name='touchTime' type='SFTime' accessType='inputOnly'/>
+      <field name='toScript2' type='SFBool' accessType='outputOnly'/>
+      <field name='toScript3' type='SFBool' accessType='outputOnly'/>
+      <field name='string' type='SFString' accessType='outputOnly'/>
+      <![CDATA[
+      ecmascript:
+      function touchTime() {
+        toScript2 = true;
+      }
+      function eventsProcessed() {
+        string = 'Script1.eventsProcessed';
+        toScript3 = true;
+      }
+      ]]>
+    </Script>
+    <Script DEF='Script2'>
+      <field name='fromScript1' type='SFBool' accessType='inputOnly'/>
+      <field name='toScript4' type='SFBool' accessType='outputOnly'/>
+      <field name='string' type='SFString' accessType='outputOnly'/>
+      <![CDATA[
+      ecmascript:
+      function fromScript1() { 
+      }
+      function eventsProcessed() {
+        string = 'Script2.eventsProcessed';
+        toScript4 = true;
+      }
+      ]]>
+    </Script>
+    <Script DEF='Script3'>
+      <field name='fromScript1' type='SFBool' accessType='inputOnly'/>
+      <field name='toScript5' type='SFBool' accessType='outputOnly'/>
+      <field name='toScript6' type='SFBool' accessType='outputOnly'/>
+      <field name='string' type='SFString' accessType='outputOnly'/>
+      <![CDATA[
+      ecmascript:
+      function fromScript1() {
+        toScript5 = true;
+      }
+      function eventsProcessed() {
+        string = 'Script3.eventsProcessed';
+        toScript6 = true;
+      }
+      ]]>
+    </Script>
+    <Script DEF='Script4'>
+      <field name='fromScript2' type='SFBool' accessType='inputOnly'/>
+      <![CDATA[
+      ecmascript:
+      function fromScript2() { 
+      }
+      ]]>
+    </Script>
+    <Script DEF='Script5'>
+      <field name='fromScript3' type='SFBool' accessType='inputOnly'/>
+      <![CDATA[
+      ecmascript:
+       function fromScript3() {
+      }
+      ]]>
+    </Script>
+    <Script DEF='Script6'>
+      <field name='fromScript3' type='SFBool' accessType='inputOnly'/>
+      <field name='toScript7' type='SFBool' accessType='outputOnly'/>
+      <field name='string' type='SFString' accessType='outputOnly'/>
+      <![CDATA[
+      ecmascript:
+      function fromScript3() {
+        toScript7 = true;
+      }
+      function eventsProcessed() {
+        string = 'Script6.eventsProcessed';
+      }
+      ]]>
+    </Script>
+    <Script DEF='Script7'>
+      <field name='fromScript6' type='SFBool' accessType='inputOnly'/>
+      <![CDATA[
+      ecmascript:
+      function fromScript6 () { 
+      }
+      ]]>
+    </Script><!--Display the results-->
+    <Script DEF='Collector'>
+      <field name='string' type='MFString' accessType='outputOnly'/>
+      <field name='fromString' type='SFString' accessType='inputOnly'/>
+      <![CDATA[
+      ecmascript:
+      function initialize() {
+        string[0] = 'Event Sequence:';
+      }
+      function fromString(s) {
+        i = string.length;
+        string[i] = ''+i+') '+s+' occurred';
+      }
+      ]]>
+    </Script>
+    <Transform translation='0 2 0'>
+      <Shape>
+        <Appearance>
+          <Material diffuseColor='0 0.6 0'/>
+        </Appearance>
+         <Sphere/>
+      </Shape>
+    </Transform>
+      <Shape>
+        <Text DEF='Result'/>
+      </Shape>
+      <Viewpoint position='7 -1 18'/>
+      <ROUTE fromNode='TS' fromField='touchTime'  
+             toNode='Script1' toField='touchTime'/>
+      <ROUTE fromNode='Script1' fromField='toScript2' 
+             toNode='Script2' toField='fromScript1'/>
+      <ROUTE fromNode='Script1' fromField='toScript3' 
+             toNode='Script3' toField='fromScript1'/>
+      <ROUTE fromNode='Script2' fromField='toScript4' 
+             toNode='Script4' toField='fromScript2'/>
+      <ROUTE fromNode='Script3' fromField='toScript5' 
+              toNode='Script5' toField='fromScript3'/>
+      <ROUTE fromNode='Script3' fromField='toScript6' 
+             toNode='Script6' toField='fromScript3'/>
+      <ROUTE fromNode='Script6' fromField='toScript7' 
+             toNode='Script7' toField='fromScript6'/>
+      <ROUTE fromNode='Script1' fromField='string' 
+             toNode='Collector' toField='fromString'/>
+      <ROUTE fromNode='Script2' fromField='string' 
+             toNode='Collector' toField='fromString'/>
+      <ROUTE fromNode='Script3' fromField='string' 
+             toNode='Collector' toField='fromString'/>
+      <ROUTE fromField='string' fromNode='Script6' 
+             toNode='Collector' toField='fromString'/>
+      <ROUTE fromNode='Collector' fromField='string' 
+             toNode='Result' toField='string'/>
+   </Scene>
+</X3D>

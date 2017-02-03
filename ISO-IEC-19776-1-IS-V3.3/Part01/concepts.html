@@ -1,0 +1,958 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<TITLE>ISO/IEC 19776-1:2015 &mdash; X3D XML encoding &mdash; 4 Concepts</TITLE>
+<link rel="stylesheet" href="X3DEncodings.css" type="text/css">
+
+<style type="text/css">
+.style1 {
+	color: #000000;
+}
+</style>
+
+</head>
+<body>
+
+<div class="CenterDiv">
+<img class="x3dlogo" SRC="../Images/x3d.png" ALT="X3D logo" width="176" height="88"> 
+</div>
+
+<div class="CenterDiv">
+<p class="HeadingPart">
+    Extensible 3D (X3D) encodings<br>
+Part 1: Extensible Markup Language (XML) encoding</p>
+
+<p class="HeadingClause">4 Concepts</p>
+</div>
+
+<img class="x3dbar" SRC="../Images/x3dbar.png" ALT="--- X3D separator bar ---" width="430" height="23">
+
+<h1><img class="cube" src="../Images/cube.gif" alt="cube" width="20" height="19">
+<a name="IntroAndTOC"></a>4.1 Introduction and table of contents</H1>
+
+<H2><a name="Introduction"></a>4.1.1 Introduction</H2>
+
+<P>This clause describes key concepts in this part of ISO/IEC 19776. This 
+includes how the X3D constructs defined in ISO/IEC 19775-1 are encoded using the Extensible Markup Language (XML) 
+(see
+<a href="references.html#[XML]">2.[XML]</a>).</P>
+
+<H2><a name="Topics"></a>4.1.2 Topics</H2>
+
+<P><A href="#t-TopicsInThisClause">Table 4.1</A> lists the topics for this 
+clause.</P>
+
+<div class="CenterDiv">
+
+<p class="TableCaption">
+<a name="t-TopicsInThisClause"></a>Table 4.1 &mdash; Topics in this clause</p>
+
+<TABLE class="topics">
+<TBODY>
+  <TR>
+    <TD valign="top">
+    <A href="#IntroAndTOC">4.1 Introduction and table of contents</A><BR>
+    &nbsp;&nbsp;<A href="#Introduction">4.1.1 Introduction</A><BR>
+    &nbsp;&nbsp;<A href="#Topics">4.1.2 Topics</A><BR>
+    &nbsp;&nbsp;<A href="#4.1.3">4.1.3 Conventions used</A><br>
+	<A href="#Overview">4.2 Overview</A><BR>
+    &nbsp;&nbsp;<a href="#OverviewIntroduction">4.2.1 Introduction</a><br>
+    &nbsp;&nbsp;<A href="#TheStructureOfAnX3DFile">4.2.2 The structure of an X3D file</A><BR>
+    &nbsp;&nbsp;<A href="#Header">4.2.3 Header</A><br>
+	<A href="#XMLFileSyntax">4.3 XML file syntax</A><BR>
+    &nbsp;&nbsp;<A href="#XMLEncoding">4.3.1 XML encoding</A><BR>
+    &nbsp;&nbsp;<A href="#Statements">4.3.2 Statements</A><BR>
+    &nbsp;&nbsp;<A href="#NodeAndFieldStatementSyntax">4.3.3 Node and Field statement syntax</A><BR>
+    &nbsp;&nbsp;<A href="#DEFAndUSEAttributeSyntax">4.3.4 DEF and USE attribute syntax</A><BR>
+    </TD>
+    <TD valign="top">
+    &nbsp;&nbsp;<A href="#ContainerFieldAttributeSyntax">4.3.5 containerField attribute syntax</A><BR>
+    &nbsp;&nbsp;<A href="#ClassAttributeSyntax">4.3.6 class attribute syntax</A><BR>
+    &nbsp;&nbsp;<a href="#PrototypeAndFieldDeclarationSyntax">4.3.7 Prototype 
+	and field declaration syntax</a><BR>
+    &nbsp;&nbsp;<A href="#IS_ConnectStatementSyntax">4.3.8 IS/connect statement syntax</A><BR>
+    &nbsp;&nbsp;<A href="#ExternProtoDeclareStatementSyntax">4.3.9 ExternProtoDeclare statement syntax</A><BR>
+    &nbsp;&nbsp;<A href="#ProtoInstanceAndFieldValueStatement">4.3.10 ProtoInstance and fieldValue statement syntax</A><BR>
+    &nbsp;&nbsp;<A href="#ROUTEStatementSyntax">4.3.11 ROUTE statement syntax</A><BR>
+    &nbsp;&nbsp;<A href="#IMPORT_EXPORTStatementSyntax">4.3.12 IMPORT/EXPORT statement syntax</A><br>
+    &nbsp;&nbsp;<a href="#EncapsulatingScriptNodeCode">4.3.13 Encapsulating Script node code</a><br>
+    <A href="#X3DFilesAndTheWorldWideWeb">4.4 X3D files and the World Wide Web</A><BR>
+    &nbsp;&nbsp;<A href="#FileExtensionAndMIMETypes">4.4.1 File extension and MIME type</A><BR>
+    &nbsp;&nbsp;<A href="#DTD">4.4.2 Document Type Definition (DTD)</A><br>
+    &nbsp;&nbsp;<A href="#Schema">4.4.3 Schema</A>
+    </TD>
+  </TR>
+</TBODY>
+</TABLE>
+</DIV>
+
+
+<h1><img class="cube" src="../Images/cube.gif" alt="cube" width="20" height="19">
+<a name="Overview"></a>4.2 Overview</H1>
+		
+   <div class="Section1">
+			
+<H2><a name="OverviewIntroduction"></a>4.2.1 Introduction</H2>
+
+      <p>The Extensible Markup Language (XML) (see
+      <a href="references.html#[XML]">2.[XML]</a>)
+			is used for a self-validating X3D encoding of Extensible 3D (X3D) Graphics.
+			
+			This X3D encoding provides a Web-compatible format that maximizes interoperatibilty 
+      with other Web languages. XML supports structuring data, is similar to 
+      HTML, is readable by systems and humans, is verbose for clarity, 
+      represents a modular family of technologies, and is fundamentally 
+      interoperable with Web technologies. See
+      <a href="bibliography.html#[XML10]">[XML10]</a> for 
+      more background information.</p>
+    </div>
+
+      <p>There is a fundamental correspondence between the elements of the abstract X3D scene graph 
+			and constructs in the XML encoding.  This section describes the design patterns that govern the correspondence.
+			</p>
+			
+<H2><a name="TheStructureOfAnX3DFile"></a>4.2.2 The structure of an X3D file</H2>
+
+<P>An <I>X3D file</I> is structured as defined in 
+<a href="references.html#[I19775_1]">ISO/IEC 19775-1</a>.</P>
+
+<H2><a name="Header"></a>4.2.3 Header</H2>
+
+<p>The header is a single line of UTF-8 text identifying the file as an XML file,
+followed by the XML declaration that identifies the validating XML DTD,
+followed by X3D tags that identify the validating XML Schema, X3D profile, 
+and (optionally) the necessary additional components of the file. </p>
+
+<P>For easy identification of X3D files, every X3D file shall begin with an XML file declaration 
+(see <a href="references.html#[XML]">2.[XML]</a>).</p>
+
+<blockquote>
+<span class="code">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+</span>
+</blockquote>
+
+<P>The identifier "<B><TT><FONT face="Courier New">UTF-8</FONT></TT></B><FONT 
+face="Courier New">"</FONT> indicates a clear text character encoding that allows for 
+international characters to be displayed in X3D using the UTF-8 
+encoding defined in <a href="references.html#[I10646_1]">ISO/IEC 10646-1</a>. 
+
+<p>
+The XML header is immediately followed by an XML DOCTYPE statement which provides both PUBLIC and SYSTEM literals for
+the X3D Document Type Definition (DTD) (see <a href="references.html#[XML]">2.[XML]</a>).</p>
+
+<p>The X3D DOCTYPE declaration is as follows:
+</p>
+
+
+<blockquote>
+<span class="code">
+&lt;!DOCTYPE X3D PUBLIC &quot;ISO//Web3D//DTD X3D 3.3//EN&quot;
+  &nbsp; &quot;http://www.web3d.org/specifications/x3d-3.3.dtd&quot;&gt;
+</span>
+</blockquote>
+
+<p>
+
+<p>As an alternative to DTD validation, XML Schema validation can be performed 
+through identification of XML&nbsp;Schema and X3D namespaces within the root X3D 
+tags as defined in <a href="references.html#[Schema]">2.[SCHEMA]</a>.</p>
+		<p class="Example">EXAMPLE 1</p>
+
+<blockquote>
+<span class="code">
+&lt;X3D  profile='Immersive' version=&#39;3.3&#39;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xmlns:xsd=&#39;<a href="http://www.w3.org/2001/XMLSchema-instance">http://www.w3.org/2001/XMLSchema-instance</a><span class="style1">&#39;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xsd:noNamespaceSchemaLocation=&#39;http://www.web3d.org/specifications/x3d-3.3.xsd&#39;&gt;
+</span>
+</blockquote>
+
+<p style="height: 108px">A DOCTYPE or schema declaration is optional. The reference DTD and location 
+is specified in this document. To allow for extensible tag sets (supersets of 
+the base specification), authors may point to a document definition other than 
+the ones listed in this specification. However, the alternate definition shall 
+specify an equivalent document to the base X3D DTD/Schema (<i>i.e.</i>, the tag 
+instances shall look exactly the same regardless of the source DTD schema). 
+Authors shall use the X3D DOCTYPE and/or X3D Schema extension mechanisms to add 
+validation capability for new nodes and fields.</p>
+		<p>Next comes the required X3D document root tag that specifies version 
+		and
+		profile information with optional schema validation. Within the X3D 
+		document root tag is the optional header section, and the required scene body.</p>
+		<p class="Example">EXAMPLE 2</p>
+
+<blockquote>
+<span class="code">&lt;X3D version=&#39;3.3&#39; profile=&#39;Immersive&#39;&gt;<br>
+&nbsp; &lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;component name=&#39;Geospatial&#39; level=&#39;1&#39;/&gt;
+<br>
+&nbsp;&nbsp;&nbsp;
+&lt;component name=&#39;NURBS&#39; 
+level=&#39;2&#39;/&gt;
+<br>
+&nbsp;&nbsp;&nbsp;
+&lt;meta
+   name=&#39;description&#39;
+   content=&#39;X3D scene header and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; prototype syntax examples. &#39;/&gt;
+<br>
+&nbsp;&nbsp;&nbsp; &lt;meta name=&#39;title&#39;<b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b> 
+&nbsp;content=&#39;X3dHeaderPrototypeSyntaxExamples.x3d&#39;/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;meta name=&#39;identifier&#39;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; content=&#39;<a href="http://web3d.org/x3d/content/examples/Basic/development/X3dHeaderPrototypeSyntaxExamples.x3d">http://web3d.org/x3d/content/examples/Basic/development/X3dHeaderPrototypeSyntaxExamples.x3d</a>&#39;/&gt;<br>
+&nbsp; &lt;/head&gt;
+<br>
+&nbsp;
+&lt;Scene&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;!-- Scene graph nodes are added here --&gt;<br>
+&nbsp; &lt;/Scene&gt;<br>
+&lt;/X3D&gt;
+</span>
+</blockquote>
+
+<p class="Example">This example header indicates that the content is XML encoded, 
+matches X3D version 3.3, follows the 
+Immersive Profile, and explicitly lists additional expected components. The 
+X3D header may also contain further semantic information, using meta tags for 
+name=&#39;metadataTerm&#39; and content=&#39;value&#39; pairs. Note that the 
+third meta tag should not break in the middle of the string.</P>
+
+
+
+		<h1>
+<a name="XMLFileSyntax"></a>4.3 XML file syntax</H1>
+
+<H2><a name="XMLEncoding"></a>4.3.1 XML encoding</H2>
+
+<P>This clause describes the syntax of XML-encoded, human-readable X3D files. 
+The syntax of X3D in terms of the XML encoding are 
+presented in this part of ISO/IEC 19776. The semantics of X3D are as defined in
+<a href="references.html#[I19775_1]">ISO/IEC 19775-1</a>.
+Rules for parsing and handling XML-encoded documents are defined in
+<a href="references.html#[XML]">2.[XML]</a>.</P>
+
+<p>
+Two formal grammar descriptions of the XML syntax for X3D may be found in 
+<A href="DTD.html">Annex A X3D Document Type Definition (DTD)</A>
+and
+<A href="Schema.html">Annex B X3D XML Schema</A>. 
+These grammars are directly implementable by XML parsers.
+</p>
+
+In the XML encoding, the character sequences <b><code>&lt;!--</code></b> and <b>
+<code>--&gt;</code></b> delimit a comment.<p class="Example">EXAMPLE</p>
+
+<blockquote>
+  <p><span class="code"><b><code>&lt;!-- This is an X3D comment. --&gt;</code></b> 
+	</span> </p>
+</blockquote>
+
+<p>
+The only exceptions are within 
+XML CDATA sections, which are ignored during XML parsing and typically only used for embedded script code.
+Comment exceptions also
+occur within double-quoted SFString and MFString fields, where the 
+comment characters are escaped 
+(using <code>&amp;lt;</code> for <code>&lt;</code> and <code>&amp;gt;</code> for <code>&gt;</code>)
+and are defined to be part of the string.</P>
+
+<p>Attribute values may be delimited by paired single-quote (<code>'</code>) or double-quote (<code>"</code>) characters.
+Neither authors nor parsers can guarantee which types of paired delimiting characters is encountered since
+XML processors are allowed to independently choose either form. These rules are 
+described in&nbsp; <a href="references.html#[XML]">2.[XML]</a> and
+<a href="references.html#[INFOSET]">2.[INFOSET]</a>.</p>
+
+<p>XML elements (<i>e.g.</i>, X3D nodes) may not appear within attribute values.
+</p>
+
+<P>Spaces, tabs, linefeeds, and carriage-returns are separator 
+characters wherever they appear outside of XML attribute values. 
+Commas are not ignorable whitespace when mixed between or among XML element and attribute values.
+</P>
+
+<P>Within X3D attribute values, the rules are slightly different.
+Commas, spaces, tabs, linefeeds, and carriage-returns are separator 
+characters wherever they appear outside of XML attribute values. 
+Separator characters and comments are collectively termed&nbsp;<I>whitespace</I>.</P>
+
+<!-- 
+<P>An X3D scene-document server may optionally strip comments and extra separators including the 
+comment portion of the header line from an XML-encoded X3D file before transmitting it. 
+Header tags (e.g. <code>&lt;head&gt;</code> and <code>&lt;meta&gt;</code>) or 
+WorldInfo 
+nodes should be used for persistent information such as copyrights or author 
+information.</P> -->
+
+<P>Field, event, PROTO, EXTERNPROTO, and node names shall not contain control 
+characters (0x0-0x1f, 0x7f), space (0x20), double or single quotes 
+(0x22:&nbsp;", 0x27:&nbsp;'), sharp (0x23:&nbsp;#), comma (0x2c:&nbsp;,), period 
+(0x2e:&nbsp;.), brackets (0x5b, 0x5d: []), backslash (0x5c:&nbsp;\) or braces 
+(0x7b,&nbsp;0x7d:&nbsp;{}). Further, their first character shall not be a digit 
+(0x30-0x39), plus (0x2b:&nbsp;+), or minus (0x2d:&nbsp;-) character. Otherwise, 
+names may contain any ISO 10646 character encoded using UTF-8. 
+X3D is 
+case-sensitive; "Sphere" is different from "sphere" and "BEGIN" is different 
+from "begin."</P>
+
+<P>
+In order to maintain interoperable translatability between the different X3D encodings of
+X3D scenes, the following reserved keywords shall not be used for field, event, Protytype or node names:</P>
+
+<UL>
+  <LI>AS 
+    <LI>class<LI>component 
+  <LI>DEF 
+  <LI>EXPORT 
+  <LI>EXTERNPROTO 
+  <LI>FALSE
+  <em>and</em> false<LI>head
+  <LI>IMPORT  
+  <LI>initializeOnly
+  <LI>inputOnly 
+  <LI>outputOnly 
+  <LI>inputOutput 
+  <LI>IS 
+  <LI>meta
+  <LI>NULL 
+  <LI>PROTO 
+  <LI>ROUTE 
+  <LI>Scene
+  <LI>TO 
+  <LI>TRUE 
+  <em>and</em> true<LI>USE
+  <LI>X3D 
+</UL>
+
+<H2><a name="Statements"></a>4.3.2 Statements</H2>
+
+<P>After the required XML header and 
+&lt;X3D&gt;
+document-root tag, an X3D file may contain any combination of the 
+following:</P>
+
+<OL type=a>
+  <li> 
+    A single optional <code>head</code> element which can contain component, 
+	unit, and metadata information<span style="font-weight: 400"> 
+		(as described </span><span style="FONT-WEIGHT: 400">
+    <a href="#XMLEncoding">
+    4.3.1 XML encoding</a></span><span style="font-weight: 400">);</span>
+  </li> 
+  <li> 
+    A single required <span class="code">Scene</span> element, which serves as 
+	a root node and contains one or more of the scene graph elements specified 
+	in items c. through g. (also see 
+    4.4.1&nbsp;Root&nbsp;nodes in <a href="references.html#[I19775_1]">Part 1 of 
+	ISO/IEC 
+	19775</a>);  
+  </li> 
+  <LI>Any number of ProtoDeclare or ExternProtoDeclare statements (see 
+	4.8&nbsp;Prototype&nbsp;semantics in <a href="references.html#[I19775_1]">
+	Part 1 of ISO/IEC 
+	19775</a>); 
+  <LI>Any number of node elements (see 4.3.3 Scene graph hierarchy in
+	<a href="references.html#[I19775_1]">Part 1 of ISO/IEC 
+	19775</a>); 
+  <LI>Any number of USE statements (see 4.6.2&nbsp;DEF/USE&nbsp;semantics in
+	<a href="references.html#[I19775_1]">Part 1 of ISO/IEC 
+	19775</a>); 
+  <LI>Any number of ROUTE statements (see 4.10.2&nbsp;Route&nbsp;semantics in
+	<a href="references.html#[I19775_1]">Part 1 of ISO/IEC 
+	19775</a>). </LI>
+
+  <li> 
+			 Any number of IMPORT or EXPORT statements (see 4.4.5 IMPORT/EXPORT 
+				semantics in <a href="references.html#[I19775_1]">Part 1 of ISO/IEC 
+	19775</a>).</li>
+</OL>
+
+<H2><a name="NodeAndFieldStatementSyntax"></a>4.3.3 Node and field statement syntax</H2>
+
+<p>X3D <i>nodes</i> are expressed as XML <i>elements</i> (<i>i.e.</i>, tagged names).</p>
+
+<p>Simple non-node X3D <i>fields</i> are expressed as XML <i>attributes </i>in 
+the form of <code>name="value"</code> pairs.</p>
+
+<p>Nodes which serve as <i>fields</i> to other X3D nodes are expressed as contained XML elements, i.e. additional tagged names. 
+Each includes an implicit (default) or explicitly defined <span class="Code">containerField</span> value.</p>
+
+<P>
+A node statement consists of the type-name for the node element followed by the 
+allowed simple-field attributes. 
+A node instance can be given a label using the 
+attribute DEF followed by an equals sign and the quoted name of the node. 
+</p>
+
+<p>
+Each tag begins and ends with angle brackets <b>&lt;</b> and <b>&gt;</b>, respectively.
+A node's body is enclosed by a pair of
+matching open and closing tags, where a closing tag has a slash <b>/</b> prepended to the element name. 
+</p>
+<p class="Example">EXAMPLE 1&nbsp; The following illustrates the use of node and field syntax:</p>
+<blockquote>
+<span class="code">
+&lt;Group DEF=&#39;<a name="ExampleChildElement">ExampleChildElement</a>&#39;&gt;<br>
+&nbsp; &lt;Shape&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;Box/&gt;
+<br>
+&nbsp;&nbsp;&nbsp;
+&lt;Appearance&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Material diffuseColor=&#39;0.6 
+0.4 0.2&#39;/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/Appearance&gt;
+<br>
+&nbsp; &lt;/Shape&gt;<br>
+&lt;/Group&gt;
+<br>
+</span>
+</blockquote>
+
+<p>
+Alternatively, if no further elements are contained as child nodes, a single tag may omit the
+closing element tag by ending the single element with <code>/&gt;</code> characters.</p>
+		<p class="Example">
+EXAMPLE 2</p>
+<blockquote><span class="code">&lt;Viewpoint DEF='<a name="ExampleSingleElement">ExampleSingleElement</a>'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; description='Hello syntax'/&gt;
+<br>
+&lt;NavigationInfo type=&#39;&quot;EXAMINE&quot; &quot;ANY&quot;'/&gt;
+</span>
+</blockquote>
+
+<P>A node element contains zero or more field attributes, as appropriate for each node type.
+When nested inside a ProtoDeclare ProtoBody, a node's content can optionally begin with a single <code>IS</code> statement, 
+which in turn contains one or more <code>connect</code> statements. 
+A node then contains zero or more child nodes, ROUTE statements, ProtoDeclare statements or ExternProtoDeclare statements.
+These contained nodes and statements are allowed as appropriate for each node type, and can typically appear in any order.
+</P>
+
+<p>Whitespace shall separate 
+the name of the node and <code>attribute="value"</code> pairs, but is not required before or after 
+the tags that enclose the node's body. 
+</p>
+
+<p>
+
+XML-based scene validation for proper parent-child relationships among nodes can be performed using
+using either the
+<i>X3D Document Type Definition (DTD)</i>
+or 
+<i>X3D Schema</i>.
+The DTD and Schema also define default values for attribute fields, matching the abstract specification.
+See 
+<a href="EncodingOfNodes.html">6&nbsp;Encoding of nodes</a>
+ for the specification of the XML encoding of each node type.</P>
+
+<H2><a name="DEFAndUSEAttributeSyntax"></a>4.3.4 DEF and USE attribute syntax</H2>
+
+<p>
+A USE attribute indicates that a node is a reference copy of a DEF node with the same ID.
+<code>DEF</code> is assigned XML type <code>ID</code>, and
+<code>USE</code> is assigned XML type <code>IDREF</code>, respectively.
+The same name-construction conventions regarding legal character combinations apply.
+</p>
+
+<p>
+Each DEF (ID) value in a scene shall be unique.  
+Non-unique node DEF names in the body of ProtoDeclare definitions
+will cause validation errors when checked by the X3D DTD or Schema.
+This is a limitation of XML that requires each XML DTD and Schema to have a single namespace for ID types.
+</p>
+
+<p class="Example">
+EXAMPLE&nbsp;
+Continuing the previous example statements:
+</p>
+
+<blockquote>
+<span class="code">&lt;Transform
+   DEF='<a name="ExampleUSE">ExampleUSE</a>'<b><br>
+</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   rotation='0 1 0 0.78'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   translation='0 2.5 0'&gt;<br>
+&nbsp; &lt;Group USE='<a href="#ExampleChildElement">ExampleChildElement</a>'/&gt;
+<br>
+&lt;/Transform&gt;
+</span>
+</blockquote>
+
+<p>
+Nodes containing a <code>USE="someName"</code> attribute can include no other attributes except <code>containerField</code> and <code>class</code>.
+Default values for other fields shall be ignored since field definitions in the 
+original DEF node declaration have precedence.</p>
+
+
+
+<H2><a name="ContainerFieldAttributeSyntax"></a>4.3.5 containerField attribute syntax</H2>
+
+<P>Each node type defines the names and types of the fields that each node of 
+that type contains.  In general, nearly all field-node relationships are unambiguous
+due to the well-defined parent-child node relationships in X3D.
+</p>
+<p>
+In order to achieve a compact tagset in the XML encoding for X3D,
+the name of the field typically containing each node is accounted for
+by the containerField attribute.  For example, Sensor nodes are typically
+contained by the <code>children</code> field of Grouping nodes, hence each
+Sensor node has 
+containerField='children'
+as the default value.  
+</p>
+
+<p>
+Ordinarily the containerField value can be omitted.
+The default containerField value for a given node may be overridden when necessary
+to indicate a different relationship with a given node's parent.</p>
+		<p class="Example">
+EXAMPLE</p>
+
+<blockquote><span class="code">&lt;Collision&gt;<br>
+&nbsp; &lt;Shape containerField='proxy'&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;Sphere/&gt;<br>
+&nbsp; &lt;/Shape&gt;
+<br>
+&nbsp;
+&lt;Group USE='<a href="#ExampleChildElement">ExampleChildElement</a>'/&gt;<br>
+	&lt;/Collision&gt;
+</span>
+</blockquote>
+
+<H2><a name="ClassAttributeSyntax"></a>4.3.6 class attribute syntax</H2>
+
+<p>
+The <code>class</code> attribute is reserved for use with XML Cascading Style Sheets 
+(see <a href="bibliography.html#[CSS]">[CSS]</a>).</p>
+
+<H2><a name="PrototypeAndFieldDeclarationSyntax"></a>4.3.7 Prototype and field declaration syntax</H2>
+
+<P>A Prototype declaration consists of the <code>ProtoDeclare</code> keyword, followed in order by the 
+prototype name attribute, optional prototype interface field declarations
+contained within a <code>ProtoInterface</code>, and required prototype body definition
+contained within a <code>ProtoBody</code>.
+</p>
+
+<p>
+Prototype field statements consist of the <code>field</code> keyword, followed in any order by the
+attribute values for
+field <code>name</code>, field <code>type</code> and field <code>accessType</code> 
+(having value <code>inputOnly</code>, <code>outputOnly</code>, <code>initializeOnly</code> or <code>inputOutput</code>). 
+</p><p class="Example">
+EXAMPLE 1&nbsp; A prototype declaration example (without and with field 
+declarations, respectively) follow:</P>
+
+<blockquote><span class="code">&lt;ProtoDeclare name=&#39;<a name="ProtoDeclare_NewWorldInfoNode">NewWorldInfoNode</a>'&gt;<br>
+&nbsp; &lt;ProtoBody&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;WorldInfo DEF=&#39;<a name="ExamplePrototypeBody">ExamplePrototypeBody</a>' 
+	title=&#39;Hello New World Intro&#39;/&gt;<br>
+&nbsp; &lt;/ProtoBody&gt;
+&lt;/ProtoDeclare&gt; </span>
+</blockquote>
+
+<blockquote><span class="code">&nbsp; &lt;ProtoDeclare name=&#39;<a name="ProtoDeclare_EmissiveMaterial">EmissiveMaterial</a>'&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;ProtoInterface&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;field
+   name=&#39;onlyColor'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   type=&#39;SFColor'<b><br>
+	</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   accessType=&#39;inputOutput'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/ProtoInterface&gt;
+<br>
+&nbsp;
+&lt;ProtoBody&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;!-- Override default diffuseColor value 0.8 0.8 0.8 --&gt;<br>
+&nbsp;&nbsp;&nbsp;
+&lt;Material diffuseColor=&#39;0 0 0'&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;!-- Connect emissiveColor field of current node to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; onlyColor field of parent ProtoDeclare. --&gt;
+<br>
+&nbsp;&nbsp;&nbsp;
+&lt;IS&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;connect nodeField=&#39;emissiveColor'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; protoField=&#39;onlyColor'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/IS&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/Material&gt;<br>
+&nbsp; &lt;/ProtoBody&gt;<br>
+	&lt;/ProtoDeclare&gt;
+</span>
+</blockquote>
+
+<P style="width: 846px">A field statement also contains the default value of the field when the
+accessType is either initializeOnly or inputOutput.
+Simple values are contained in the value attribute (<i>e.g.</i>, value='true'). 
+If the default value of an SFString or MFString field is empty, the default 
+value may be omitted.
+Node (or node array) values are contained as child nodes within the field declaration.</P>
+		<P class="Example">EXAMPLE 2&nbsp; The
+&lt;Group DEF<b>='</b><a name="DefaultNodeValue">DefaultNodeValue</a><b>'</b>/&gt;
+below provides a default initialization for the children field in the ProtoDeclare body:
+</P>
+
+<blockquote>
+<span class="code">&lt;ProtoDeclare name=&#39;<a name="ProtoDeclare_ShiftGroupUp2m">ShiftGroupUp2m</a>'&gt;<br>
+&nbsp; &lt;ProtoInterface&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field
+   name=&#39;children'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   type=&#39;MFNode'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   accessType=&#39;inputOutput'&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Group DEF=&#39;<a name="DefaultNodeValue">DefaultNodeValue</a>' bboxSize=&#39;2 2 2'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/field&gt;<br>
+&nbsp; &lt;/ProtoInterface&gt;
+<br>
+&nbsp;
+&lt;ProtoBody&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;Transform translation=&#39;0 2 0'&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Group&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;IS&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;connect nodeField=&#39;children'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; protoField=&#39;children'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/IS&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Group&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/Transform&gt;<br>
+&nbsp; &lt;/ProtoBody&gt;<br>
+&lt;/ProtoDeclare&gt;
+</span>
+</blockquote>
+
+<p>
+The same field name may be used by multiple node prototypes.
+
+<P>See <a href="EncodingOfFields.html">5 Encoding of fields</a> for the 
+specification of the XML encoding of each X3D field type.</P>
+
+<h2><a name="IS_ConnectStatementSyntax"></a>4.3.8 IS/connect statement syntax</h2>
+
+<P>The body of a node statement that is inside a prototype definition may 
+optionally contain a single <code>&lt;IS&gt;</code> statement, which in turn contains one or more
+<code>&lt;connect&gt;</code> statements.  Each <code>&lt;connect&gt;</code> statement 
+consists of a <i>nodeField</i> attribute with the name of a field from the parent node's interface, 
+followed by a <i>protoField</i> attribute with the name of a field from the ancestor <code>ProtoDeclare</code>.
+When defined in a scene, any contained <code>&lt;IS&gt;</code> element shall be 
+the first child element within a node definition, with two exceptions. Script, ComposedShader, PackagedShader, and ShaderProgram nodes include <em>field </em>
+definitions before IS/connect. ProtoInstance definitions include 
+<em>fieldValue</em> initializations before 
+IS/connect.</p>
+<p>
+The <code>type</code> and <code>accessType</code> of each <code>field</code> 
+shall match exactly.  
+These <i>nodeField</i> and <i>protoField</i> names may be overloaded; <i>i.e.</i>, these two names
+may be identical since each is part of a different namespace.
+</P>
+
+<P>See the Prototype declaration specified in
+<a href="#PrototypeAndFieldDeclarationSyntax">4.3.7 Prototype and field declaration syntax</a> 
+for example use of IS/connect constructs.</p>
+
+
+<p>See <a href="references.html#[I19775_1]">ISO/IEC 19775-1, 4.4.4 Prototype 
+semantics</a> for details on external 
+prototype statements.</p>
+
+
+<H2><a name="ExternProtoDeclareStatementSyntax"></a>4.3.9 ExternProtoDeclare statement syntax</H2>
+
+<p>An ExternProtoDeclare statement consists of the ExternProtoDeclare element,
+a <code>name</code> attribute for the referenced Prototype, and a url of one or more
+addresses referring to the scene defining this Prototype.
+Zero or more contained <code>field</code> definitions
+then follow to provide the interface for the prototype.
+</p>
+<p>
+Contained field statements consist of the <code>field</code> keyword, followed in any order by the
+attribute values for
+field <code>name</code>, field <code>type</code> and field <code>accessType</code> 
+(<code>inputOnly</code>, <code>outputOnly</code>, <code>initializeOnly</code> and <code>inputOutput</code>). 
+</p>
+
+<p><code>url</code> values are
+&quot;quote&nbsp;delimited&quot;
+local filenames and/or remote addresses. 
+Each filename or address should have a pound <code>#</code> symbol appended, 
+followed by the case-sensitive literal name of the externally defined Prototype node.
+(This url syntax is similar to HTML bookmarks and X3D Anchor viewpoint links.)
+</p>
+
+<p class="Example">
+EXAMPLE&nbsp; An external prototype declaration follows:</p>
+
+<blockquote>
+	<span class="code">&lt;ExternProtoDeclare<br>
+&nbsp;&nbsp;&nbsp;
+   name='<a name="ExternProtoDeclare_ViewPositionOrientation">ViewPositionOrientation</a>'<br>
+	&nbsp;&nbsp;&nbsp; nodeType=<b>&#39;</b>Viewpoint'<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;url=&#39;"ViewPositionOrientationPrototype.x3d#ViewPositionOrientation"<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<a href="http://www.myorg.org/Examples/ViewPositionOrientationPrototype.x3d#ViewPositionOrientation">http://www.myorg.org/Examples/ViewPositionOrientationPrototype.x3d#ViewPositionOrientation</a>"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;ViewPositionOrientationPrototype.wrl#ViewPositionOrientation&quot;<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<a href="http://www.myorg.org/Examples/ViewPositionOrientationPrototype.wrl#ViewPositionOrientation">http://www.myorg.org/Examples/ViewPositionOrientationPrototype.wrl#ViewPositionOrientation</a>&quot;&#39;<br>
+	&gt;<br>
+	&nbsp;&nbsp;&nbsp; &lt;field
+   name=&#39;enabled'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type=&#39;Boolean'<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; accessType=<strong>&#39;</strong>inputOutput'/&gt;</span></blockquote>
+
+<P>See 4.4.5 External prototype semantics in
+<a href="references.html#[I19775_1]">ISO/IEC 19775-1</a> 
+for details on external prototype statements.</P>
+
+
+<H2><a name="ProtoInstanceAndFieldValueStatement"></a>4.3.10 ProtoInstance and fieldValue statement syntax</H2>
+
+<p>
+The <code>ProtoInstance</code> element is used to create instances of nodes, which must be 
+defined previously in the scene using either <code>ProtoDeclare</code> or <code>ExternProtoDeclare</code> statements.
+</p>
+
+<p>
+<code>ProtoInstance</code> can contain zero or more <code>fieldValue</code> elements
+which are used to provide initial values for fields defined in the corresponding
+predecessor <code>ProtoDeclare</code> or <code>ExternProtoDeclare</code> statement.
+These <code>fieldValue</code> initializations are only used for field definitions with 
+<code>accesstype</code> of <code>initializeOnly</code> or <code>inputOutput</code> and 
+override
+any default values defined in the corresponding <code>
+ProtoDeclare</code>.</p>
+
+<p class="Example">EXAMPLE</p>
+
+<blockquote>
+<span class="code">&lt;Transform translation='0 -2.5 0'&gt;<br>
+&nbsp; &lt;Shape&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;Appearance&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ProtoInstance name='<a href="#ProtoDeclare_EmissiveMaterial">EmissiveMaterial</a>'&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;fieldValue name='onlyColor'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; value='0.2 0.6 0.6'/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/ProtoInstance&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/Appearance&gt;
+<br>
+&nbsp;&nbsp;&nbsp;
+&lt;Text string='"Prototype syntax" "examples"'&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;FontStyle justify='&quot;MIDDLE&quot; &quot;MIDDLE&quot;'/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/Text&gt;<br>
+&nbsp; &lt;/Shape&gt;<br>
+&lt;/Transform&gt;
+</span>
+</blockquote>
+
+<blockquote><span class="code">&lt;ProtoInstance name='<a href="#ExternProtoDeclare_ViewPositionOrientation">ViewPositionOrientation</a>'&gt;<br>
+&nbsp; &lt;fieldValue name='enabled' value='true'/&gt;<br>
+	&lt;/ProtoInstance&gt;
+</span>
+</blockquote>
+
+<H2><a name="ROUTEStatementSyntax"></a>4.3.11 ROUTE statement syntax</H2>
+
+<P>A ROUTE statement consists of a ROUTE element followed by attributes
+<code>fromNode</code>, <code>fromField</code>, <code>toNode</code> and <code>toField</code>.
+The <code>fromNode</code> and <code>toNode</code> attributes are of XML type <code>IDREF</code>,
+meaning that corresponding DEF values shall be found in the preceding nodes. 
+</P>
+
+<p>
+The following semantic restrictions apply:</p>
+<ul>
+		<li><code>ROUTE</code> elements are not scene-graph nodes</li>
+		<li>DEFed nodes within each <code>ProtoDeclare</code> form a separate namespace.
+				It is an error to <code>ROUTE</code> into (or out of) a <code>ProtoDeclare</code> body.
+		</li>
+</ul>
+
+<p class="Example">EXAMPLE&nbsp; The following illustrates ROUTE statement syntax:</p>
+
+<blockquote>
+<span class="code">&lt;TimeSensor
+   DEF='<a name="Clock">Clock</a>'
+   cycleInterval='4'
+   loop='true'/&gt;
+<br>
+&lt;OrientationInterpolator<br>
+&nbsp;&nbsp;&nbsp;
+   DEF='<a name="Spinner">Spinner</a>'<br>
+&nbsp;&nbsp;&nbsp;
+   key='0 0.5 1'<br>
+&nbsp;&nbsp;&nbsp; keyValue='0 1 0 0,0 1 0 3.1416, 0 1 0 6.2832'/&gt;
+<br>
+&lt;ROUTE
+   fromNode='<a href="#Clock">Clock</a>'
+   fromField='fraction'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   toNode='<a href="#Spinner">Spinner</a>'
+   toField='set_fraction'/&gt;
+<br>
+&lt;ROUTE
+   fromNode='<a href="#Spinner">Spinner</a>'
+   fromField='value_changed'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   toNode='<a href="#TransformExampleUSE">TransformExampleUSE</a>'
+   toField='rotation'/&gt;
+</span>
+</blockquote>
+
+		<p>
+</p>
+
+
+
+<H2><a name="IMPORT_EXPORTStatementSyntax"></a>4.3.12 IMPORT/EXPORT statement syntax</H2>
+
+<p>
+The following XML syntax applies to the IMPORT/EXPORT functionality of X3D.</p>
+
+<P>An IMPORT statement consists of an IMPORT element followed by attributes
+<code>inlineDEF</code>, <code>exportedDEF</code>, and <code>AS</code>. 
+</P>
+
+<P>An EXPORT statement consists of an EXPORT element followed by attributes <b>
+<font face="Courier New">lo</font></b><code><font face="Courier New">c</font></code><b><font face="Courier New">alDEF</font></b> 
+and <b><font face="Courier New">AS</font></b>.</P>
+
+<p class="Example">
+EXAMPLE&nbsp;1&nbsp; The following depicts the XML encoding of an IMPORT statement:
+</p>
+
+		<blockquote>
+			<p><span class="code">&lt;Inline DEF='I1' url='"someUrl.x3d"'&gt;<br>&lt;IMPORT 
+			inlineDEF='I1'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exportedDEF='rootTransform&#39;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AS='I1Root'/&gt;<br>
+			&lt;PositionInterpolator DEF='PI'/&gt;<br>&lt;ROUTE fromNode='PI' fromField='value_changed'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; toNode='I1Root' toField='set_translation'/&gt;
+			</span></p>
+		</blockquote>
+
+<p class="Example">
+EXAMPLE 2&nbsp; The following depicts the XML encoding of an EXPORT statement:
+</p>
+
+<blockquote><span class="code">&lt;Transform DEF='T1'/&gt; <br>
+&lt;EXPORT localDEF='T1' AS='rootTransform'/&gt;</span></blockquote>
+
+
+
+<H2><a name="EncapsulatingScriptNodeCode"></a>4.3.13 Encapsulating Script node 
+code</H2>
+		<p>Code for scripts should not be placed so as to be parsed by XML 
+		parsers. Therefore, such code should be encapsulated to avoid such 
+		parsing. The preferred method to encapsulate source code in a Script 
+		node is to wrap it in a child CDATA construct following the &lt;field/&gt; and 
+		&lt;IS&gt;&lt;connect/&gt;&lt;/IS&gt; definitions. The CDATA construct (see
+		<a href="references.html#[XML]">2.[XML]</a>) ensures that all contained 
+		characters are treated literally without further escaping or 
+		modification.</p>
+		<p>If both a <i>url</i> field and a CDATA clause are encountered, the <i>
+		url</i> field is processed first. Thus, the CDATA construct can also be 
+		considered equivalent to one additional value appended to the <i>url</i> 
+		MFString array. This ordering allows an online script code <i>url</i> to 
+		take priority over fallback default script code in the CDATA construct. 
+		This ordering also allows run-time updates if a viewer is connected to the network, 
+		if so desired by the originating author.</p>
+		<p class="Example">EXAMPLE&nbsp; The following example demonstrates the 
+		use of a CDATA construct within a Script node:</p>
+		<blockquote>
+			<p><span class="code">&lt;Script directOutput=&#39;true&#39;&gt; <br>
+&nbsp; &lt;field name=&#39;ROOT&#39; type=&#39;SFNode&#39; accessType=&#39;initializeOnly&#39;&gt; <br>
+&nbsp;&nbsp;&nbsp; &lt;Transform USE=&#39;ROOT&#39;/&gt; <br>
+&nbsp; &lt;/field&gt; <br>
+			&lt;![CDATA[ <br>
+			<br>
+&nbsp; javascript:<br>
+			<br>
+&nbsp; function R () <br>
+&nbsp; {<br>
+&nbsp;&nbsp;&nbsp; return Math.random();<br>
+&nbsp; }<br>
+			<br>
+&nbsp; function initialize() <br>
+&nbsp; {<br>
+&nbsp;&nbsp;&nbsp; for (i=0; i &lt; 10; i++) <br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rand1 = 100*R();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rand2 = 100*R();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rand3 = 20*R();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rand4 = 40*R();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rand5 = 20*R();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string = <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;Transform {&#39; +<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;&nbsp; translation &#39; + rand1 + &#39; 0 &#39; 
+			+ rand2 + <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;&nbsp; children [&#39; +<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;&nbsp;&nbsp;&nbsp; Shape {&#39; +<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			appearance Appearance {&#39; +<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			material Material {&#39; +<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			diffuseColor &#39; + R() + &#39; &#39; + R() + &#39; &#39; + R() +<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			}&#39; +<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&#39; +<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			geometry Box {&#39; +<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			size &#39; + rand3 + &#39; &#39; + rand4 + &#39; &#39; + rand5 +<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&#39; +<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;&nbsp;&nbsp;&nbsp; }&#39; +<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;&nbsp; ]&#39; +<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;}&#39;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; newNode = 
+			Browser.createVrmlFromString(string);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ROOT.children[i] = newNode[0];<br>
+&nbsp; }<br>
+			}<br>
+			<br>
+			]]&gt; <br>
+			&lt;/Script&gt;</span></p>
+		</blockquote>
+
+
+<h1><img class="cube" src="../Images/cube.gif" alt="cube" width="20" height="19">
+<a name="X3DFilesAndTheWorldWideWeb"></a>4.4 X3D files and the World Wide Web</H1>
+
+<H2><a name="FileExtensionAndMIMETypes"></a>4.4.1 File extension and MIME types</H2>
+
+<P>XML-encoded X3D files shall use the file extension &ldquo;.x3d&rdquo;. The MIME-type 
+associated with that XML-encoded X3D file is &ldquo;model/x3d+xml&rdquo;.</P>
+		<P>X3D-encoded X3D files that have been &ldquo;gzipped&rdquo; shall use 
+		a file extension of either &ldquo;.x3dz&rdquo; or &ldquo;.x3d.gz&rdquo;. The MIME type is &ldquo;model/x3d+xml&rdquo;. 
+		The content-encoding value is &ldquo;gzip&rdquo;.</P>
+		<P>The concept of MIME types is defined in
+		<a href="references.html#[MIME]">2.[MIME]</a>.</P>
+
+
+
+<H2><a name="DTD"></a>4.4.2 Document Type Definition (DTD)</H2>
+
+<p>
+The X3D DTD is defined in 
+<a href="DTD.html">Annex&nbsp;A Document Type Definition (DTD)</a>.
+</p>
+
+
+
+<H2><a name="Schema"></a>4.4.3 Schema</H2>
+
+
+<p>
+The X3D schema is defined in 
+<a href="Schema.html">Annex&nbsp;B Schema</a>.
+</p>
+
+
+<!-- 
+
+<H2><A name=4.4.5></A>
+4.4.5 X3D Internationalization (I18N)</H2>
+
+<p>
+[Discuss.]&nbsp;</p>
+
+ -->
+<p>
+<img class="x3dbar" src="../Images/x3dbar.png" alt="--- X3D separator bar ---" width="430" height="23"></p>
+
+</body>
+</html>

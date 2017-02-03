@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "http://www.web3d.org/specifications/x3d-3.0.dtd" "/www.web3d.org/TaskGroups/x3d/translation/x3d-3.0.dtd">
+
+<X3D profile="Immersive" version="3.0">
+  <head>
+    <component name="GeoSpatial"/>
+    <component level="2" name="Nurbs"/>
+    <meta content="X3dHeaderPrototypeSyntaxExamples.x3d" name="filename"/>
+    <meta
+      content="X3D scene header and prototype syntax examples.&#10;This example header indicates that the content is XML encoded, follows the Interactive Profile and explicitly lists additional necessary components. &#10;The X3D header may also contain additional semantic information. &#10;The remainder of this scene contains example Prototype declaration and instancing." name="description"/>
+    <meta content="14 October 2002" name="created"/>
+    <meta content="28 December 2002" name="revised"/>
+    <meta content="Don Brutzman" name="author"/>
+    <meta
+      content="http://www.web3D.org/TaskGroups/x3d/translation/examples/development/X3dHeaderPrototypeSyntaxExamples.x3d" name="url"/>
+  </head>
+  <Scene>
+    <ExternProtoDeclare name="ViewPositionOrientation"
+      url="&quot;../../Tools/Authoring/ViewPositionOrientationPrototype.wrl#ViewPositionOrientation&quot;&#10;&quot;../Savage/Tools/Authoring/ViewPositionOrientationPrototype.wrl#ViewPositionOrientation&quot;&#10;&quot;http://web.nps.navy.mil/~brutzman/Savage/Tools/Authoring/ViewPositionOrientationPrototype.wrl#ViewPositionOrientation&quot;&#10;&quot;../../Tools/Authoring/ViewPositionOrientationPrototype.x3d#ViewPositionOrientation&quot;&#10;&quot;../Savage/Tools/Authoring/ViewPositionOrientationPrototype.x3d#ViewPositionOrientation&quot;&#10;&quot;http://web.nps.navy.mil/~brutzman/Savage/Tools/Authoring/ViewPositionOrientationPrototype.x3d#ViewPositionOrientation&quot;">
+      <field accessType="inputOutput" name="enabled" type="SFBool"/>
+    </ExternProtoDeclare>
+    <ProtoDeclare name="NewWorldInfoNode">
+      <ProtoBody>
+        <WorldInfo DEF="ExamplePrototypeBody"/>
+      </ProtoBody>
+    </ProtoDeclare>
+    <ProtoDeclare name="EmissiveMaterial">
+      <ProtoInterface>
+        <field accessType="inputOutput" name="onlyColor" type="SFColor"/>
+      </ProtoInterface>
+      <ProtoBody><!--Override default diffuseColor value 0.8 0.8
+          0.8--><Material diffuseColor="0 0 0"><!--Connect emissiveColor
+            field of current node to onlyColor field of parent ProtoDeclare.--><IS>
+            <connect nodeField="emissiveColor" protoField="onlyColor"/>
+          </IS>
+        </Material>
+      </ProtoBody>
+    </ProtoDeclare>
+    <ProtoDeclare name="ShiftGroupUp2m">
+      <ProtoInterface>
+        <field accessType="inputOutput" name="children" type="MFNode">
+          <Group DEF="DefaultNodeValue" bboxSize="2 2 2"/>
+        </field>
+      </ProtoInterface>
+      <ProtoBody>
+        <Transform translation="0 2 0">
+          <Group>
+            <IS>
+              <connect nodeField="children" protoField="children"/>
+            </IS>
+          </Group>
+        </Transform>
+      </ProtoBody>
+    </ProtoDeclare><!--====================--><NavigationInfo type="EXAMINE ANY"/>
+    <Viewpoint DEF="ExampleSingleElement" description="Hello syntax"/>
+    <Group DEF="ExampleChildElement">
+      <Shape>
+        <Box/>
+        <Appearance>
+          <Material diffuseColor="0.6 0.4 0.2"/>
+        </Appearance>
+      </Shape>
+    </Group>
+    <Transform DEF="TransformExampleUSE" rotation="0 1 0 0.78" translation="0 2.5 0">
+      <Group USE="ExampleChildElement"/>
+    </Transform>
+    <Collision>
+        <Shape containerField="proxy">
+          <Sphere/>
+        </Shape>
+      <Group USE="ExampleChildElement"/>
+    </Collision>
+    <Transform translation="0 -2.5 0">
+      <Shape>
+        <Appearance>
+          <ProtoInstance name="EmissiveMaterial" containerField="material">
+            <fieldValue name="onlyColor" value="0.2 0.6 0.6"/>
+          </ProtoInstance>
+        </Appearance>
+        <Text string="&quot;X3D Header, Prototype syntax examples&quot;&#10;&quot;(view console for EXTERNPROTO output)&quot;">
+          <FontStyle justify="MIDDLE MIDDLE" size="0.6"/>
+        </Text>
+      </Shape>
+    </Transform>
+    <ProtoInstance name="ViewPositionOrientation">
+      <fieldValue name="enabled" value="true"/>
+    </ProtoInstance>
+    <TimeSensor DEF="Clock" cycleInterval="4" enabled="true" loop="true"/>
+    <OrientationInterpolator DEF="Spinner" key="0 0.5 1" keyValue="0 1 0 0,0 1 0 3.1416, 0 1 0 6.2832"/>
+    <ROUTE fromField="fraction_changed" fromNode="Clock"
+      toField="set_fraction" toNode="Spinner"/>
+    <ROUTE fromField="value_changed" fromNode="Spinner"
+      toField="rotation" toNode="TransformExampleUSE"/>
+  </Scene>
+</X3D>

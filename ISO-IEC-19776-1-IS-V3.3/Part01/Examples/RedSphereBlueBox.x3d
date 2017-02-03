@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+<X3D version='3.0' profile='Interchange'>
+  <head>
+    <meta name='filename' content='RedSphereBlueBox.x3d'/>
+  </head>
+  <Scene>
+    <Transform>
+      <NavigationInfo headlight='false' 
+        avatarSize='0.25 1.6 0.75' type='"EXAMINE"'/>
+      <DirectionalLight/>
+      <Transform translation='3.0 0.0 1.0'>
+        <Shape>
+          <Sphere radius='2.3'/>
+          <Appearance>
+            <Material diffuseColor='1.0 0.0 0.0'/>
+          </Appearance>
+        </Shape>
+      </Transform>
+      <Transform translation='-2.4 0.2 1.0' rotation='0.0 0.707 0.707 0.9'>
+        <Shape>
+          <Box/>
+          <Appearance>
+            <Material diffuseColor='0.0 0.0 1.0'/>
+          </Appearance>
+        </Shape>
+      </Transform>
+    </Transform>
+  </Scene>
+</X3D>

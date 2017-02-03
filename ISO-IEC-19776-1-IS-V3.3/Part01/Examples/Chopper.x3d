@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+<X3D version='3.0' profile='Immersive'>
+  <head>
+    <meta name='filename' content='Chopper.x3d'/>
+  </head>
+  <Scene>
+    <ExternProtoDeclare name='Rotor' 
+       url='"Rotor.x3d#Rotor"'>
+      <field name='rate' type='SFTime' accessType='initializeOnly'/>
+      <field name='children' type='MFNode' accessType='initializeOnly'/>
+      <field name='startTime' type='SFTime' accessType='inputOutput'/>
+      <field name='stopTime' type='SFTime' accessType='inputOutput'/>
+    </ExternProtoDeclare>
+    <ProtoDeclare name='Chopper'>
+      <ProtoInterface>
+        <field name='rotorSpeed' type='SFTime' value='1' 
+          accessType='initializeOnly'/>
+      </ProtoInterface>
+      <ProtoBody>
+        <Group>
+          <TouchSensor DEF='Touch' description='touch to toggle rotor rotation'/>
+          <Inline load='true' url='"ChopperBody.x3d"'/>
+          <ProtoInstance DEF='Top' name='Rotor'>
+            <fieldValue name='stopTime' value='1'/>
+            <fieldValue name='children'> 
+              <Inline load='true' url='"ChopperRotor.x3d"'/> 
+            </fieldValue> 
+            <IS>
+              <connect nodeField='rate' protoField='rotorSpeed'/>
+            </IS>
+          </ProtoInstance>
+        </Group>
+        <Script DEF='RotorScript'>
+          <field name='startOrStopEngine' type='SFTime' accessType='inputOnly'/>
+          <field name='startEngine' type='SFTime' accessType='outputOnly'/>
+          <field name='stopEngine' type='SFTime' accessType='outputOnly'/>
+          <field name='engineStarted' type='SFBool' value='false' 
+            accessType='initializeOnly'/>
+          <![CDATA[
+            ecmascript:
+            function startOrStopEngine(value) {
+              // start or stop engine:
+              if (!engineStarted) {
+                startEngine = value;
+                engineStarted = true;
+              }
+              else
+              {
+                stopEngine = value;
+                engineStarted = false;
+              }
+            }
+          ]]>
+        </Script>
+        <ROUTE fromNode='Touch' fromField='touchTime' 
+               toNode='RotorScript' toField='startOrStopEngine' />
+        <ROUTE fromNode='RotorScript' fromField='startEngine' 
+               toNode='Top' toField='startTime' />
+        <ROUTE fromNode='RotorScript' fromField='stopEngine' 
+               toNode='Top' toField='stopTime'/>
+      </ProtoBody>
+    </ProtoDeclare>
+    <Viewpoint description='Example16' position='0 0 5' centerOfRotation='0 0 0'/>
+    <NavigationInfo type='"EXAMINE ANY"'/>
+    <Group>
+      <ProtoInstance DEF='MikesChopper' name='Chopper'/>
+    </Group>
+  </Scene>
+</X3D>

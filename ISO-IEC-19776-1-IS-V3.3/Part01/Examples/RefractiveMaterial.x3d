@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+<X3D version='3.0' profile='Immersive'>
+  <head>
+    <meta name='filename' content='RefractiveMaterial.x3d'/>
+  </head>
+  <Scene><!--external protype definition-->
+    <ProtoDeclare name='RefractiveMaterial'>
+      <ProtoInterface>
+        <field name='ambientIntensity' type='SFFloat' value='0' 
+               accessType='inputOutput'/>
+        <field name='diffuseColor' type='SFColor' value='0.5 0.5 0.5' 
+               accessType='inputOutput'/>
+        <field name='specularColor' type='SFColor' value='0 0 0' 
+               accessType='inputOutput'/>
+        <field name='emissiveColor' type='SFColor' value='0 0 0' 
+               accessType='inputOutput'/>
+        <field name='shininess' type='SFFloat' value='0' 
+               accessType='inputOutput'/>
+        <field name='transparency' type='SFFloat' value='0' 
+               accessType='inputOutput'/>
+        <field name='indexOfRefraction' type='SFFloat' value='0.1' 
+               accessType='inputOutput'/>
+      </ProtoInterface>
+      <ProtoBody> 
+        <Material>
+          <IS> 
+            <connect nodeField='ambientIntensity' protoField='ambientIntensity'/>
+            <connect nodeField='diffuseColor' protoField='diffuseColor'/>
+            <connect nodeField='specularColor' protoField='specularColor'/> 
+            <connect nodeField='emissiveColor' protoField='emissiveColor'/> 
+            <connect nodeField='transparency' protoField='transparency'/>
+          </IS>
+        </Material>
+      </ProtoBody> 
+    </ProtoDeclare>
+  </Scene>
+</X3D>
+

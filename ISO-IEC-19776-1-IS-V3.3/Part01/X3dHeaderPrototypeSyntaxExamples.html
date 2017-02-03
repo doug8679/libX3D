@@ -1,0 +1,332 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<title>X3dHeaderPrototypeSyntaxExamples.x3d (X3dToHtml)</title>
+<meta name="generator"   content="X3dToHtml.xsl, http://www.web3d.org/TaskGroups/x3d/translation/X3dToHtml.xsl">
+</head>
+<body>
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE X3D PUBLIC "http://www.web3d.org/specifications/x3d-3.0.dtd" "/www.web3d.org/TaskGroups/x3d/translation/x3d-3.0.dtd"></pre>
+&lt;<font color="navy">X3D</font> <font color="green">profile</font><b>='</b><font color="teal">Immersive</font><b>'</b>&gt;
+<div style="margin-left:25">
+&lt;<font color="navy">head</font>&gt;
+<div style="margin-left:25">
+&lt;<font color="navy">component</font> <font color="green">name</font><b>='</b><font color="teal">GeoSpatial</font><b>'</b>/&gt;
+<br>
+&lt;<font color="navy">component</font> <font color="green">name</font><b>='</b><font color="teal">Nurbs</font><b>'</b> <font color="green">level</font><b>='</b><font color="teal">2</font><b>'</b>/&gt;
+<br>
+&lt;<font color="navy">meta</font> <font color="green">name</font><b>='</b><font color="teal">filename</font><b>'</b> <font color="green">content</font><b>='</b><a href=X3dHeaderPrototypeSyntaxExamples.x3d>X3dHeaderPrototypeSyntaxExamples.x3d</a><b>'</b>/&gt;
+<br>
+&lt;<font color="navy">meta</font>
+   <font color="green">name</font><b>='</b><font color="teal">description</font><b>'</b>
+   <font color="green">content</font><b>='</b><font color="teal">X3D scene header and prototype syntax examples. This example header indicates that the content is XML encoded, follows the Interactive Profile and explicitly lists additional necessary components. The X3D header may also contain additional semantic information. The remainder of this scene contains example Prototype declaration and instancing.</font><b>'</b>/&gt;
+<br>
+&lt;<font color="navy">meta</font> <font color="green">name</font><b>='</b><font color="teal">created</font><b>'</b> <font color="green">content</font><b>='</b><font color="teal">14 October 2002</font><b>'</b>/&gt;
+<br>
+&lt;<font color="navy">meta</font> <font color="green">name</font><b>='</b><font color="teal">revised</font><b>'</b> <font color="green">content</font><b>='</b><font color="teal">28 December 2002</font><b>'</b>/&gt;
+<br>
+&lt;<font color="navy">meta</font> <font color="green">name</font><b>='</b><font color="teal">author</font><b>'</b> <font color="green">content</font><b>='</b><font color="teal">Don Brutzman</font><b>'</b>/&gt;
+<br>
+&lt;<font color="navy">meta</font>
+   <font color="green">name</font><b>='</b><font color="teal">url</font><b>'</b>
+   <font color="green">content</font><b>='</b><a href=http://www.web3D.org/TaskGroups/x3d/translation/examples/development/X3dHeaderPrototypeSyntaxExamples.x3d>http://www.web3D.org/TaskGroups/x3d/translation/examples/development/X3dHeaderPrototypeSyntaxExamples.x3d</a><b>'</b>/&gt;
+<br>
+</div>
+
+&lt;/<font color="navy">head</font>&gt;
+
+
+<br />
+&lt;!-- 
+<center>
+<hr width="100%"/>
+<i>Index&nbsp;for&nbsp;ExternProtoDeclare</i>:&nbsp;<a href="#ExternProtoDeclare_ViewPositionOrientation"><font color="purple">ViewPositionOrientation</font></a>.  <i>Index&nbsp;for&nbsp;ProtoDeclares</i>:&nbsp;<a href="#ProtoDeclare_NewWorldInfoNode"><font color="purple">NewWorldInfoNode</font></a>,
+<a href="#ProtoDeclare_EmissiveMaterial"><font color="purple">EmissiveMaterial</font></a>,
+<a href="#ProtoDeclare_ShiftGroupUp2m"><font color="purple">ShiftGroupUp2m</font></a>.  
+<br>
+<i>Index&nbsp;for&nbsp;DEFs</i>:&nbsp;<a href="#Clock"><font color="maroon">Clock</font></a>,
+<a href="#DefaultNodeValue"><font color="maroon">DefaultNodeValue</font></a>,
+<a href="#ExampleChildElement"><font color="maroon">ExampleChildElement</font></a>,
+<a href="#ExamplePrototypeBody"><font color="maroon">ExamplePrototypeBody</font></a>,
+<a href="#ExampleSingleElement"><font color="maroon">ExampleSingleElement</font></a>,
+<a href="#Spinner"><font color="maroon">Spinner</font></a>,
+<a href="#TransformExampleUSE"><font color="maroon">TransformExampleUSE</font></a>.  
+<br>
+
+<hr width="100%" />
+</center>
+--&gt;
+<br />
+
+&lt;<font color="navy">Scene</font>&gt;
+<div style="margin-left:25">
+&lt;<font color="purple">ExternProtoDeclare</font>
+   <font color="green">name</font><b>='</b><a name="ExternProtoDeclare_ViewPositionOrientation"><font color="purple">ViewPositionOrientation</font></a><b>'</b>
+   <font color="green">url</font><b>='</b>"<A href="../../Tools/Authoring/ViewPositionOrientationPrototype.wrl#ViewPositionOrientation">../../Tools/Authoring/ViewPositionOrientationPrototype.wrl#ViewPositionOrientation</A>"
+"<A href="../Savage/Tools/Authoring/ViewPositionOrientationPrototype.wrl#ViewPositionOrientation">../Savage/Tools/Authoring/ViewPositionOrientationPrototype.wrl#ViewPositionOrientation</A>"
+"<A href="http://web.nps.navy.mil/~brutzman/Savage/Tools/Authoring/ViewPositionOrientationPrototype.wrl#ViewPositionOrientation">http://web.nps.navy.mil/~brutzman/Savage/Tools/Authoring/ViewPositionOrientationPrototype.wrl#ViewPositionOrientation</A>"
+"<A href="../../Tools/Authoring/ViewPositionOrientationPrototype.x3d#ViewPositionOrientation">../../Tools/Authoring/ViewPositionOrientationPrototype.x3d#ViewPositionOrientation</A>"
+"<A href="../Savage/Tools/Authoring/ViewPositionOrientationPrototype.x3d#ViewPositionOrientation">../Savage/Tools/Authoring/ViewPositionOrientationPrototype.x3d#ViewPositionOrientation</A>"
+"<A href="http://web.nps.navy.mil/~brutzman/Savage/Tools/Authoring/ViewPositionOrientationPrototype.x3d#ViewPositionOrientation">http://web.nps.navy.mil/~brutzman/Savage/Tools/Authoring/ViewPositionOrientationPrototype.x3d#ViewPositionOrientation</A>"<b>'</b>&gt;
+<div style="margin-left:25">
+&lt;<font color="navy">field</font>
+   <font color="green">name</font><b>='</b><font color="purple">enabled</font><b>'</b>
+   <font color="green">type</font><b>='</b><font color="teal">SFBool</font><b>'</b>
+   <font color="green">accessType</font><b>='</b><font color="teal">inputOutput</font><b>'</b>/&gt;
+<br>
+</div>
+&lt;/<font color="purple">ExternProtoDeclare</font>&gt;
+<br>
+&lt;<font color="purple">ProtoDeclare</font> <font color="green">name</font><b>='</b><a name="ProtoDeclare_NewWorldInfoNode"><font color="purple">NewWorldInfoNode</font></a><b>'</b>&gt;
+<div style="margin-left:25">
+&lt;<font color="purple">ProtoBody</font>&gt;
+<div style="margin-left:25">
+&lt;<font color="navy">WorldInfo</font> <font color="green">DEF</font><b>='</b><a name="ExamplePrototypeBody"><font color="maroon">ExamplePrototypeBody</font></a><b>'</b>/&gt;
+<br>
+</div>
+&lt;/<font color="purple">ProtoBody</font>&gt;
+<br>
+</div>
+&lt;/<font color="purple">ProtoDeclare</font>&gt;
+<br>
+&lt;<font color="purple">ProtoDeclare</font> <font color="green">name</font><b>='</b><a name="ProtoDeclare_EmissiveMaterial"><font color="purple">EmissiveMaterial</font></a><b>'</b>&gt;
+<div style="margin-left:25">
+&lt;<font color="purple">ProtoInterface</font>&gt;
+<div style="margin-left:25">
+&lt;<font color="navy">field</font>
+   <font color="green">name</font><b>='</b><font color="purple">onlyColor</font><b>'</b>
+   <font color="green">type</font><b>='</b><font color="teal">SFColor</font><b>'</b>
+   <font color="green">accessType</font><b>='</b><font color="teal">inputOutput</font><b>'</b>/&gt;
+<br>
+</div>
+&lt;/<font color="purple">ProtoInterface</font>&gt;
+<br>
+&lt;<font color="purple">ProtoBody</font>&gt;
+<div style="margin-left:25">
+&lt;!-- Override default diffuseColor value 0.8 0.8 0.8 --&gt;
+ <br>
+&lt;<font color="navy">Material</font> <font color="green">diffuseColor</font><b>='</b><font color="teal">0 0 0</font><b>'</b>&gt;
+<div style="margin-left:25">
+&lt;!-- Connect emissiveColor field of current node to onlyColor field of parent ProtoDeclare. --&gt;
+ <br>
+&lt;<font color="purple">IS</font>&gt;
+<div style="margin-left:25">
+&lt;<font color="purple">connect</font> <font color="green">nodeField</font><b>='</b><font color="teal">emissiveColor</font><b>'</b> <font color="green">protoField</font><b>='</b><font color="purple">onlyColor</font><b>'</b>/&gt;
+<br>
+</div>
+&lt;/<font color="purple">IS</font>&gt;
+<br>
+</div>
+
+&lt;/<font color="navy">Material</font>&gt;
+<br>
+</div>
+&lt;/<font color="purple">ProtoBody</font>&gt;
+<br>
+</div>
+&lt;/<font color="purple">ProtoDeclare</font>&gt;
+<br>
+&lt;<font color="purple">ProtoDeclare</font> <font color="green">name</font><b>='</b><a name="ProtoDeclare_ShiftGroupUp2m"><font color="purple">ShiftGroupUp2m</font></a><b>'</b>&gt;
+<div style="margin-left:25">
+&lt;<font color="purple">ProtoInterface</font>&gt;
+<div style="margin-left:25">
+&lt;<font color="navy">field</font>
+   <font color="green">name</font><b>='</b><font color="purple">children</font><b>'</b>
+   <font color="green">type</font><b>='</b><font color="teal">MFNode</font><b>'</b>
+   <font color="green">accessType</font><b>='</b><font color="teal">inputOutput</font><b>'</b>&gt;
+<div style="margin-left:25">
+&lt;<font color="navy">Group</font> <font color="green">DEF</font><b>='</b><a name="DefaultNodeValue"><font color="maroon">DefaultNodeValue</font></a><b>'</b> <font color="green">bboxSize</font><b>='</b><font color="teal">2 2 2</font><b>'</b>/&gt;
+<br>
+</div>
+
+&lt;/<font color="navy">field</font>&gt;
+<br>
+</div>
+&lt;/<font color="purple">ProtoInterface</font>&gt;
+<br>
+&lt;<font color="purple">ProtoBody</font>&gt;
+<div style="margin-left:25">
+&lt;<font color="navy">Transform</font> <font color="green">translation</font><b>='</b><font color="teal">0 2 0</font><b>'</b>&gt;
+<div style="margin-left:25">
+&lt;<font color="navy">Group</font>&gt;
+<div style="margin-left:25">
+&lt;<font color="purple">IS</font>&gt;
+<div style="margin-left:25">
+&lt;<font color="purple">connect</font> <font color="green">nodeField</font><b>='</b><font color="teal">children</font><b>'</b> <font color="green">protoField</font><b>='</b><font color="purple">children</font><b>'</b>/&gt;
+<br>
+</div>
+&lt;/<font color="purple">IS</font>&gt;
+<br>
+</div>
+
+&lt;/<font color="navy">Group</font>&gt;
+<br>
+</div>
+
+&lt;/<font color="navy">Transform</font>&gt;
+<br>
+</div>
+&lt;/<font color="purple">ProtoBody</font>&gt;
+<br>
+</div>
+&lt;/<font color="purple">ProtoDeclare</font>&gt;
+<br>
+&lt;!-- ==================== --&gt;
+ <br>
+&lt;<font color="navy">NavigationInfo</font> <font color="green">type</font><b>='</b><font color="teal">EXAMINE ANY</font><b>'</b>/&gt;
+<br>
+&lt;<font color="navy">Viewpoint</font> <font color="green">DEF</font><b>='</b><a name="ExampleSingleElement"><font color="maroon">ExampleSingleElement</font></a><b>'</b> <font color="green">description</font><b>='</b><font color="teal">Hello syntax</font><b>'</b>/&gt;
+<br>
+&lt;<font color="navy">Group</font> <font color="green">DEF</font><b>='</b><a name="ExampleChildElement"><font color="maroon">ExampleChildElement</font></a><b>'</b>&gt;
+<div style="margin-left:25">
+&lt;<font color="navy">Shape</font>&gt;
+<div style="margin-left:25">
+&lt;<font color="navy">Box</font>/&gt;
+<br>
+&lt;<font color="navy">Appearance</font>&gt;
+<div style="margin-left:25">
+&lt;<font color="navy">Material</font> <font color="green">diffuseColor</font><b>='</b><font color="teal">0.6 0.4 0.2</font><b>'</b>/&gt;
+<br>
+</div>
+
+&lt;/<font color="navy">Appearance</font>&gt;
+<br>
+</div>
+
+&lt;/<font color="navy">Shape</font>&gt;
+<br>
+</div>
+
+&lt;/<font color="navy">Group</font>&gt;
+<br>
+&lt;<font color="navy">Transform</font>
+   <font color="green">DEF</font><b>='</b><a name="TransformExampleUSE"><font color="maroon">TransformExampleUSE</font></a><b>'</b>
+   <font color="green">rotation</font><b>='</b><font color="teal">0 1 0 0.78</font><b>'</b>
+   <font color="green">translation</font><b>='</b><font color="teal">0 2.5 0</font><b>'</b>&gt;
+<div style="margin-left:25">
+&lt;<font color="navy">Group</font> <font color="green">USE</font><b>='</b><a href="#ExampleChildElement"><font color="maroon">ExampleChildElement</font></a><b>'</b>/&gt;
+<br>
+</div>
+
+&lt;/<font color="navy">Transform</font>&gt;
+<br>
+&lt;<font color="navy">Collision</font>&gt;
+<div style="margin-left:25">
+&lt;<font color="navy">Shape</font> <font color="green">containerField</font><b>='</b><font color="teal">proxy</font><b>'</b>&gt;
+<div style="margin-left:25">
+&lt;<font color="navy">Sphere</font>/&gt;
+<br>
+</div>
+
+&lt;/<font color="navy">Shape</font>&gt;
+<br>
+&lt;<font color="navy">Group</font> <font color="green">USE</font><b>='</b><a href="#ExampleChildElement"><font color="maroon">ExampleChildElement</font></a><b>'</b>/&gt;
+<br>
+</div>
+
+&lt;/<font color="navy">Collision</font>&gt;
+<br>
+&lt;<font color="navy">Transform</font> <font color="green">translation</font><b>='</b><font color="teal">0 -2.5 0</font><b>'</b>&gt;
+<div style="margin-left:25">
+&lt;<font color="navy">Shape</font>&gt;
+<div style="margin-left:25">
+&lt;<font color="navy">Appearance</font>&gt;
+<div style="margin-left:25">
+&lt;<font color="purple">ProtoInstance</font> <font color="green">name</font><b>='</b><a href="#ProtoDeclare_EmissiveMaterial"><font color="purple">EmissiveMaterial</font></a><b>'</b> <font color="green">containerField</font><b>='</b><font color="teal">material</font><b>'</b>&gt;
+<div style="margin-left:25">
+&lt;<font color="navy">fieldValue</font> <font color="green">name</font><b>='</b><font color="purple">onlyColor</font><b>'</b> <font color="green">value</font><b>='</b><font color="teal">0.2 0.6 0.6</font><b>'</b>/&gt;
+<br>
+</div>
+&lt;/<font color="purple">ProtoInstance</font>&gt;
+<br>
+</div>
+
+&lt;/<font color="navy">Appearance</font>&gt;
+<br>
+&lt;<font color="navy">Text</font> <font color="green">string</font><b>='</b><font color="teal">"X3D Header, Prototype syntax examples" "(view console for EXTERNPROTO output)"</font><b>'</b>&gt;
+<div style="margin-left:25">
+&lt;<font color="navy">FontStyle</font> <font color="green">justify</font><b>='</b><font color="teal">MIDDLE MIDDLE</font><b>'</b> <font color="green">size</font><b>='</b><font color="teal">0.6</font><b>'</b>/&gt;
+<br>
+</div>
+
+&lt;/<font color="navy">Text</font>&gt;
+<br>
+</div>
+
+&lt;/<font color="navy">Shape</font>&gt;
+<br>
+</div>
+
+&lt;/<font color="navy">Transform</font>&gt;
+<br>
+&lt;<font color="purple">ProtoInstance</font> <font color="green">name</font><b>='</b><a href="#ExternProtoDeclare_ViewPositionOrientation"><font color="purple">ViewPositionOrientation</font></a><b>'</b>&gt;
+<div style="margin-left:25">
+&lt;<font color="navy">fieldValue</font> <font color="green">name</font><b>='</b><font color="purple">enabled</font><b>'</b> <font color="green">value</font><b>='</b><font color="teal">true</font><b>'</b>/&gt;
+<br>
+</div>
+&lt;/<font color="purple">ProtoInstance</font>&gt;
+<br>
+&lt;<font color="navy">TimeSensor</font>
+   <font color="green">DEF</font><b>='</b><a name="Clock"><font color="maroon">Clock</font></a><b>'</b>
+   <font color="green">cycleInterval</font><b>='</b><font color="teal">4</font><b>'</b>
+   <font color="green">loop</font><b>='</b><font color="teal">true</font><b>'</b>/&gt;
+<br>
+&lt;<font color="navy">OrientationInterpolator</font>
+   <font color="green">DEF</font><b>='</b><a name="Spinner"><font color="maroon">Spinner</font></a><b>'</b>
+   <font color="green">key</font><b>='</b><font color="teal">0 0.5 1</font><b>'</b>
+   <font color="green">keyValue</font><b>='</b><font color="teal">0 1 0 0,0 1 0 3.1416, 0 1 0 6.2832</font><b>'</b>/&gt;
+<br>
+&lt;<font color="RED">ROUTE</font>
+   <font color="green">fromNode</font><b>='</b><a href="#Clock"><font color="maroon">Clock</font></a><b>'</b>
+   <font color="green">fromField</font><b>='</b><font color="teal">fraction_changed</font><b>'</b>
+   <font color="green">toNode</font><b>='</b><a href="#Spinner"><font color="maroon">Spinner</font></a><b>'</b>
+   <font color="green">toField</font><b>='</b><font color="teal">set_fraction</font><b>'</b>/&gt;
+<br>
+&lt;<font color="RED">ROUTE</font>
+   <font color="green">fromNode</font><b>='</b><a href="#Spinner"><font color="maroon">Spinner</font></a><b>'</b>
+   <font color="green">fromField</font><b>='</b><font color="teal">value_changed</font><b>'</b>
+   <font color="green">toNode</font><b>='</b><a href="#TransformExampleUSE"><font color="maroon">TransformExampleUSE</font></a><b>'</b>
+   <font color="green">toField</font><b>='</b><font color="teal">rotation</font><b>'</b>/&gt;
+<br>
+</div>
+
+&lt;/<font color="navy">Scene</font>&gt;
+<br>
+</div>
+
+&lt;/<font color="navy">X3D</font>&gt;
+
+
+<br />
+&lt;!-- 
+<center>
+<hr width="100%"/>
+<i>Index&nbsp;for&nbsp;ExternProtoDeclare</i>:&nbsp;<a href="#ExternProtoDeclare_ViewPositionOrientation"><font color="purple">ViewPositionOrientation</font></a>.  <i>Index&nbsp;for&nbsp;ProtoDeclares</i>:&nbsp;<a href="#ProtoDeclare_NewWorldInfoNode"><font color="purple">NewWorldInfoNode</font></a>,
+<a href="#ProtoDeclare_EmissiveMaterial"><font color="purple">EmissiveMaterial</font></a>,
+<a href="#ProtoDeclare_ShiftGroupUp2m"><font color="purple">ShiftGroupUp2m</font></a>.  
+<br>
+<i>Index&nbsp;for&nbsp;DEFs</i>:&nbsp;<a href="#Clock"><font color="maroon">Clock</font></a>,
+<a href="#DefaultNodeValue"><font color="maroon">DefaultNodeValue</font></a>,
+<a href="#ExampleChildElement"><font color="maroon">ExampleChildElement</font></a>,
+<a href="#ExamplePrototypeBody"><font color="maroon">ExamplePrototypeBody</font></a>,
+<a href="#ExampleSingleElement"><font color="maroon">ExampleSingleElement</font></a>,
+<a href="#Spinner"><font color="maroon">Spinner</font></a>,
+<a href="#TransformExampleUSE"><font color="maroon">TransformExampleUSE</font></a>.  
+<br>
+
+<hr width="100%" />
+</center>
+--&gt;
+<br />
+
+
+&lt;!-- Tag color codes:
+
+&lt;<font color="navy">NodeType</font><font color="green"> DEF</font>='<font color="maroon">NodeName</font>' <font color="green"> attribute</font>='<font color="teal">value</font>'/&gt;
+
+&lt;<font color="purple"> Prototype </font><font color="green"> name</font>='<font color="purple">ProtoName</font>'/&gt; 
+&lt;<font color="navy"> field </font><font color="green"> name</font>='<font color="purple">fieldName</font>'/&gt; &lt;<font color="purple">/Prototype </font>&gt; --&gt;
+</body>
+</html>

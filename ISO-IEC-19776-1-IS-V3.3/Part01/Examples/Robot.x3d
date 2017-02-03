@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+<X3D version='3.0' profile='Immersive'>
+  <head>
+    <meta name='filename' content='Robot.x3d'/>
+  </head>
+  <Scene>
+    <ExternProtoDeclare name='Shuttle' 
+      url='"ShuttlesAndPendulums.x3d#Shuttle"'>
+      <field name='rate' type='SFTime' accessType='initializeOnly'/>
+      <field name='distance' type='SFFloat' accessType='initializeOnly'/>
+      <field name='children' type='MFNode' accessType='initializeOnly'/>
+      <field name='startTime' type='SFTime' accessType='inputOutput'/>
+      <field name='stopTime' type='SFTime' accessType='inputOutput'/>
+      <field name='loop' type='SFBool' accessType='initializeOnly'/>
+    </ExternProtoDeclare>
+    <ExternProtoDeclare name='Pendulum' 
+      url='ShuttlesAndPendulums.x3d#Pendulum'>
+      <field name='rate' type='SFTime' accessType='initializeOnly'/>
+      <field name='maxAngle' type='SFFloat' accessType='initializeOnly'/>
+      <field name='children' type='MFNode' accessType='initializeOnly'/>
+      <field name='startTime' type='SFTime' accessType='inputOutput'/>
+      <field name='stopTime' type='SFTime' accessType='inputOutput'/>
+      <field name='loop' type='SFBool' accessType='initializeOnly'/>
+    </ExternProtoDeclare>
+    <NavigationInfo speed='20' type='"WALK ANY"'/>
+    <Viewpoint position='0 0 150' description='Watch Robot'/>
+    <ProximitySensor DEF='Near' size='200 200 200'/>
+    <ProtoInstance DEF='WALK' name='Shuttle'>
+      <fieldValue name='stopTime' value='1'/>
+      <fieldValue name='rate' value='10'/>
+      <fieldValue name='distance' value='20'/>
+      <fieldValue name='children'>
+        <Transform rotation='0 1 0 1.57'>
+          <Shape>
+            <Appearance DEF='A'>
+              <Material diffuseColor='0 0.5 0.7'/>
+            </Appearance> <!--head--> 
+            <Box/>
+          </Shape>
+          <Transform scale='1 5 1' translation='0 -5 0'>
+            <Shape>
+              <Appearance USE='A'/> <!-- body -->
+              <Sphere/>
+            </Shape>
+          </Transform>
+          <Transform rotation='0 1 0 1.57' translation='1.5 0 0'>
+            <ProtoInstance DEF='Arm' name='Pendulum'>
+              <fieldValue name='stopTime' value='1'/>
+              <fieldValue name='rate' value='1'/>
+              <fieldValue name='maxAngle' value='0.52'/>
+              <fieldValue name='children'>
+                <Transform translation='0 -3 0'>
+                  <Shape>
+                    <Appearance USE='A'/>
+                    <Cylinder height='4' radius='0.5'/>
+                  </Shape>
+                </Transform>
+              </fieldValue>
+            </ProtoInstance>
+          </Transform>
+          <Transform rotation='0 -1 0 1.57' translation='-1.5 0 0'>
+            <ProtoInstance USE='Arm' name='Pendulum'/>
+          </Transform>
+        </Transform>
+      </fieldValue>
+    </ProtoInstance>
+    <ROUTE fromField='enterTime' fromNode='Near' 
+           toNode='WALK' toField='startTime'/>
+    <ROUTE fromField='enterTime' fromNode='Near' 
+           toNode='Arm' toField='startTime'/>
+    <ROUTE fromField='exitTime' fromNode='Near' 
+           toNode='WALK' toField='stopTime'/>
+    <ROUTE fromField='exitTime' fromNode='Near' 
+           toNode='Arm' toField='stopTime'/>
+  </Scene>
+</X3D>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+<X3D version='3.0' profile='Immersive'>
+  <head>
+    <meta name='filename' content='Rotor.x3d'/>
+  </head>
+  <Scene>
+    <ProtoDeclare name='Rotor'>
+      <ProtoInterface> 
+        <field name='rate' type='SFTime' value='1' accessType='initializeOnly'/>
+        <field name='children' type='MFNode' accessType='initializeOnly'/>
+        <field name='startTime' type='SFTime' value='0' accessType='inputOutput'/>
+        <field name='stopTime' type='SFTime' value='0' accessType='inputOutput'/>
+      </ProtoInterface>
+      <ProtoBody> 
+        <Transform DEF='F'>
+          <IS>
+            <connect nodeField='children' protoField='children'/>
+          </IS>
+        </Transform>
+        <TimeSensor DEF='T' loop='true'>
+          <IS>
+            <connect nodeField='cycleInterval' protoField='rate'/>
+            <connect nodeField='startTime' protoField='startTime'/>
+            <connect nodeField='stopTime' protoField='stopTime'/>
+          </IS>
+        </TimeSensor>
+        <OrientationInterpolator DEF='I' 
+           key='0, 0.25, 0.5, 0.75, 1' 
+           keyValue='0 1 0 0, 0 1 0 1.57, 0 1 0 3.14, 0 1 0 4.71, 0 1 0 0'/>
+        <ROUTE fromNode='T' fromField='fraction_changed' 
+               toNode='I' toField='set_fraction' />
+        <ROUTE fromNode='I' fromField='value_changed' 
+               toNode='F' toField='set_rotation' />
+      </ProtoBody>
+    </ProtoDeclare>
+    <ProtoInstance name='Rotor'>
+      <fieldValue name='children'>
+        <Shape>
+          <Box size='4 0.2 0.1'/>
+          <Appearance>
+            <Material/>
+          </Appearance>
+        </Shape>
+      </fieldValue>
+    </ProtoInstance> 
+  </Scene>
+</X3D>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+<X3D version='3.0' profile='Interactive'>
+  <head>
+    <meta name='filename' content='PointSet.x3d' />
+  </head>
+  <Scene>
+    <Shape>
+      <PointSet>
+        <Color color=' 1.0 0.0 0.0'/>
+        <Coordinate DEF='mypts' 
+          point=' 0.0 0.0 0.0, 2.0 2.0 2.0, 3.0 3.0 3.0'/>
+      </PointSet>
+    </Shape>
+    <Transform translation='2.0 0.0 0.0'>
+      <Shape>
+        <PointSet>
+          <Color color='0.5 0.5 0.0'/>
+          <Coordinate USE='mypts'/>
+        </PointSet>
+      </Shape>
+    </Transform>
+  </Scene>
+</X3D>
