@@ -1,44 +1,44 @@
-[System.Diagnostics.DebuggerStepThroughAttribute()]
+using System.Globalization;
+using System.Linq;
+using System.Xml;
+
+[System.Diagnostics.DebuggerStepThrough()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
 [System.Xml.Serialization.XmlSchemaProviderAttribute("ExportSchema")]
 [System.Xml.Serialization.XmlRootAttribute(IsNullable=false)]
-public partial class Fog : object, System.Xml.Serialization.IXmlSerializable
-{
-    
-    private System.Xml.XmlNode[] nodesField;
-    
+public class Fog : X3DBindableNode, X3DFogObject {
     private static System.Xml.XmlQualifiedName typeName = new System.Xml.XmlQualifiedName("Fog", "");
-    
-    public System.Xml.XmlNode[] Nodes
-    {
-        get
-        {
-            return this.nodesField;
-        }
-        set
-        {
-            this.nodesField = value;
-        }
-    }
-    
-    public void ReadXml(System.Xml.XmlReader reader)
-    {
-        this.nodesField = System.Runtime.Serialization.XmlSerializableServices.ReadNodes(reader);
-    }
-    
-    public void WriteXml(System.Xml.XmlWriter writer)
-    {
-        System.Runtime.Serialization.XmlSerializableServices.WriteNodes(writer, this.Nodes);
-    }
-    
-    public System.Xml.Schema.XmlSchema GetSchema()
-    {
-        return null;
-    }
-    
+    private float[] _color;
+    private string _fogType;
+    private float _visibilityRange;
+
     public static System.Xml.XmlQualifiedName ExportSchema(System.Xml.Schema.XmlSchemaSet schemas)
     {
         System.Runtime.Serialization.XmlSerializableServices.AddDefaultSchema(schemas, typeName);
         return typeName;
     }
+
+    #region Implementation of X3DFogObject
+    public float[] Color { get { return _color; } set { _color = value; } }
+    public string FogType { get { return _fogType; } set { _fogType = value; } }
+    public float VisibilityRange { get { return _visibilityRange; } set { _visibilityRange = value; } }
+    #endregion
+
+    #region Overrides of X3DNode
+
+    protected override void ReadAttributesXml(XmlReader reader) {
+        base.ReadAttributesXml(reader);
+        _color = reader["color"]?.Split(' ').Select(c => float.Parse(c, NumberStyles.Any, CultureInfo.InvariantCulture)).ToArray() ?? new[] {1f, 1f, 1f};
+        _fogType = reader["fogType"] ?? "LINEAR";
+        _visibilityRange = float.Parse(reader["visibilityRange"] ?? "0", NumberStyles.Any, CultureInfo.InvariantCulture);
+    }
+
+    protected override void WriteAttributesXml(XmlWriter writer) {
+        base.WriteAttributesXml(writer);
+        writer.WriteAttributeString("color", string.Join(" ", _color));
+        writer.WriteAttributeString("fogType", _fogType);
+        writer.WriteAttributeString("visibilityRange", _visibilityRange.ToString(CultureInfo.InvariantCulture));
+    }
+
+    #endregion
 }

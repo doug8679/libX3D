@@ -7,8 +7,8 @@
     <ProjectGuid>{17A32D48-BC4C-4FE0-91B0-376B132C2BA2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>X3D</RootNamespace>
-    <AssemblyName>X3D</AssemblyName>
+    <RootNamespace>libX3D</RootNamespace>
+    <AssemblyName>libX3D</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -43,6 +43,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Fields\Field.cs" />
+    <Compile Include="Fields\FieldAccessType.cs" />
+    <Compile Include="Fields\FieldType.cs" />
+    <Compile Include="Fields\IFieldVisitor.cs" />
+    <Compile Include="Fields\MFColor.cs" />
+    <Compile Include="Fields\MFFloat.cs" />
+    <Compile Include="Fields\MField.cs" />
+    <Compile Include="Fields\MFInt32.cs" />
+    <Compile Include="Fields\MFNode.cs" />
+    <Compile Include="Fields\MFRotation.cs" />
+    <Compile Include="Fields\MFString.cs" />
+    <Compile Include="Fields\MFVec2f.cs" />
+    <Compile Include="Fields\MFVec3f.cs" />
+    <Compile Include="Fields\SFBool.cs" />
+    <Compile Include="Fields\SFColor.cs" />
+    <Compile Include="Fields\SFDouble.cs" />
+    <Compile Include="Fields\SFFloat.cs" />
+    <Compile Include="Fields\SFImage.cs" />
+    <Compile Include="Fields\SFInt32.cs" />
+    <Compile Include="Fields\SFNode.cs" />
+    <Compile Include="Fields\SFRotation.cs" />
+    <Compile Include="Fields\SFString.cs" />
+    <Compile Include="Fields\SFTime.cs" />
+    <Compile Include="Fields\SFVec2f.cs" />
+    <Compile Include="Fields\SFVec3f.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Schema\accessTypeNames.cs" />
     <Compile Include="Schema\Anchor.cs" />

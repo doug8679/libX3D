@@ -1,44 +1,37 @@
-[System.Diagnostics.DebuggerStepThroughAttribute()]
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Xml;
+
+[System.Diagnostics.DebuggerStepThrough()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
 [System.Xml.Serialization.XmlSchemaProviderAttribute("ExportSchema")]
 [System.Xml.Serialization.XmlRootAttribute(IsNullable=false)]
-public partial class TextureCoordinate : object, System.Xml.Serialization.IXmlSerializable
-{
-    
-    private System.Xml.XmlNode[] nodesField;
-    
+public class TextureCoordinate :  X3DTextureCoordinateNode {
     private static System.Xml.XmlQualifiedName typeName = new System.Xml.XmlQualifiedName("TextureCoordinate", "");
-    
-    public System.Xml.XmlNode[] Nodes
-    {
-        get
-        {
-            return this.nodesField;
-        }
-        set
-        {
-            this.nodesField = value;
-        }
-    }
-    
-    public void ReadXml(System.Xml.XmlReader reader)
-    {
-        this.nodesField = System.Runtime.Serialization.XmlSerializableServices.ReadNodes(reader);
-    }
-    
-    public void WriteXml(System.Xml.XmlWriter writer)
-    {
-        System.Runtime.Serialization.XmlSerializableServices.WriteNodes(writer, this.Nodes);
-    }
-    
-    public System.Xml.Schema.XmlSchema GetSchema()
-    {
-        return null;
-    }
-    
     public static System.Xml.XmlQualifiedName ExportSchema(System.Xml.Schema.XmlSchemaSet schemas)
     {
         System.Runtime.Serialization.XmlSerializableServices.AddDefaultSchema(schemas, typeName);
         return typeName;
     }
+
+    List<float[]> point = new List<float[]>();
+
+    #region Overrides of X3DNode
+
+    protected override void ReadAttributesXml(XmlReader reader) {
+        base.ReadAttributesXml(reader);
+        var pts = reader["point"]?.Split(' ').Select(p => float.Parse(p, NumberStyles.Any, CultureInfo.InvariantCulture)).ToArray() ?? new float[0];
+        for ( int i = 0; i < pts.Length; i += 2 ) {
+            point.Add(pts.Skip(i).Take(2).ToArray());
+        }
+    }
+
+    protected override void WriteAttributesXml(XmlWriter writer) {
+        base.WriteAttributesXml(writer);
+        writer.WriteAttributeString("point", string.Join(" ", point.Select(p => string.Join(" ", p))));
+    }
+    #endregion
 }
+

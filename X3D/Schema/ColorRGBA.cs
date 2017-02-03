@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Linq;
 using System.Xml;
 
-[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Diagnostics.DebuggerStepThrough()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
 [System.Xml.Serialization.XmlSchemaProviderAttribute("ExportSchema")]
 [System.Xml.Serialization.XmlRootAttribute(IsNullable=false)]
@@ -16,6 +16,17 @@ public class ColorRGBA :  X3DColorNode {
     }
 
     List<float[]> color = new List<float[]>();
+    private int v1;
+    private int v2;
+    private int v3;
+    private int v4;
+
+    public ColorRGBA(float r, float g, float b, float a) {
+        this.v1 = v1;
+        this.v2 = v2;
+        this.v3 = v3;
+        this.v4 = v4;
+    }
 
     #region Overrides of X3DNode
     protected override void ReadAttributesXml(XmlReader reader)
